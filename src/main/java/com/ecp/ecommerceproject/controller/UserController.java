@@ -25,13 +25,13 @@ public class UserController {
     }
     @GetMapping("/users")
     List<User> findAllUsers (){
-        return this.userService.findAll();
+        return userService.findAll();
 
     }
 
     @GetMapping("/users/{id}")
     Optional<User> findByID(@PathVariable Long id){
-        return this.userService.findByID(id);
+        return userService.findByID(id);
 
     }
 
