@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @EnableAutoConfiguration
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,10 +21,10 @@ public class Users {
     @Column
     private String email;
 
-    @OneToMany(mappedBy = "users")
-    private List<Opinion> opinions;
+//    @OneToMany(mappedBy = "user")
+//    private List<Opinion> opinions;
 
-    public Users() {
+    public User() {
     }
 
     public String getFirstName() {
@@ -58,24 +58,24 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public Set<Opinion> getOpinions() {
-        return (Set<Opinion>) opinions;
-    }
-
-    public void setOpinions(Set<Opinion> opinions) {
-        this.opinions = (List<Opinion>) opinions;
-    }
+//
+//    public Set<Opinion> getOpinions() {
+//        return (Set<Opinion>) opinions;
+//    }
+//
+//    public void setOpinions(Set<Opinion> opinions) {
+//        this.opinions = (List<Opinion>) opinions;
+//    }
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", opinions=" + opinions +
+//                ", opinions=" + opinions +
                 '}';
     }
 }

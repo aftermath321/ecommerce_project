@@ -20,10 +20,10 @@ public class Opinion {
 
     @Column
     private LocalDateTime posted;
-
-    @ManyToOne
-    @JoinColumn
-    private Users users;
+//
+//    @ManyToOne
+//    @JoinColumn
+//    private User user;
 
     @ManyToOne
     @JoinColumn
@@ -37,13 +37,13 @@ public class Opinion {
         this.body = body;
     }
 
-    public Users getUsers() {
-        return users;
-    }
+//    public User getUsers() {
+//        return user;
+//    }
 
-    public void setUsers(Users users) {
-        this.users = users;
-    }
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public LocalDateTime getPosted() {
         return posted;

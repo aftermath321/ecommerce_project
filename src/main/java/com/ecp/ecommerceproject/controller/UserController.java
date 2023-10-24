@@ -1,30 +1,37 @@
 package com.ecp.ecommerceproject.controller;
 
-import com.ecp.ecommerceproject.model.Users;
-import com.ecp.ecommerceproject.repositories.UserRepo;
+import com.ecp.ecommerceproject.model.User;
 import com.ecp.ecommerceproject.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
 
-    @Autowired
-    private UserRepo userRepo;
+    final UserService userService;
+
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
 
     @PostMapping("/users")
-    Users saveUser (@RequestBody Users user){
-        return userRepo.save(user);
+    User saveUser (@RequestBody User user){
+        return userService.saveUser(user);
 
     }
     @GetMapping("/users")
-    List<Users> findAllUsers (){
-        return userRepo.findAll();
+    List<User> findAllUsers (){
+        return this.userService.findAll();
+
+    }
+
+    @GetMapping("/users/{id}")
+    Optional<User> findByID(@PathVariable Long id){
+        return this.userService.findByID(id);
 
     }
 
