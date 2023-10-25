@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-
-import "./App.css";
-import { getUsers, postUser } from "./api/users";
+import "./styles/App.css";
+import "./styles/index.css";
+import { getUsers, postUser } from "./api/usersAPI";
 import { User } from "../types/Users";
 
 const user: User = {
