@@ -1,5 +1,8 @@
+import {resolve} from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+
+const root = resolve(__dirname, 'src/main/js')
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,6 +10,12 @@ export default defineConfig({
   base: '',
 
   build: {
-    outDir: 'src/main/js/'
+    outDir: 'src/main/js/',
+    rollupOptions: {
+      input: {
+        main: resolve(root, 'index.html'),
+        users: resolve(root, 'users', 'users.html')
+      }
+    }
   }
 })

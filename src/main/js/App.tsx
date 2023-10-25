@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
+import "./styles/App.css";
+import "./styles/index.css";
+import { getUsers, postUser } from "./api/usersAPI";
+import { User } from "../types/Users";
 
-import "./App.css";
-import { getUsers } from "./api/products";
-
+const user: User = {
+  id: null,
+  firstName: "Ola",
+  lastName: "Jakas",
+  email: "email@email.com",
+  password: "pass",
+};
 function App() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     getUsers().then((data) => {
-      console.log(data)
-      setUsers(data[0]);
-      
+      setUsers(data);
     });
   }, []);
+
 
   return (
     <>
       <ul>
         {users.map((user) => {
-          return <li>{user}</li>;
+          return <li>{user.firstName}</li>;
         })}
       </ul>
     </>
