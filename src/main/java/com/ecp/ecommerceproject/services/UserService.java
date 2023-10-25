@@ -1,10 +1,11 @@
 package com.ecp.ecommerceproject.services;
 
-import com.ecp.ecommerceproject.model.Users;
+import com.ecp.ecommerceproject.model.User;
 import com.ecp.ecommerceproject.repositories.UserRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -16,13 +17,17 @@ public class UserService {
 
     }
 
-    public List<Users> getAllUser(){
-        return userRepo.findAll();
-    }
 
-    public Users saveUser (Users user){
+    public User saveUser (User user){
         return userRepo.save(user);
-
     }
 
+    public Optional<User> findByID (Long id){
+        return this.userRepo.findById(id);
+    }
+
+    public List<User> findAll (){
+        return userRepo.findAll();
+
+    }
 }

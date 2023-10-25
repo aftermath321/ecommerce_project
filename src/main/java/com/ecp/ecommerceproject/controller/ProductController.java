@@ -2,22 +2,19 @@ package com.ecp.ecommerceproject.controller;
 
 import com.ecp.ecommerceproject.model.Product;
 import com.ecp.ecommerceproject.services.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 public class ProductController {
 
-    @Autowired
-    ProductService productService;
+    final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping("/index")
     Optional<Product> getAll(){
@@ -29,12 +26,13 @@ public class ProductController {
     @PostMapping("/product")
     Product saveProduct (@RequestBody Product product){
         return productService.saveProduct(product);
+    }
+
+
+    @GetMapping("/product/{id}")
+    Optional<Product> getByID (@PathVariable Long id){
+        return productService.findById(id);
 
     }
 
-//    @GetMapping("/index")
-//    public String homePage(){
-//        return "index2";
-//
-//    }
 }

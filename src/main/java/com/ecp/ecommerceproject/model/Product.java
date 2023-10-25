@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @EnableAutoConfiguration
 public class Product {
 
-    @jakarta.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
@@ -25,7 +26,16 @@ public class Product {
     @Column
     private String imagePath;
 
+    @OneToMany(mappedBy = "product")
+    private List<Opinion> opinions;
 
+    public List<Opinion> getOpinions() {
+        return opinions;
+    }
+
+    public void setOpinions(List<Opinion> opinions) {
+        this.opinions = opinions;
+    }
 
     public Product() {
     }

@@ -3,9 +3,12 @@ package com.ecp.ecommerceproject.model;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @EnableAutoConfiguration
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,7 +21,10 @@ public class Users {
     @Column
     private String email;
 
-    public Users() {
+//    @OneToMany(mappedBy = "user")
+//    private List<Opinion> opinions;
+
+    public User() {
     }
 
     public String getFirstName() {
@@ -52,15 +58,24 @@ public class Users {
     public void setEmail(String email) {
         this.email = email;
     }
+//
+//    public Set<Opinion> getOpinions() {
+//        return (Set<Opinion>) opinions;
+//    }
+//
+//    public void setOpinions(Set<Opinion> opinions) {
+//        this.opinions = (List<Opinion>) opinions;
+//    }
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+//                ", opinions=" + opinions +
                 '}';
     }
 }
