@@ -3,6 +3,12 @@ import "./styles/App.css";
 import "./styles/index.css";
 import { getUsers, postUser } from "./api/usersAPI";
 import { User } from "../types/Users";
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import UsersPage from "./pages/UsersPage";
+import MainPage from "./pages/MainPage";
 
 const user: User = {
   id: null,
@@ -20,15 +26,13 @@ function App() {
     });
   }, []);
 
-
   return (
-    <>
-      <ul>
-        {users.map((user) => {
-          return <li>{user.firstName}</li>;
-        })}
-      </ul>
-    </>
+    <div>
+      <Routes>
+        <Route path="/" element={<MainPage/>}/>
+        <Route path="/users" element={<UsersPage/>}/>
+      </Routes>
+    </div>
   );
 }
 
