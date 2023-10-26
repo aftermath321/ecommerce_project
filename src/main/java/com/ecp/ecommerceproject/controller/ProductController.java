@@ -4,6 +4,7 @@ import com.ecp.ecommerceproject.model.Product;
 import com.ecp.ecommerceproject.services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -32,6 +33,12 @@ public class ProductController {
     @GetMapping("/product/{id}")
     Optional<Product> getByID (@PathVariable Long id){
         return productService.findById(id);
+
+    }
+
+    @PostMapping("/product/search")
+    List<Product> findByName (@RequestParam String phrase){
+        return productService.findByName(phrase);
 
     }
 

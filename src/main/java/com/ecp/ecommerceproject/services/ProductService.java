@@ -30,4 +30,9 @@ public class ProductService {
 
     }
 
+    public List<Product> findByName (String phrase){
+        return productRepo.findProductByName(phrase);
+
+    }
+
 }

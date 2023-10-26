@@ -13,7 +13,7 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
 
     List<Product> findAll();
     Optional<Product> findProductById(Long id);
-    Optional<Product> findProductByName(String name);
+    List<Product> findProductByName(String name);
     Optional<Product> findProductByProducer(String producer);
     Optional<Product> findProductByPrice(double price);
     Optional<Product> findProductByReleased(Date date);
