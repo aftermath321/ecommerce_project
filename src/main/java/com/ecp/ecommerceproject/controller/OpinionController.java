@@ -20,7 +20,7 @@ public class OpinionController {
         this.opinionService = opinionService;
     }
 
-    @PostMapping("/opinion/save")
+    @PostMapping("/save")
     Opinion saveOpinion (@RequestBody Opinion opinion){
         return opinionService.save(opinion);
     }
