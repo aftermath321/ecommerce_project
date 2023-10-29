@@ -1,7 +1,15 @@
 import { User } from "../../types/Users";
 
 export async function getUsers() {
-  return fetch("http://localhost:8080/users").then((response) => {
+  return fetch("http://localhost:8080/user/all-users").then((response) => {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json();
+  });
+}
+export async function getUser(id: Number) {
+  return fetch(`http://localhost:8080/user/${id}`).then((response) => {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -18,7 +26,7 @@ export async function postUser(user: User) {
     body: JSON.stringify(user),
   };
 
-  fetch("http://localhost:8080/users", requestOptions).then((response) => {
+  fetch("http://localhost:8080/user/save", requestOptions).then((response) => {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
