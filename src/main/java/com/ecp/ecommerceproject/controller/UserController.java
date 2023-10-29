@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/user")
 public class UserController {
 
     final UserService userService;
@@ -19,18 +20,18 @@ public class UserController {
     }
 
 
-    @PostMapping("/users")
+    @PostMapping("/save")
     User saveUser (@RequestBody User user){
         return userService.saveUser(user);
 
     }
-    @GetMapping("/users")
+    @GetMapping("/all-users")
     List<User> findAllUsers (){
         return userService.findAll();
 
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     Optional<User> findByID(@PathVariable Long id){
         return userService.findByID(id);
 
