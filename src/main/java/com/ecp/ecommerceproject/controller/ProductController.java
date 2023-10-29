@@ -4,35 +4,45 @@ import com.ecp.ecommerceproject.model.Product;
 import com.ecp.ecommerceproject.services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/product")
 public class ProductController {
 
     final ProductService productService;
 
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService)
+    {
         this.productService = productService;
     }
 
-    @GetMapping("/index")
-    Optional<Product> getAll(){
+    @GetMapping("/all-products")
+    List<Product> getAll(){
 
-        return productService.findById(1L);
+        return productService.getAllProducts();
 
     }
 
-    @PostMapping("/product")
+    @PostMapping("/save")
     Product saveProduct (@RequestBody Product product){
         return productService.saveProduct(product);
     }
 
 
-    @GetMapping("/product/{id}")
-    Optional<Product> getByID (@PathVariable Long id){
+    @GetMapping("/lookup")
+    List<Product> findByName (@RequestParam String phrase){
+        return productService.findByName(phrase);
+
+    }
+
+    @GetMapping("/")
+    Optional<Product> getByID (@RequestParam Long id){
         return productService.findById(id);
 
     }
+
 
 }

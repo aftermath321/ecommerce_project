@@ -9,27 +9,29 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/opinion")
 public class OpinionController {
 
     final OpinionService opinionService;
 
 
-    public OpinionController(OpinionService opinionService) {
+    public OpinionController(OpinionService opinionService)
+    {
         this.opinionService = opinionService;
     }
 
-    @PostMapping("/opinions")
+    @PostMapping("/save")
     Opinion saveOpinion (@RequestBody Opinion opinion){
         return opinionService.save(opinion);
     }
 
-    @GetMapping("/opnions")
+    @GetMapping("/all-opinions")
     List<Opinion> getAllOpinions(){
         return opinionService.findAll();
 
     }
 
-    @GetMapping("/opinions/{id}")
+    @GetMapping("/{id}")
     Optional<Opinion> findById(@PathVariable Long id){
         return opinionService.findByID(id);
 
