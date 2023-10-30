@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 function MainPage() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Main />
       <Footer />
     </>
