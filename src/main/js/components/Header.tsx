@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="fixed top-0 w-full bg-black/10 h-[100px] flex flex-row justify-between p-4 font-medium border-white/10 border-b-2 border-solid">
+    <div className="absolute z-10 top-0 w-full bg-black/10 h-[100px] flex flex-row justify-between p-4 font-medium border-white/10 border-b-2 border-solid">
       {/* Left */}
       <div className="left-0 flex flex-row">
         <div className="p-4 font-extrabold text-white text-4xl cursor-pointer">
@@ -33,10 +33,10 @@ const Header = () => {
           <li className="text-white self-center">
             <div className="flex gap-2">
               <input
-                placeholder="Search products"
-                className="p-1 rounded-md cursor-pointer"
+                placeholder="Search products..."
+                className="p-1 rounded-md cursor-pointer px-2"
               ></input>
-              <button className="bg-yellow-300 px-3 rounded-md text-black font-bold cursor-pointer">
+              <button className="bg-yellow-300 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow">
                 &gt;
               </button>
             </div>
