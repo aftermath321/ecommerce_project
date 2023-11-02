@@ -46,7 +46,7 @@ const Header = () => {
                 placeholder="Search products..."
                 className="p-1 rounded-md cursor-pointer px-2"
               ></input>
-              <button className="bg-yellow-300 hover:bg-yellow-500 duration-200 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow">
+              <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow">
                 &gt;
               </button>
             </div>

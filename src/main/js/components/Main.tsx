@@ -4,7 +4,7 @@ import Header from "./Header";
 const Main = () => {
   return (
     <div className="relative w-full h-screen p-0 m-0 font-">
-      <Header />
+      {/* <Header /> */}
       <div
         className="w-[100%] h-[100%] flex flex-col justify-center
         items-center relative overflow-hidden"
@@ -18,7 +18,7 @@ const Main = () => {
           <p className="text-white font-bold text-6xl text-shadow-lg">
             Improve workplace, improve results - <br /> all on a budget!
           </p>
-          <button className="bg-yellow-300 p-2 px-10 w-[250px] hover:bg-yellow-500 duration-200 rounded-md text-black font-bold cursor-pointer border border-black shadow">
+          <button className="bg-yellow-400 p-2 px-10 w-[250px] hover:bg-yellow-600 duration-200 rounded-md text-black font-bold cursor-pointer border border-black shadow">
             Visit Store
           </button>
         </div>
