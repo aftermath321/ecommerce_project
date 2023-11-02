@@ -1,10 +1,8 @@
 import React from "react";
-import Header from "./Header";
 
 const Main = () => {
   return (
     <div className="relative w-full h-screen p-0 m-0 font-">
-      {/* <Header /> */}
       <div
         className="w-[100%] h-[100%] flex flex-col justify-center
         items-center relative overflow-hidden"
@@ -14,16 +12,15 @@ const Main = () => {
           src="./src/main/static/public/homeOF.jpg"
         />
         <div className=" w-[70%] h-[70vh] flex flex-col justify-center gap-10 relative text-shadow-sm">
-          <p className="text-white text-2xl font-semibold ">Office & Home Office furniture</p>
-          <p className="text-white font-bold text-6xl text-shadow-lg">
+          <p className="text-white text-lg md:text-2xl font-semibold ">Office & Home Office furniture</p>
+          <p className="text-white font-bold text-2xl md:text-6xl text-shadow-lg">
             Improve workplace, improve results - <br /> all on a budget!
           </p>
-          <button className="bg-yellow-400 p-2 px-10 w-[250px] hover:bg-yellow-600 duration-200 rounded-md text-black font-bold cursor-pointer border border-black shadow">
+          <button className="bg-yellow-400 md:px-10  p-1 md:p-2 w-[150px] md:w-[250px] hover:bg-yellow-600 duration-200 rounded-md text-black font-bold cursor-pointer border border-black shadow">
             Visit Store
           </button>
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 };
