@@ -16,7 +16,7 @@ const Main = () => {
           <p className="text-white font-bold text-2xl md:text-6xl text-shadow-lg">
             Improve workplace, improve results - <br /> all on a budget!
           </p>
-          <button className="bg-yellow-400 md:px-10  p-1 md:p-2 w-[150px] md:w-[250px] hover:bg-yellow-600 duration-200 rounded-md text-black font-bold cursor-pointer border border-black shadow">
+          <button className="bg-yellow-400 md:px-10  p-1 md:p-2 w-[150px] md:w-[250px] hover:bg-yellow-600 duration-200 rounded-md text-black font-bold cursor-pointer shadow">
             Visit Store
           </button>
         </div>

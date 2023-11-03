@@ -99,7 +99,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="relative flex bottom-0 text-gray-500 justify-center align-middle w-[100%] px-[10%] h-[5vh] p-4">
+      <div className="relative flex bottom-0 text-gray-500 justify-center align-middle w-[100%] px-[10%] h-[5vh] p-4 py-8">
         <p>Copyright © 2023 All rights reserved</p>
       </div>
     </>
