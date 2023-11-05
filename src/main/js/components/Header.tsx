@@ -43,16 +43,16 @@ const Header = () => {
           </div>
           <div className="p-4 flex">
             <ul className="flex flex-row gap-4">
-              <li className="text-white self-center cursor-pointer  hover:text-yellow-500 duration-200">
+              <li className="text-white self-center cursor-pointer  hover:text-yellow-500  hover:underline duration-200">
                 Our locations
               </li>
-              <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
+              <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
                 Store
               </li>
-              <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
+              <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
                 Office
               </li>
-              <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
+              <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
                 Home Office
               </li>
             </ul>
@@ -62,10 +62,10 @@ const Header = () => {
         {/* Right */}
         <div className="right-0 flex flex-row">
           <ul className="flex flex-row gap-4">
-            <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
+            <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
               About
             </li>
-            <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
+            <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
               Contact Us
             </li>
             <li className="text-white self-center hover:text-yellow-500 duration-200">
