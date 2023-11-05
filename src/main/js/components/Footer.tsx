@@ -9,7 +9,7 @@ import {
 const Footer = () => {
   return (
     <>
-      <div className="relative bottom-0 bg-white md:h-[20vh] w-[100%] px-[10%] grid sm:grid-cols1 md:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
+      <div className="relative bottom-0 bg-white md:h-[20vh] w-[100%] px-[10%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
         <div className="flex flex-col  items-center justify-evenly gap-4">
           <div className="group flex flex-row flex-start ">
             <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
