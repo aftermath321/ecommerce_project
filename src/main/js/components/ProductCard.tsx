@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import {AiFillStar, AiOutlineStar} from 'react-icons/ai'
 
 const ProductCard = () => {
+
+
+
   return (
     <div className="bg-white  w-[300px] h-[400px]  xl:w-[400px] xl:h-[450px] place-self-center">
       <div

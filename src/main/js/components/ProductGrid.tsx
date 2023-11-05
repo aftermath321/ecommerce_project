@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductCard from "./ProductCard";
+import { Product } from "../../types/Product";
+import { useState } from "react";
+import { getProducts } from "../api/productsAPI";
+
 
 const ProductGrid = () => {
+
+    const [productList, setProductList] = useState<Product | []>([]);
+
+    useEffect(() => {
+        getProducts().then((data) =>{
+            setProductList(data)
+        })
+    }, [])
+
   return (
     <div className="w-full ">
       {/* Wrapper */}
