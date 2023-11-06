@@ -1,4 +1,3 @@
-import React from "react";
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import { BsFillPersonFill } from "react-icons/bs";

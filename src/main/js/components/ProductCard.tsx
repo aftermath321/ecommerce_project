@@ -1,5 +1,3 @@
-import React from "react";
-import {AiFillStar, AiOutlineStar} from 'react-icons/ai'
 import { Product } from "../../types/Product";
 import RatingSystem from "./RatingSystem";
 

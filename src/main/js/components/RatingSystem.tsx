@@ -1,4 +1,3 @@
-import React from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 const RatingSystem = (props: { rating: number }): JSX.Element => {
   switch (props.rating) {
