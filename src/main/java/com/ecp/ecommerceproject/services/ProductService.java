@@ -35,4 +35,7 @@ public class ProductService {
 
     }
 
+    public List<Product> getProductsForGrid() {
+        return productRepo.findProductsTop6();
+    }
 }

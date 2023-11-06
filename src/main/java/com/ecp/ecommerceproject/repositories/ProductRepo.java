@@ -2,6 +2,7 @@ package com.ecp.ecommerceproject.repositories;
 
 import com.ecp.ecommerceproject.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Long> {
+
 
     List<Product> findAll();
     Optional<Product> findProductById(Long id);
@@ -20,4 +22,6 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
     Optional<Product> findProductByRating(double rating);
 
 
+    @Query(value = "SELECT 6 FROM Product ORDER BY price DESC", nativeQuery = true)
+    List<Product> findProductsTop6();
 }
