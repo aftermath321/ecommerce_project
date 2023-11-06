@@ -31,7 +31,7 @@ const Header = () => {
       </div>
 
       {/* Normal Display */}
-      <div className="hidden absolute z-10 top-0 w-full bg-black/10 h-[100px] md:flex flex-row justify-between p-4 border-white/10 border-b-2 border-solid font-semibold font-light">
+      <div className="hidden absolute z-10 top-0 w-full bg-black/10 h-[100px] md:flex flex-row justify-between p-4 border-white/10 border-b-2 border-solid  font-light">
         {/* Left */}
         <div className="left-0 flex flex-row">
           <div className="group flex flex-row">
