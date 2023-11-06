@@ -1,9 +1,9 @@
 export type Product = {
-    id: Number;
-    name: String;
-    producer: String;
+    id: number;
+    name: string;
+    producer: string;
     released: Date;
-    price: Number;
-    rating: Number;
-    imagePath: String;
+    price: number;
+    rating: number;
+    imagePath: string;
 }

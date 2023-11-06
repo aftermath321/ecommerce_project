@@ -4,16 +4,31 @@ import { Product } from "../../types/Product";
 import { useState } from "react";
 import { getProducts } from "../api/productsAPI";
 
-
 const ProductGrid = () => {
+  const [productList, setProductList] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    const [productList, setProductList] = useState<Product | []>([]);
+  useEffect(() => {
+    setIsLoading(true);
+    getProducts().then((data) => {
+      setProductList(data);
+      setIsLoading(false);
+    });
+  }, []);
 
-    useEffect(() => {
-        getProducts().then((data) =>{
-            setProductList(data)
-        })
-    }, [])
+  const renderGrid = (): JSX.Element => {
+    if (isLoading) {
+      return (<>Loading</>)
+    } else {
+      return(
+        <div className="w-[100%] h-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-4 gap-y-8 items-center bg-white">
+          {productList.map((item) => {
+            return <ProductCard product={item}/>
+          })}
+        </div>
+        )
+    }
+  };
 
   return (
     <div className="w-full ">
@@ -29,14 +44,7 @@ const ProductGrid = () => {
           </h1>
         </div>
         {/* Content */}
-        <div className="w-[100%] h-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-4 gap-y-8 items-center bg-white">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </div>
+        {renderGrid()}
         {/* Bottom */}
         <div className="w-full h-[5%] flex justify-center p-4">
           <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 p-5 rounded-md">
