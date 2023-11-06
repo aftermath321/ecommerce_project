@@ -1,6 +1,7 @@
 import React from "react";
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+import { BsFillPersonFill } from "react-icons/bs";
 
 
 const Header = () => {
@@ -19,7 +20,7 @@ const Header = () => {
         <div className="p-4 py-6 font-extrabold text-white text-xl cursor-pointer group-hover:text-yellow-500 duration-200">
           HomeOFFFICE
         </div>
-        <div className="flex flex-row p-4 absolute right-0">
+        <div className="flex flex-row p-4 absolute right-0 ">
           <span className="text-white p-2">
             <AiOutlineShoppingCart size={30} />
           </span>
@@ -30,7 +31,7 @@ const Header = () => {
       </div>
 
       {/* Normal Display */}
-      <div className="hidden absolute z-10 top-0 w-full bg-black/10 h-[100px] md:flex flex-row justify-between p-4 border-white/10 border-b-2 border-solid font-semibold">
+      <div className="hidden absolute z-10 top-0 w-full bg-black/10 h-[100px] md:flex flex-row justify-between p-4 border-white/10 border-b-2 border-solid font-semibold font-light">
         {/* Left */}
         <div className="left-0 flex flex-row">
           <div className="group flex flex-row">
@@ -60,7 +61,7 @@ const Header = () => {
         </div>
 
         {/* Right */}
-        <div className="right-0 flex flex-row">
+        <div className="right-0 flex flex-row font-light">
           <ul className="flex flex-row gap-4">
             <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
               About
@@ -72,7 +73,7 @@ const Header = () => {
               <div className="flex gap-2">
                 <input
                   placeholder="Search products..."
-                  className="p-1 rounded-md cursor-pointer px-2"
+                  className="p-1 rounded-md cursor-pointer font-light px-2"
                 ></input>
                 <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow">
                   &gt;
@@ -80,10 +81,10 @@ const Header = () => {
               </div>
             </li>
             <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
-              Cart
+              <AiOutlineShoppingCart size={30} />
             </li>
             <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
-              Profile
+              <BsFillPersonFill size={30} />
             </li>
           </ul>
         </div>
