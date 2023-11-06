@@ -22,7 +22,7 @@ public class ProductController {
     @GetMapping("/all-products")
     List<Product> getAll(){
 
-        return productService.getAllProducts();
+        return productService.getProductsForGrid();
 
     }
 
