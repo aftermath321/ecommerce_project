@@ -1,16 +1,40 @@
-import {GiHamburgerMenu} from 'react-icons/gi'
-import {AiOutlineShoppingCart} from 'react-icons/ai'
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
+import { RxCross1 } from "react-icons/rx";
 
+const Header = (props: { mobileMenu: boolean; mobileMenuSetter: Function }) => {
+  const mobileMenu = (): JSX.Element => {
+    if (props.mobileMenu) {
+      return (
+        <div className="w-full h-full absolute top-0 left-0 bg-black/75 z-50">
+          <span
+            className="absolute text-white z-60 top-[5%] right-[10%]"
+            onClick={() => props.mobileMenuSetter(false)}
+          >
+            <RxCross1 size={40} />
+          </span>
+          <h1 className="text-white text-5xl absolute left-[10%] top-[5%]">H</h1>
+          <ul className="w-[90%] h-[80%] font-bold gap-4 text-white text-3xl justify-center flex flex-col items-center">
+            <li className="active:text-yellow-400">Locations</li>
+            <li className="active:text-yellow-400">Shop</li>
+            <li className="active:text-yellow-400">Office</li>
+            <li className="active:text-yellow-400">Home Office</li>
+            <li className="active:text-yellow-400">About us</li>
+            <li className="active:text-yellow-400">Contact</li>
+          </ul>
+        </div>
+      );
+    } else {
+      return <></>;
+    }
 
-const Header = () => {
-
-  const mobileMenu = ():JSX.Element => {
-    return <></>
-  }
+    return <></>;
+  };
 
   return (
     <>
+      {mobileMenu()}
       {/* Mobile Display */}
       <div className="flex flex-row md:hidden border-white/10 border-b-2 border-solid absolute z-10 top-0 w-full h-[100px]">
         <div className="p-4 font-extrabold text-white text-3xl cursor-pointer group-hover:scale-110 duration-200">
@@ -23,7 +47,10 @@ const Header = () => {
           <span className="text-white p-2">
             <AiOutlineShoppingCart size={30} />
           </span>
-          <span className="text-white p-2">
+          <span
+            className="text-white p-2"
+            onClick={() => props.mobileMenuSetter(true)}
+          >
             <GiHamburgerMenu size={30} />
           </span>
         </div>
