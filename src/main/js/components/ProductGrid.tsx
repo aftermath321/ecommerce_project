@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Product } from "../../types/Product";
 import { useState } from "react";
+import  {Link, Route} from "react-router-dom"
 import { getProducts } from "../api/productsAPI";
 
 const ProductGrid = () => {
@@ -23,7 +24,13 @@ const ProductGrid = () => {
       return(
         <div className="w-[100%] h-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-4 gap-y-8 items-center bg-white">
           {productList.map((item) => {
-            return <ProductCard product={item}/>
+            return (
+              <>
+                <Link to='/product/'>
+                  <ProductCard product={item} />
+                </Link>
+              </>
+            );
           })}
         </div>
         )
