@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import UsersPage from "./pages/UsersPage";
 import MainPage from "./pages/MainPage";
 import ProductPage from "./pages/ProductPage";
-import ProductView from "./components/ProductView"
+import ProductView from "./components/ProductView";
 import AddProduct from "./components/AddProduct";
 
 const user: User = {
@@ -30,9 +30,8 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        {/* <Route path="product" element={<ProductPage />} /> */}
+        <Route path="/product/" element={<ProductPage />}/>
         <Route path="/product/:id" element={<ProductView />}/>
-    
         <Route path="/users" element={<UsersPage />} />
       </Routes>
     </div>

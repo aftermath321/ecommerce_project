@@ -14,10 +14,9 @@ const ProductView = () => {
   const idNumber: number = +id;
 
   useEffect(() => {
-    getProduct(idNumber).then((data) => {
+    getProduct(3).then((data) => {
       setProduct(data);
     });
-    console.log(product);
   }, []);
 
   return (
@@ -27,13 +26,11 @@ const ProductView = () => {
         items-center relative overflow-hidden"
       >
         <img
-          className="inset-0 absolute w-full h-full brightness-75 object-cover"
+          className="inset-0 z-[-10] absolute w-full h-full brightness-75 object-cover"
           src=".././src/main/static/public/homeOF.jpg"
         />
-        <div className=" w-[70%] h-[70vh] flex flex-col justify-center gap-10 relative text-shadow-sm">
-          <p className="text-white font-bold text-2xl md:text-6xl text-shadow-lg">
-            {product?.name}
-          </p>
+        <div className="bg-black/80 w-[90%] h-[100%] text-white  text-5xl">
+          ASDASDASDASD
         </div>
       </div>
     </div>
