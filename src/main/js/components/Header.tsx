@@ -138,10 +138,10 @@ const Header = (props: {
             >
               <RxCross1 size={40} />
             </span>
-            <h1 className="text-black text-5xl absolute left-[10%] top-[5%]">
+            <h1 className="text-white text-5xl absolute left-[10%] top-[5%]">
               H
             </h1>
-            <ul className="w-[90%] h-[80%] font-bold gap-4 text-black text-3xl justify-center flex flex-col items-center">
+            <ul className="w-[90%] h-[80%] font-bold gap-4 text-white text-3xl justify-center flex flex-col items-center">
               <li className="active:text-yellow-400">Locations</li>
               <li className="active:text-yellow-400">Shop</li>
               <li className="active:text-yellow-400">Office</li>
@@ -155,7 +155,6 @@ const Header = (props: {
         return <></>;
       }
 
-      return <></>;
     };
 
     return (
@@ -183,7 +182,7 @@ const Header = (props: {
         </div>
 
         {/* Normal Display */}
-        <div className="hidden absolute z-10 top-0 w-full bg-white/10 h-[100px] md:flex flex-row justify-between p-4 border-black/10 border-b-2 border-solid  font-light">
+        <div className="hidden  z-10 top-0 w-full bg-white/10 h-[100px] md:flex flex-row justify-between p-4 border-black/10 border-b-2 border-solid  font-light">
           {/* Left */}
           <div className="left-0 flex flex-row">
             <div className="group flex flex-row">
@@ -227,7 +226,7 @@ const Header = (props: {
                     placeholder="Search products..."
                     className="p-1 rounded-md cursor-pointer font-light px-2 border-[1px] border-solid border-black"
                   ></input>
-                  <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 px-3 rounded-md text-black font-bold cursor-pointer  shadow">
+                  <button className="bg-yellow-300 hover:bg-yellow-500 duration-200 px-3 rounded-md text-black font-bold cursor-pointer  shadow">
                     &gt;
                   </button>
                 </div>
