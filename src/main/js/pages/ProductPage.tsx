@@ -11,7 +11,7 @@ export type Params = {
 };
 
 const ProductPage = () => {
-  const [product, setProduct] = useState<Product>();
+  const [product, setProduct] = useState<Product | undefined>();
   const { id } = useParams<Params>() as Params;
   const [mobile, setMobile] = useState<boolean>(false);
 
@@ -24,14 +24,25 @@ const ProductPage = () => {
     });
   }, []);
 
-  return (
-    <>
+  if(product == undefined){
+    return (
+      <>
+        <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
+        <div className="w-screen h-[50vh] text-5xl justify-center flex items-center">No such product!</div>
+
+        <Footer />
+      </>
+    );
+  } else { return (
+<>
       <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
       <ProductView product={product} />
       
       <Footer />
     </>
-  );
+  )}
+
+  
 };
 
 

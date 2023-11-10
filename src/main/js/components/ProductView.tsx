@@ -1,6 +1,7 @@
 import { Product } from "../../types/Product";
 import { useState } from "react";
-import {BsCashCoin} from 'react-icons/bs'
+import { BsCashCoin } from "react-icons/bs";
+import RatingSystem from "./RatingSystem";
 
 const ProductView = (props: { product: Product | undefined }) => {
   const [count, setCount] = useState<number>(0);
@@ -12,6 +13,13 @@ const ProductView = (props: { product: Product | undefined }) => {
       setCount(count - 1);
     }
   };
+  const isNanCount = () => {
+    if (isNaN(count)) {
+      setCount(0);
+    } else {
+      return count;
+    }
+  };
 
   return (
     <div className=" w-[90vw] h-screen relative mx-auto left-0 right-0 my-10">
@@ -20,9 +28,10 @@ const ProductView = (props: { product: Product | undefined }) => {
           src={props.product?.imagePath}
           className="w-[300px] h-[300px] lg:w-[550px] lg:h-[550px] inset-0 object-contain"
         />
-        <div className="w-[90vw] lg:w-[550px] lg:h-[550px] flex flex-col gap-5 ">
+        <div className="w-[90vw] lg:w-[550px] lg:h-[550px] flex flex-col gap-3 ">
           <h3 className="text-gray-500">Category</h3>
           <h1 className="text-4xl font-bold">{props.product?.name}</h1>
+          <RatingSystem rating={props.product?.rating} />
           <h2 className="text-xl text-gray-700">${props.product?.price}</h2>
           <p className=" text-gray-600 text-center md:text-start">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -32,22 +41,26 @@ const ProductView = (props: { product: Product | undefined }) => {
           <div className="flex flex-row gap-4">
             <div className="flex flex-row">
               <button
-                className="p-1 px-4 bg-white border-[1px] border-black/25 border-solid"
+                className="p-1 px-4 bg-white border-[1px] border-black/25 border-solid cursor-pointer"
                 onClick={() => handleCount()}
               >
                 -
               </button>
-              <div className="p-1 px-4 bg-white border-[1px] border-black/25 border-solid">
-                {count}
-              </div>
+              <input
+                className="p-1 px-2 w-[45px] bg-white border-[1px] border-black/25 border-solid cursor-pointer text-center "
+                onChange={(e) => setCount(e.target.valueAsNumber)}
+                value={isNanCount()}
+                type="number"
+              />
+
               <button
-                className="p-1 px-4 bg-white border-[1px] border-black/25 border-solid"
+                className="p-1 px-4 bg-white border-[1px] border-black/25 border-solid cursor-pointer"
                 onClick={() => setCount(count + 1)}
               >
                 +
               </button>
             </div>
-            <button className="bg-yellow-300 hover:bg-yellow-500 duration-200 px-6 rounded-md text-black cursor-pointer shadow">
+            <button className="bg-yellow-300 hover:bg-yellow-500 duration-200 px-6 rounded-md text-black shadow cursor-pointer">
               Add to cart
             </button>
           </div>
@@ -57,11 +70,23 @@ const ProductView = (props: { product: Product | undefined }) => {
               Accepted payments
             </div>
             <div className="w-[100%] h-[75px] border-[1px] border-solid border-black/20 flex flex-row justify-center items-center gap-4">
-              <BsCashCoin size={35}/>
-              <img src="./src/main/static/public/Visa.png"  className="w-[50px] h-[50px] object-contain"/>
-              <img src="./src/main/static/public/MC.png"  className="w-[50px] h-[50px] object-contain"/>
-              <img src="./src/main/static/public/AE.png"  className="w-[50px] h-[50px] object-contain"/>
-              <img src="./src/main/static/public/Disc.png"  className="w-[50px] h-[50px] object-contain"/>
+              <BsCashCoin size={35} />
+              <img
+                src="./src/main/static/public/Visa.png"
+                className="w-[50px] h-[50px] object-contain cursor-pointer"
+              />
+              <img
+                src="./src/main/static/public/MC.png"
+                className="w-[50px] h-[50px] object-contain cursor-pointer"
+              />
+              <img
+                src="./src/main/static/public/AE.png"
+                className="w-[50px] h-[50px] object-contain cursor-pointer"
+              />
+              <img
+                src="./src/main/static/public/Disc.png"
+                className="w-[50px] h-[50px] object-contain cursor-pointer"
+              />
             </div>
           </div>
         </div>
