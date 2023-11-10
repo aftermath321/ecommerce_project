@@ -9,6 +9,7 @@ import MainPage from "./pages/MainPage";
 import ProductPage from "./pages/ProductPage";
 import ProductView from "./components/ProductView";
 import AddProduct from "./components/AddProduct";
+import Header from "./components/Header";
 
 const user: User = {
   id: null,
@@ -19,6 +20,7 @@ const user: User = {
 };
 function App() {
   const [users, setUsers] = useState<User[]>([]);
+  const [mobile, setMobile] = useState<boolean>(false);
 
   useEffect(() => {
     getUsers().then((data) => {
@@ -28,10 +30,10 @@ function App() {
 
   return (
     <div>
+      
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/product/" element={<ProductPage />}/>
-        <Route path="/product/:id" element={<ProductView />}/>
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/users" element={<UsersPage />} />
       </Routes>
     </div>
