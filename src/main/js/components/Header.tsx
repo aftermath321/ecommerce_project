@@ -161,7 +161,7 @@ const Header = (props: {
       <>
         {mobileMenuLight()}
         {/* Mobile Display */}
-        <div className="flex flex-row md:hidden border-black/10 border-b-2 border-solid absolute z-10 top-0 w-full h-[100px]">
+        <div className="flex flex-row md:hidden border-black/10 border-b-2 border-solid relative z-10 top-0 w-full h-[100px]">
           <div className="p-4 font-extrabold text-black text-3xl cursor-pointer group-hover:scale-110 duration-200">
             H
           </div>

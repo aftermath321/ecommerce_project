@@ -15,7 +15,6 @@ const ProductPage = () => {
   const { id } = useParams<Params>() as Params;
   const [mobile, setMobile] = useState<boolean>(false);
 
-
   const idNumber: number = +id;
 
   useEffect(() => {
@@ -24,26 +23,27 @@ const ProductPage = () => {
     });
   }, []);
 
-  if(product == undefined){
+  if (product == undefined) {
     return (
       <>
         <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
-        <div className="w-screen h-[50vh] text-5xl justify-center flex items-center">No such product!</div>
+        <div className="w-screen h-[50vh] text-5xl justify-center flex items-center">
+          No such product!
+        </div>
 
         <Footer />
       </>
     );
-  } else { return (
-<>
-      <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
-      <ProductView product={product} />
-      
-      <Footer />
-    </>
-  )}
+  } else {
+    return (
+      <>
+        <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
+        <ProductView product={product} />
 
-  
+        <Footer />
+      </>
+    );
+  }
 };
-
 
 export default ProductPage;
