@@ -1,3 +1,4 @@
+import { UserForm } from "../../types/UserForm";
 import { User } from "../../types/Users";
 
 export async function getUsers() {
@@ -17,7 +18,7 @@ export async function getUser(id: Number) {
   });
 }
 
-export async function postUser(user: User) {
+export async function postUser(user: UserForm) {
   const requestOptions = {
     method: "POST",
     headers: {
