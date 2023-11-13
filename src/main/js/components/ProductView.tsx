@@ -96,15 +96,15 @@ const ProductView = (props: { product: Product | undefined }) => {
   const zoomImage = () => {
     if (zoomed) {
       return (
-        <>
-            <img
-              src={props.product?.imagePath}
-              className="sticky top-[10vh] z-50 mx-auto left-0 right-0 md:h-[80vh] md:w-auto w-[90vw] h-auto my-5"
-              onClick={() => setZoomed(false)}
-            ></img>
+        <div className="absolute top-0 left-0 w-full h-screen z-50">
+          <img
+            src={props.product?.imagePath}
+            className="fixed top-[10vh] z-50 mx-auto left-0 right-0 md:h-[80vh] md:w-auto w-[90vw] h-auto my-5"
+            onClick={() => setZoomed(false)}
+          ></img>
 
-            <div className="top-0 sticky bg-black/50 z-40 w-full h-[125vh]"></div>
-        </>
+          <div className="top-0 fixed bg-black/50 z-40 w-[100vw] h-full"></div>
+        </div>
       );
     } else {
       return <></>;
@@ -118,7 +118,7 @@ const ProductView = (props: { product: Product | undefined }) => {
         <div className="flex flex-col md:flex-row w-full justify-center gap-x-3 gap-y-10">
           <img
             src={props.product?.imagePath}
-            className="w-[300px] h-[300px] lg:w-[550px] lg:h-[550px] inset-0 object-contain hover:scale-125 duration-300 hover:"
+            className="w-[300px] h-[300px] lg:w-[550px] lg:h-[550px] inset-0 object-contain hover:scale-125 duration-300 my-4"
             onClick={() => setZoomed(true)}
           />
           <div className="w-[90vw] lg:w-[550px] lg:h-[550px] flex flex-col gap-3 ">
