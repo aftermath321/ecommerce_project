@@ -25,6 +25,10 @@ const Header = (props: {
               H
             </h1>
             <ul className="w-[90%] h-[80%] font-bold gap-4 text-white text-3xl justify-center flex flex-col items-center">
+              <li className="active:text-yellow-400">
+                <Link to="/sign-up">Sign up</Link>
+              </li>
+              <li className="active:text-yellow-400">Login</li>
               <li className="active:text-yellow-400">Locations</li>
               <li className="active:text-yellow-400">Shop</li>
               <li className="active:text-yellow-400">Office</li>
@@ -119,7 +123,9 @@ const Header = (props: {
                 <AiOutlineShoppingCart size={30} />
               </li>
               <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
-                <BsFillPersonFill size={30} />
+                <Link to="/sign-up">
+                  <BsFillPersonFill size={30} />
+                </Link>
               </li>
             </ul>
           </div>
@@ -143,6 +149,10 @@ const Header = (props: {
               H
             </h1>
             <ul className="w-[90%] h-[80%] font-bold gap-4 text-white text-3xl justify-center flex flex-col items-center">
+              <li className="active:text-yellow-400">
+                <Link to="/sign-up">Sign up</Link>
+              </li>
+              <li className="active:text-yellow-400">Login</li>
               <li className="active:text-yellow-400">Locations</li>
               <li className="active:text-yellow-400">Shop</li>
               <li className="active:text-yellow-400">Office</li>
@@ -184,7 +194,7 @@ const Header = (props: {
         </div>
 
         {/* Normal Display */}
-        <div className="hidden  z-10 top-0 w-full bg-white/10 h-[100px] md:flex flex-row justify-between p-4 border-black/10 border-b-2 border-solid  font-light">
+        <div className="hidden z-10 top-0 w-full bg-white/10 h-[100px] md:flex flex-row justify-between p-4 border-black/10 border-b-2 border-solid  font-light">
           {/* Left */}
           <div className="left-0 flex flex-row">
             <Link to="/">
@@ -239,7 +249,9 @@ const Header = (props: {
                 <AiOutlineShoppingCart size={30} />
               </li>
               <li className="text-black self-center cursor-pointer hover:text-yellow-500 duration-200">
-                <BsFillPersonFill size={30} />
+                <Link to="/sign-up">
+                  <BsFillPersonFill size={30} />
+                </Link>
               </li>
             </ul>
           </div>

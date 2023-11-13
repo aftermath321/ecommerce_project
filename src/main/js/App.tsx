@@ -10,6 +10,7 @@ import ProductPage from "./pages/ProductPage";
 import ProductView from "./components/ProductView";
 import AddProduct from "./components/AddProduct";
 import Header from "./components/Header";
+import SignUpPage from "./pages/SignUpPage";
 
 const user: User = {
   id: null,
@@ -30,11 +31,11 @@ function App() {
 
   return (
     <div>
-      
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/users" element={<UsersPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
       </Routes>
     </div>
   );
