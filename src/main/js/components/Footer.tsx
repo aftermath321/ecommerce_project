@@ -5,20 +5,23 @@ import {
   AiFillYoutube,
   AiFillTwitterCircle,
 } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <>
       <div className="relative bottom-0 bg-white md:h-[20vh] w-[100%] px-[10%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4 gap-4 border-t-[1px] border-black/25 border-solid">
         <div className="flex flex-col  items-center justify-evenly gap-4">
-          <div className="group flex flex-row flex-start ">
-            <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
-              H
+          <Link to="/">
+            <div className="group flex flex-row flex-start ">
+              <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
+                H
+              </div>
+              <div className="p-4 font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
+                HomeOFFFICE
+              </div>
             </div>
-            <div className="p-4 font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
-              HomeOFFFICE
-            </div>
-          </div>
+          </Link>
           <ul className="flex flex-row gap-4">
             <li>
               <AiFillFacebook
