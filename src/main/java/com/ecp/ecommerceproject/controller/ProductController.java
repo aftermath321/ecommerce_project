@@ -38,8 +38,8 @@ public class ProductController {
 
     }
 
-    @GetMapping("/")
-    Optional<Product> getByID (@RequestParam Long id){
+    @GetMapping("/{id}")
+    Optional<Product> getByID (@PathVariable Long id){
         return productService.findById(id);
 
     }

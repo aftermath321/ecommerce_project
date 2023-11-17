@@ -29,6 +29,7 @@ export async function postUser(user: UserForm) {
 
   fetch("http://localhost:8080/user/save", requestOptions).then((response) => {
     if (!response.ok) {
+      console.log(response.statusText)
       throw new Error(response.statusText);
     }
     return response.json();
