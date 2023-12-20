@@ -90,10 +90,10 @@ const SignUpForm = () => {
   return (
     <div className="w-[90vw] md:w-[80vw] h-[80vh] mx-auto left-0 right-0 my-4">
       <h1 className="text-5xl font-bold flex justify-center py-4">Sign up</h1>
-      <div className="w-[600px] h-[600px] mx-auto left-0 right-0  border-[1px] border-solid border-black/50">
+      <div className="max-w-[600px] max-h-[600px] mx-auto left-0 right-0  border-[1px] border-solid border-black/50">
         {showErrors()}
         <form
-          className="flex flex-col w-[400px] gap-3 justify-center items-center mx-auto left-0 right-0 p-4"
+          className="flex flex-col w-[400px] gap-3 justify-center items-center mx-auto left-0 right-0 p-4 "
           onSubmit={(e) => handleSubmit(e)}
           method="POST"
         >

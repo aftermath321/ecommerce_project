@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SignUpForm from "../components/SignUpForm";
-import Header from "../components/Header";
+import Header from "../components/HeaderLight";
 import Footer from "../components/Footer";
 
 const SignUpPage = () => {

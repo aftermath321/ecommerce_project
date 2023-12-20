@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import HeaderDark from "../components/HeaderDark";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 import Features from "../components/Features";
@@ -10,7 +10,7 @@ function MainPage() {
 
   return (
     <>
-      <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={true} />
+      <HeaderDark mobileMenu={mobile} mobileMenuSetter={setMobile} dark={true} />
       <Main />
       <ProductGrid />
       <Features />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Product } from "../../types/Product";
 import { getProduct } from "../api/productsAPI";
 import { useParams } from "react-router-dom";
-import Header from "../components/Header";
+import HeaderLight from "../components/HeaderLight";
 import ProductView from "../components/ProductView";
 import Footer from "../components/Footer";
 
@@ -26,7 +26,7 @@ const ProductPage = () => {
   if (product == undefined) {
     return (
       <>
-        <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
+        <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
         <div className="w-screen h-[50vh] text-5xl justify-center flex items-center">
           No such product!
         </div>
@@ -37,7 +37,7 @@ const ProductPage = () => {
   } else {
     return (
       <>
-        <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
+        <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
         <ProductView product={product} />
 
         <Footer />
