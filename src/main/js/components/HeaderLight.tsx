@@ -8,7 +8,6 @@ import { useState } from "react";
 const HeaderLight = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: Function;
-  dark: boolean;
 }) => {
   const [profileMenu, setProfileMenu] = useState<boolean>(false);
 
@@ -83,7 +82,7 @@ const HeaderLight = (props: {
         </div>
 
         {/* Normal Display */}
-        <div className="hidden z-10 top-0 w-full bg-white/10 h-[100px] md:flex flex-row justify-between p-4 border-black/10 border-b-2 border-solid  font-light">
+        <div className="hidden z-10 top-0 w-full bg-white/10 h-[75px] md:flex flex-row justify-between p-4 border-black/10 border-b-2 border-solid  font-light">
           {/* Left */}
           <div className="left-0 flex flex-row">
             <Link to="/">
