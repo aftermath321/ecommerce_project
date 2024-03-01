@@ -8,7 +8,7 @@ const SignUpPage = () => {
 
   return (
     <>
-      <Header mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
+      <Header mobileMenu={mobile} mobileMenuSetter={setMobile} />
       <SignUpForm />
       <Footer />
     </>

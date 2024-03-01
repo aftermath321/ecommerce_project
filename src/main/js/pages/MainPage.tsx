@@ -10,7 +10,7 @@ function MainPage() {
 
   return (
     <>
-      <HeaderDark mobileMenu={mobile} mobileMenuSetter={setMobile} dark={true} />
+      <HeaderDark mobileMenu={mobile} mobileMenuSetter={setMobile} />
       <Main />
       <ProductGrid />
       <Features />

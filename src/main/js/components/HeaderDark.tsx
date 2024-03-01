@@ -45,9 +45,10 @@ const HeaderDark = (props: {
   const profileMenu = (): JSX.Element => {
     if (profileState) {
       return (
-        <div className="fixed bg-white w-[100px] h-[100px] z-60 top-0 block duration-300">
+        // <div className="fixed bg-white w-[100px] h-[100px] z-60 top-0 block duration-300">
 
-        </div>
+        // </div>
+        <></>
       );
     } else {
       return <></>;

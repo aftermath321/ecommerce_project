@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Product } from "../../types/Product";
 import { useState } from "react";
-import  {Link, LinkProps, Route} from "react-router-dom"
+import { Link, LinkProps, Route } from "react-router-dom";
 import { getProducts } from "../api/productsAPI";
 
 const ProductGrid = () => {
@@ -19,10 +19,10 @@ const ProductGrid = () => {
 
   const renderGrid = (): JSX.Element => {
     if (isLoading) {
-      return (<>Loading</>)
+      return <>Loading</>;
     } else {
-      return(
-        <div className="w-[100%] h-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-4 gap-y-8 items-center bg-white">
+      return (
+        <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-gray-200">
           {productList.map((item) => {
             return (
               <>
@@ -33,7 +33,7 @@ const ProductGrid = () => {
             );
           })}
         </div>
-        )
+      );
     }
   };
 

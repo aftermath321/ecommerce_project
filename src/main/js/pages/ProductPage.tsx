@@ -26,7 +26,7 @@ const ProductPage = () => {
   if (product == undefined) {
     return (
       <>
-        <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
+        <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} />
         <div className="w-screen h-[50vh] text-5xl justify-center flex items-center">
           No such product!
         </div>
@@ -37,7 +37,7 @@ const ProductPage = () => {
   } else {
     return (
       <>
-        <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} dark={false} />
+        <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile}  />
         <ProductView product={product} />
 
         <Footer />
