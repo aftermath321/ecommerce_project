@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import HeaderDark from "../components/HeadAndFoot/HeaderDark";
 import HeaderLight from "../components/HeadAndFoot/HeaderLight";
 import Footer from "../components/HeadAndFoot/Footer";
-import Main from "../components/Admin/Main";
+import AdminContent from "../components/Admin/AdminContent";
 
-const Admin = () => {
+const AdminPage = () => {
   const [mobile, setMobile] = useState<boolean>(false);
 
   return (
     <>
       <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} />
-      <Main />
+      <AdminContent />
       <Footer />
     </>
   );
 };
 
-export default Admin;
+export default AdminPage;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Main = () => {
+const AdminContent = () => {
   return (
     <div className="w-[100%] h-[100vh] ">
       <div className="w-[80%] h-[100%] bg-gray-400 left-0 right-0 mx-auto">
@@ -17,4 +17,4 @@ const Main = () => {
   );
 }
 
-export default Main
+export default AdminContent;
