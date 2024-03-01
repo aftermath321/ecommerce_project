@@ -1,8 +1,8 @@
-import HeaderDark from "../components/HeaderDark";
+import HeaderDark from "../components/HeadAndFoot/HeaderDark";
 import Main from "../components/Main";
-import Footer from "../components/Footer";
+import Footer from "../components/HeadAndFoot/Footer";
 import Features from "../components/Features";
-import ProductGrid from "../components/ProductGrid";
+import ProductGrid from "../components/Product/ProductGrid";
 import { useState } from "react";
 
 function MainPage() {
@@ -10,7 +10,7 @@ function MainPage() {
 
   return (
     <>
-      <HeaderDark mobileMenu={mobile} mobileMenuSetter={setMobile} dark={true} />
+      <HeaderDark mobileMenu={mobile} mobileMenuSetter={setMobile} />
       <Main />
       <ProductGrid />
       <Features />

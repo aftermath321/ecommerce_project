@@ -1,10 +1,7 @@
-import { Product } from "../../types/Product";
+import { Product } from "../../../types/Product";
 import RatingSystem from "./RatingSystem";
 
-const ProductCard = (props: {product: Product}) => {
-
-
-
+const ProductCard = (props: { product: Product }) => {
   return (
     <div className="bg-white  w-[300px] h-[400px]  xl:w-[400px] xl:h-[450px] place-self-center">
       <div
@@ -18,7 +15,9 @@ const ProductCard = (props: {product: Product}) => {
       </div>
       <div className="w-full h-[20%]">
         <h2 className="text-2xl flex justify-start">{props.product.name}</h2>
-        <h3 className="text-lg text-gray-500 flex justify-start">$ {props.product.price}</h3>
+        <h3 className="text-lg text-gray-500 flex justify-start">
+          $ {props.product.price}
+        </h3>
         <RatingSystem rating={props.product.rating} />
       </div>
     </div>

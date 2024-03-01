@@ -1,8 +1,8 @@
 import React, { FormEventHandler, useState } from "react";
-import { UserForm } from "../../types/UserForm";
-import { postUser } from "../api/usersAPI";
+import { UserForm } from "../../../types/UserForm";
+import { postUser } from "../../api/usersAPI";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-import { validEmail, validPassword } from "../../types/Regex";
+import { validEmail, validPassword } from "../../../types/Regex";
 
 type SignUpError = {
   email: boolean;
