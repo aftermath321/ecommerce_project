@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Product } from "../../types/Product";
 import { getProduct } from "../api/productsAPI";
 import { useParams } from "react-router-dom";
-import HeaderLight from "../components/HeaderLight";
-import ProductView from "../components/ProductView";
-import Footer from "../components/Footer";
+import HeaderLight from "../components/HeadAndFoot/HeaderLight";
+import ProductView from "../components/Product/ProductView";
+import Footer from "../components/HeadAndFoot/Footer";
 
 export type Params = {
   id: string;
@@ -37,7 +37,7 @@ const ProductPage = () => {
   } else {
     return (
       <>
-        <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile}  />
+        <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} />
         <ProductView product={product} />
 
         <Footer />

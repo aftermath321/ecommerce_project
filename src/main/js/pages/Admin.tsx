@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import HeaderDark from "../components/HeaderDark";
-import HeaderLight from "../components/HeaderLight";
-import Footer from "../components/Footer";
+import HeaderDark from "../components/HeadAndFoot/HeaderDark";
+import HeaderLight from "../components/HeadAndFoot/HeaderLight";
+import Footer from "../components/HeadAndFoot/Footer";
 import Main from "../components/Admin/Main";
 
 const Admin = () => {

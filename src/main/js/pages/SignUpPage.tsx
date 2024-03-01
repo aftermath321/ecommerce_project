@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SignUpForm from "../components/SignUpForm";
-import Header from "../components/HeaderLight";
-import Footer from "../components/Footer";
+import SignUpForm from "../components/Admin/SignUpForm";
+import Header from "../components/HeadAndFoot/HeaderLight";
+import Footer from "../components/HeadAndFoot/Footer";
 
 const SignUpPage = () => {
   const [mobile, setMobile] = useState<boolean>(false);

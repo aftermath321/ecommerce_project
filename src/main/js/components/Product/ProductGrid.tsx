@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import ProductCard from "./ProductCard";
-import { Product } from "../../types/Product";
+import { Product } from "../../../types/Product";
 import { useState } from "react";
 import { Link, LinkProps, Route } from "react-router-dom";
-import { getProducts } from "../api/productsAPI";
+import { getProducts } from "../../api/productsAPI";
 
 const ProductGrid = () => {
   const [productList, setProductList] = useState<Product[]>([]);

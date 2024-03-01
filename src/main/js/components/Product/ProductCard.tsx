@@ -1,4 +1,4 @@
-import { Product } from "../../types/Product";
+import { Product } from "../../../types/Product";
 import RatingSystem from "./RatingSystem";
 
 const ProductCard = (props: { product: Product }) => {

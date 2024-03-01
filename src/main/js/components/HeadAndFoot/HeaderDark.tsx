@@ -4,6 +4,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import React from "react";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
