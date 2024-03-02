@@ -22,7 +22,7 @@ const ProductGrid = () => {
       return <>Loading</>;
     } else {
       return (
-        <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-gray-200">
+        <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
           {productList.map((item) => {
             return (
               <>

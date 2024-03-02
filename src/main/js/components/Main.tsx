@@ -2,7 +2,7 @@ import React from "react";
 
 const Main = () => {
   return (
-    <div className="relative w-full h-screen p-0 m-0 font-">
+    <div className="relative w-full h-screen p-0 m-0 shadow-bigShadow">
       <div
         className="w-[100%] h-[100%] flex flex-col justify-center
         items-center relative overflow-hidden"

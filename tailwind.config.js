@@ -13,6 +13,10 @@ export default {
         DEFAULT: "0 2px 4px var(--tw-shadow-color)",
         lg: "0 8px 16px var(--tw-shadow-color)",
       },
+      boxShadow: {
+        border: "1px 1px 1px 1px rgba(23, 23, 23, 0.03)",
+        bigShadow: "2px 2px 2px 2px rgba(23, 23, 23, 0.5)",
+      },
     },
   },
   plugins: [
