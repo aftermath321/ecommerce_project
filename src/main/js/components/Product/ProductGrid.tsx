@@ -54,7 +54,7 @@ const ProductGrid = () => {
         {renderGrid()}
         {/* Bottom */}
         <div className="w-full h-[5%] flex justify-center p-4">
-          <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 p-5 rounded-md">
+          <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 p-5 rounded-md shadow-button">
             View more
           </button>
         </div>
