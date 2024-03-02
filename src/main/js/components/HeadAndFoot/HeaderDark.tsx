@@ -126,7 +126,7 @@ const HeaderDark = (props: {
                   placeholder="Search products..."
                   className="p-1 rounded-md cursor-pointer font-light px-2"
                 ></input>
-                <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow">
+                <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow-button">
                   &gt;
                 </button>
               </div>

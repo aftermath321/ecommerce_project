@@ -128,7 +128,7 @@ const HeaderLight = (props: {
                     placeholder="Search products..."
                     className="p-1 rounded-md cursor-pointer font-light px-2 border-[1px] border-solid border-black"
                   ></input>
-                  <button className="bg-yellow-300 hover:bg-yellow-500 duration-200 px-3 rounded-md text-black font-bold cursor-pointer  shadow">
+                  <button className="bg-yellow-300 hover:bg-yellow-500 duration-200 px-3 rounded-md text-black font-bold cursor-pointer shadow-button">
                     &gt;
                   </button>
                 </div>
