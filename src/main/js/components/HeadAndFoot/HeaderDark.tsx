@@ -142,6 +142,18 @@ const HeaderDark = (props: {
           </ul>
         </div>
       </div>
+
+      {/* Cart */}
+      <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
+        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] md:w-[40%] lg:w-[30%]">
+          <div className="h-[150px] w-[100%] space-around flex flex-row">
+            <span>
+              <RxCross1 size={40} />
+            </span>
+            <h2 className="text-4xl text-center  align-middle">My Cart</h2>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
