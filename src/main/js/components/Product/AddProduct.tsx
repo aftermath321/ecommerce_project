@@ -10,7 +10,7 @@ type ProductTemp = {
 };
 
 const AddProduct = () => {
-  const [tempProduct, setTempProduct] = useState<ProductTemp | null>(null);
+  const [tempProduct, setTempProduct] = useState<ProductTemp>();
 
   const handleSubmit = () => {};
 
