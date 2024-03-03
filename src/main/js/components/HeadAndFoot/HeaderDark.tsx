@@ -5,6 +5,7 @@ import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
+import CartList from "./CartList";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
@@ -146,11 +147,18 @@ const HeaderDark = (props: {
       {/* Cart */}
       <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
         <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] md:w-[40%] lg:w-[30%]">
-          <div className="h-[150px] w-[100%] space-around flex flex-row">
-            <span>
+          <div className="h-[100px] w-[100%] flex flex-col  bg-blue-500">
+            <span className="cursor-pointer bg-green-400 w-[50px] h-[50px]">
               <RxCross1 size={40} />
             </span>
-            <h2 className="text-4xl text-center  align-middle">My Cart</h2>
+            <h2 className="text-4xl text-center  align-middle self-center mx-auto left-0 right-0 bg-red-200">
+              My Cart
+            </h2>
+          </div>
+          <div className="w-[80%] h-[100%] bg-yellow-300 mx-auto left-0 right-0 rounded-lg">
+            <CartList>
+              
+            </CartList>
           </div>
         </div>
       </div>
