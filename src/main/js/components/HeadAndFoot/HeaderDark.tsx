@@ -3,15 +3,26 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import CartList from "./CartList";
+import { Product } from "../../../types/Product";
+import { getProduct } from "../../api/productsAPI";
+import CartItem from "./CartItem";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: Function;
 }) => {
   const [profileState, setProfileState] = useState<boolean>(true);
+  const [product, setProduct] = useState<Product | undefined>();
+  const [cartMenu, setCartMenu] = useState<boolean>(false);
+
+  useEffect(() => {
+    getProduct(1).then((data) => {
+      setProduct(data);
+    });
+  }, []);
 
   const mobileMenuDark = (): JSX.Element => {
     if (props.mobileMenu) {
@@ -56,6 +67,25 @@ const HeaderDark = (props: {
       return <></>;
     }
   };
+  const cartMenuToggle = (): JSX.Element => {
+    return (
+      <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
+        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] w-[100vw] md:w-[40%] lg:w-[30%]">
+          <div className="h-[100px] w-[100%] flex flex-col  ">
+            <span className="cursor-pointer  w-[50px] h-[50px] p-4" onClick={() => setCartMenu(false)}>
+              <RxCross1 size={40} />
+            </span>
+            <h2 className="text-4xl text-center  align-middle self-center mx-auto left-0 right-0 ">
+              My Cart
+            </h2>
+          </div>
+          <div className="w-[90%] h-[100%]  mx-auto left-0 right-0 rounded-lg">
+            <CartList product={product} />
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -70,7 +100,7 @@ const HeaderDark = (props: {
           HomeOFFFICE
         </div>
         <div className="flex flex-row p-4 absolute right-0 ">
-          <span className="text-white p-2">
+          <span className="text-white p-2" onClick={() =>setCartMenu(true)}>
             <AiOutlineShoppingCart size={30} />
           </span>
           <span
@@ -132,7 +162,7 @@ const HeaderDark = (props: {
                 </button>
               </div>
             </li>
-            <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
+            <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200" onClick={() =>setCartMenu(true)}>
               <AiOutlineShoppingCart size={30} />
             </li>
             <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
@@ -145,23 +175,7 @@ const HeaderDark = (props: {
       </div>
 
       {/* Cart */}
-      <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
-        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] md:w-[40%] lg:w-[30%]">
-          <div className="h-[100px] w-[100%] flex flex-col  bg-blue-500">
-            <span className="cursor-pointer bg-green-400 w-[50px] h-[50px]">
-              <RxCross1 size={40} />
-            </span>
-            <h2 className="text-4xl text-center  align-middle self-center mx-auto left-0 right-0 bg-red-200">
-              My Cart
-            </h2>
-          </div>
-          <div className="w-[80%] h-[100%] bg-yellow-300 mx-auto left-0 right-0 rounded-lg">
-            <CartList>
-              
-            </CartList>
-          </div>
-        </div>
-      </div>
+      {cartMenu? cartMenuToggle() : <></>}
     </>
   );
 };
