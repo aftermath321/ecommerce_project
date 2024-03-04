@@ -7,20 +7,19 @@ import { useEffect, useState } from "react";
 import React from "react";
 import CartList from "./CartList";
 import { Product } from "../../../types/Product";
-import { getProduct } from "../../api/productsAPI";
-import CartItem from "./CartItem";
+import { getProducts } from "../../api/productsAPI";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: Function;
 }) => {
   const [profileState, setProfileState] = useState<boolean>(true);
-  const [product, setProduct] = useState<Product | undefined>();
+  const [product, setProduct] = useState<Product[]>([]);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
 
   useEffect(() => {
-    getProduct(1).then((data) => {
-      setProduct(data);
+    getProducts().then((data) => {
+      setProduct([...product, data]);
     });
   }, []);
 
