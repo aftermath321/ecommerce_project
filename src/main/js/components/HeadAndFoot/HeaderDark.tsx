@@ -16,7 +16,7 @@ const HeaderDark = (props: {
 }) => {
   const [profileState, setProfileState] = useState<boolean>(true);
   const [product, setProduct] = useState<Product | undefined>();
-  const [cartMenu, setCartMenu] = useState<boolean>(true);
+  const [cartMenu, setCartMenu] = useState<boolean>(false);
 
   useEffect(() => {
     getProduct(1).then((data) => {
@@ -70,7 +70,7 @@ const HeaderDark = (props: {
   const cartMenuToggle = (): JSX.Element => {
     return (
       <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
-        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] md:w-[40%] lg:w-[30%]">
+        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] w-[100vw] md:w-[40%] lg:w-[30%]">
           <div className="h-[100px] w-[100%] flex flex-col  ">
             <span className="cursor-pointer  w-[50px] h-[50px] p-4" onClick={() => setCartMenu(false)}>
               <RxCross1 size={40} />
