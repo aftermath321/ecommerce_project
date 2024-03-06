@@ -19,7 +19,7 @@ const HeaderDark = (props: {
 
   useEffect(() => {
     getProducts().then((data) => {
-      setProduct([...product, data]);
+      setProduct(data);
     });
   }, []);
 
@@ -71,7 +71,10 @@ const HeaderDark = (props: {
       <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
         <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] w-[100vw] md:w-[40%] lg:w-[30%]">
           <div className="h-[100px] w-[100%] flex flex-col  ">
-            <span className="cursor-pointer  w-[50px] h-[50px] p-4" onClick={() => setCartMenu(false)}>
+            <span
+              className="cursor-pointer  w-[50px] h-[50px] p-4"
+              onClick={() => setCartMenu(false)}
+            >
               <RxCross1 size={40} />
             </span>
             <h2 className="text-4xl text-center  align-middle self-center mx-auto left-0 right-0 ">
@@ -99,7 +102,7 @@ const HeaderDark = (props: {
           HomeOFFFICE
         </div>
         <div className="flex flex-row p-4 absolute right-0 ">
-          <span className="text-white p-2" onClick={() =>setCartMenu(true)}>
+          <span className="text-white p-2" onClick={() => setCartMenu(true)}>
             <AiOutlineShoppingCart size={30} />
           </span>
           <span
@@ -161,7 +164,10 @@ const HeaderDark = (props: {
                 </button>
               </div>
             </li>
-            <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200" onClick={() =>setCartMenu(true)}>
+            <li
+              className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200"
+              onClick={() => setCartMenu(true)}
+            >
               <AiOutlineShoppingCart size={30} />
             </li>
             <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
@@ -174,7 +180,7 @@ const HeaderDark = (props: {
       </div>
 
       {/* Cart */}
-      {cartMenu? cartMenuToggle() : <></>}
+      {cartMenu ? cartMenuToggle() : <></>}
     </>
   );
 };

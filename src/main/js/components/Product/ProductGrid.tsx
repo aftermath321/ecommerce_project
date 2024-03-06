@@ -23,15 +23,17 @@ const ProductGrid = () => {
     } else {
       return (
         <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
-          {productList.map((item) => {
-            return (
-              <>
-                <Link to={"/product/" + item.id}>
-                  <ProductCard product={item} />
-                </Link>
-              </>
-            );
-          })}
+          <ul>
+            {productList.map((item) => {
+              return (
+                <li key={item.id}>
+                  <Link to={"/product/" + item.id}>
+                    <ProductCard product={item} />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       );
     }
