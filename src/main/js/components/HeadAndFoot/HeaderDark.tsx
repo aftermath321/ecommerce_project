@@ -8,6 +8,7 @@ import React from "react";
 import CartList from "./CartList";
 import { Product } from "../../../types/Product";
 import { getProducts } from "../../api/productsAPI";
+import shuffleArray from "../../functions/shuffleArray";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
@@ -19,7 +20,7 @@ const HeaderDark = (props: {
 
   useEffect(() => {
     getProducts().then((data) => {
-      setProduct(data);
+      setProduct(shuffleArray(data));
     });
   }, []);
 

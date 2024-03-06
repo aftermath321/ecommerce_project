@@ -4,6 +4,7 @@ import { Product } from "../../../types/Product";
 import { useState } from "react";
 import { Link, LinkProps, Route } from "react-router-dom";
 import { getProducts } from "../../api/productsAPI";
+import shuffleArray from "../../functions/shuffleArray";
 
 const ProductGrid = () => {
   const [productList, setProductList] = useState<Product[]>([]);
@@ -12,7 +13,7 @@ const ProductGrid = () => {
   useEffect(() => {
     setIsLoading(true);
     getProducts().then((data) => {
-      setProductList(data);
+      setProductList(shuffleArray(data));
       setIsLoading(false);
     });
   }, []);
@@ -23,7 +24,7 @@ const ProductGrid = () => {
     } else {
       return (
         <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
-          <ul>
+          <ul className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
             {productList.map((item) => {
               return (
                 <li key={item.id}>

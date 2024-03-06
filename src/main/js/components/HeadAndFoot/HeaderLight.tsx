@@ -5,19 +5,19 @@ import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CartList from "./CartList";
-import { getProduct } from "../../api/productsAPI";
+import { getProducts } from "../../api/productsAPI";
 import { Product } from "../../../types/Product";
 
 const HeaderLight = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: Function;
 }) => {
-  const [profileMenu, setProfileMenu] = useState<boolean>(false);
+  // const [profileMenu, setProfileMenu] = useState<boolean>(false);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
-  const [product, setProduct] = useState<Product | undefined>();
+  const [product, setProduct] = useState<Product[]>([]);
 
   useEffect(() => {
-    getProduct(1).then((data) => {
+    getProducts().then((data) => {
       setProduct(data);
     });
   }, []);
