@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import HeaderDark from "../components/HeadAndFoot/HeaderDark";
+import { useState } from "react";
 import HeaderLight from "../components/HeadAndFoot/HeaderLight";
 import Footer from "../components/HeadAndFoot/Footer";
 import AdminContent from "../components/Admin/AdminContent";

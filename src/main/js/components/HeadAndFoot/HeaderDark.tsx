@@ -4,22 +4,22 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import React from "react";
 import CartList from "./CartList";
 import { Product } from "../../../types/Product";
 import { getProducts } from "../../api/productsAPI";
+import shuffleArray from "../../functions/shuffleArray";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: Function;
 }) => {
-  const [profileState, setProfileState] = useState<boolean>(true);
+  const [profileState] = useState<boolean>(true);
   const [product, setProduct] = useState<Product[]>([]);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
 
   useEffect(() => {
     getProducts().then((data) => {
-      setProduct(data);
+      setProduct(shuffleArray(data));
     });
   }, []);
 

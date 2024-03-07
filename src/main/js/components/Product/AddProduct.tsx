@@ -1,18 +1,12 @@
-import React, { useState } from "react";
-import { Form } from "react-router-dom";
-
-type ProductTemp = {
-  name: "";
-  price: number;
-  producer: "";
-  imagePath: "";
-  rating: number;
-};
+// type ProductTemp = {
+//   name: "";
+//   price: number;
+//   producer: "";
+//   imagePath: "";
+//   rating: number;
+// };
 
 const AddProduct = () => {
-  const [tempProduct, setTempProduct] = useState<ProductTemp>();
-
-  const handleSubmit = () => {};
 
   return (
     <div className="w-[100%] h-[100vh] ">

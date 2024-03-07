@@ -1,4 +1,4 @@
-import React, { FormEventHandler, useState } from "react";
+import React, { useState } from "react";
 import { UserForm } from "../../../types/UserForm";
 import { postUser } from "../../api/usersAPI";
 import { IoIosInformationCircleOutline } from "react-icons/io";

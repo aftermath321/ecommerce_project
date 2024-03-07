@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CartItem from "./CartItem";
 import { Product } from "../../../types/Product";
 
 const CartList = (props: { product: Product[] }) => {
-  let [price, setPrice] = useState<number>(0);
+  let [price] = useState<number>(0);
 
   const renderList = (): JSX.Element => {
     let tempPrice = 0;
