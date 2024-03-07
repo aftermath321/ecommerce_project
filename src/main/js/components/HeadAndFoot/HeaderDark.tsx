@@ -13,7 +13,7 @@ const HeaderDark = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: Function;
 }) => {
-  const [profileState, setProfileState] = useState<boolean>(true);
+  const [profileState] = useState<boolean>(true);
   const [product, setProduct] = useState<Product[]>([]);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
 

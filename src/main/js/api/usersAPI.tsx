@@ -1,5 +1,4 @@
 import { UserForm } from "../../types/UserForm";
-import { User } from "../../types/Users";
 
 export async function getUsers() {
   return fetch("http://localhost:8080/user/all-users").then((response) => {
