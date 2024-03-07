@@ -1,4 +1,3 @@
-import React from "react";
 import { BsClock, BsFillPersonFill, BsTruck } from "react-icons/bs";
 import { BiMoney } from "react-icons/bi";
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import HeaderLight from "../components/HeadAndFoot/HeaderLight";
 import Footer from "../components/HeadAndFoot/Footer";
 import AddProduct from "../components/Product/AddProduct";

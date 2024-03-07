@@ -1,5 +1,3 @@
-import React from "react";
-
 const Main = () => {
   return (
     <div className="relative w-full h-screen p-0 m-0 shadow-bigShadow">

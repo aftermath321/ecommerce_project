@@ -1,7 +1,6 @@
 import { Product } from "../../../types/Product";
 import { useState } from "react";
 import { BsCashCoin } from "react-icons/bs";
-import { RxCross1 } from "react-icons/rx";
 import RatingSystem from "./RatingSystem";
 
 const ProductView = (props: { product: Product | undefined }) => {
