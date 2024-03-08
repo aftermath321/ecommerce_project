@@ -25,6 +25,8 @@ public class Product {
     private double rating;
     @Column
     private String imagePath;
+    @Column
+    private String description;
 
     @OneToMany(mappedBy = "product")
     private List<Opinion> opinions;
@@ -40,7 +42,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long id, String name, String producer, LocalDate released, double price, double rating, String imagePath) {
+    public Product(Long id, String name, String producer, LocalDate released, double price, double rating, String imagePath, String description) {
         this.id = id;
         this.name = name;
         this.producer = producer;
@@ -48,15 +50,17 @@ public class Product {
         this.price = price;
         this.rating = rating;
         this.imagePath = imagePath;
+        this.description = description;
     }
 
-    public Product(String name, String producer, LocalDate released, double price, double rating, String imagePath) {
+    public Product(String name, String producer, LocalDate released, double price, double rating, String imagePath, String description) {
         this.name = name;
         this.producer = producer;
         this.released = released;
         this.price = price;
         this.rating = rating;
         this.imagePath = imagePath;
+        this.description = description;
     }
 
     public Long getId() {
@@ -113,6 +117,14 @@ public class Product {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

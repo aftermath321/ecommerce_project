@@ -1,12 +1,14 @@
 import { Product } from "../../../types/Product";
 import { useState } from "react";
 import { BsCashCoin } from "react-icons/bs";
-import RatingSystem from "./RatingSystem";
+import RatingSystem from "../Reviews/RatingSystem";
+import ReviewList from "../Reviews/ReviewList";
 
-const ProductView = (props: { product: Product | undefined }) => {
+const ProductView = (props: { product: Product }) => {
   const [count, setCount] = useState<number>(0);
   const [display, setDisplay] = useState<boolean>(true);
   const [zoomed, setZoomed] = useState<boolean>(false);
+  const [numberOfReview, setNumberOfReviews] = useState<number>(4)
 
   const handleCount = () => {
     if (count == 0) {
@@ -33,7 +35,7 @@ const ProductView = (props: { product: Product | undefined }) => {
             Description
           </button>
           <button className="font-bold p-4" onClick={() => setDisplay(false)}>
-            Reviews (0)
+            Reviews ({numberOfReview})
           </button>
         </div>
       );
@@ -47,7 +49,7 @@ const ProductView = (props: { product: Product | undefined }) => {
             className="font-bold border-t-2 border-gray-700 p-4"
             onClick={() => setDisplay(false)}
           >
-            Reviews (0)
+            Reviews ({numberOfReview})
           </button>
         </div>
       );
@@ -58,27 +60,15 @@ const ProductView = (props: { product: Product | undefined }) => {
       return (
         <>
           <p className="text-gray-500 font-extralight">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.
+            {props.product.description}
           </p>
           <br />
           <p className="text-gray-500 font-extralight">
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-            fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-            ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
-            numquam eius modi tempora incidunt ut labore et dolore magnam
-            aliquam quaerat voluptatem.
+            {props.product.description}
           </p>
           <br />
           <p className="text-gray-500 font-extralight">
-            Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-            suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-            autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-            nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-            voluptas nulla pariatur?
+            {props.product.description}
           </p>
         </>
       );
@@ -86,7 +76,7 @@ const ProductView = (props: { product: Product | undefined }) => {
       return (
         <>
           <div>
-            <h1 className="text-5xl text-black">W.I.P.</h1>
+            <ReviewList countFunction={setNumberOfReviews}/>
           </div>
         </>
       );
@@ -114,16 +104,16 @@ const ProductView = (props: { product: Product | undefined }) => {
     <>
       {zoomImage()}
       <div className=" w-[80vw] relative mx-auto left-0 right-0 my-10 flex flex-col">
-        <div className="flex flex-col md:flex-row w-full justify-center gap-x-3 gap-y-10">
+        <div className="flex flex-col md:flex-row w-full justify-center md:gap-x-10 gap-x-3 gap-y-6 py-4">
           <img
             src={props.product?.imagePath}
-            className="w-[300px] h-[300px] lg:w-[550px] lg:h-[550px] inset-0 object-contain hover:scale-125 duration-300 my-4"
+            className="w-min-[300px] h-min-[300px] lg:w-[450px] lg:h-[450px] inset-0 object-contain hover:z-20 hover:scale-125 duration-300 my-4 shadow-md"
             onClick={() => setZoomed(true)}
           />
-          <div className="w-[90vw] lg:w-[550px] lg:h-[550px] flex flex-col gap-3 ">
+          <div className="w-[90vw] md:w-[550px] md:h-[450px] flex flex-col gap-3 ">
             <h3 className="text-gray-500">Category</h3>
             <h1 className="text-4xl font-bold">{props.product?.name}</h1>
-            <RatingSystem rating={props.product?.rating} />
+            <RatingSystem stars={props.product?.rating} />
             <h2 className="text-xl text-gray-700">${props.product?.price}</h2>
             <p className="w-[90%] md:w-[100%] text-gray-600 text-center md:text-start">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
