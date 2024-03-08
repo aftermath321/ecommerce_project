@@ -6,7 +6,7 @@ type Reviewed = {
   author: string;
   rating: number;
   date: string;
-  content: string;
+  review: string;
 };
 
 const ReviewItem = (props: {review: Reviewed}) => {
@@ -19,7 +19,7 @@ const ReviewItem = (props: {review: Reviewed}) => {
         </span>
       </div>
       <h2 className="text-lg p-2">{props.review.author}</h2>
-      <p className="m-2">{props.review.content}</p>
+      <p className="m-2">{props.review.review}</p>
       <h3 className="flex justify-end">{props.review.date}</h3>
     </li>
   );

@@ -7,7 +7,6 @@ type Reviewed = {
     rating: number,
     date: string,
     review: string,
-    content: string;
 }
 
 const review1: Reviewed = {
@@ -16,8 +15,7 @@ const review1: Reviewed = {
   rating: 0.5,
   date: "2024-03-04",
   review: "Great chair, very comfortable for long hours of work.",
-  content:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  
 };
 
 const review2: Reviewed = {
@@ -26,8 +24,7 @@ const review2: Reviewed = {
   rating: 3.3,
   date: "2024-03-02",
   review: "Solid desk, easy to assemble.",
-  content:
-    "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+
 };
 const review3: Reviewed = {
   title: "Modern Ergonomic Chair",
@@ -35,8 +32,8 @@ const review3: Reviewed = {
   rating: 4.7,
   date: "2024-03-01",
   review: "Love the design and comfort of this chair!",
-  content:
-    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+
+    
 };
 
 const review4: Reviewed = {
@@ -45,8 +42,7 @@ const review4: Reviewed = {
   rating: 3.6,
   date: "2024-02-28",
   review: "Excellent desk, helps with posture and productivity.",
-  content:
-    "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+ 
 };
 
 
