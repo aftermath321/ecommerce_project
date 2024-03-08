@@ -1,5 +1,8 @@
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-const RatingSystem = (props: { stars: number | undefined }): JSX.Element => {
+const RatingSystem = (props: { stars: number}): JSX.Element => {
+
+   let roundedRating = Math.round(props.stars) 
+
   if (typeof props.stars == "undefined") {
     return (
       <div className="flex flex-row text-gray-700">
@@ -11,7 +14,7 @@ const RatingSystem = (props: { stars: number | undefined }): JSX.Element => {
       </div>
     );
   } else {
-    switch (props.stars) {
+    switch (roundedRating) {
       case 0:
         return (
           <div className="flex flex-row text-gray-700">

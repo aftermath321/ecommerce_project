@@ -13,7 +13,7 @@ type Reviewed = {
 const review1: Reviewed = {
   title: "Comfortable Office Chair",
   author: "John Smith",
-  rating: 0,
+  rating: 0.5,
   date: "2024-03-04",
   review: "Great chair, very comfortable for long hours of work.",
   content:
@@ -23,7 +23,7 @@ const review1: Reviewed = {
 const review2: Reviewed = {
   title: "Sturdy Desk",
   author: "Alice Johnson",
-  rating: 3,
+  rating: 3.3,
   date: "2024-03-02",
   review: "Solid desk, easy to assemble.",
   content:
@@ -32,7 +32,7 @@ const review2: Reviewed = {
 const review3: Reviewed = {
   title: "Modern Ergonomic Chair",
   author: "Emily Brown",
-  rating: 2,
+  rating: 4.7,
   date: "2024-03-01",
   review: "Love the design and comfort of this chair!",
   content:
@@ -42,7 +42,7 @@ const review3: Reviewed = {
 const review4: Reviewed = {
   title: "Adjustable Standing Desk",
   author: "David Miller",
-  rating: 5,
+  rating: 3.6,
   date: "2024-02-28",
   review: "Excellent desk, helps with posture and productivity.",
   content:
