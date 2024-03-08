@@ -1,5 +1,5 @@
 import { Product } from "../../../types/Product";
-import RatingSystem from "./RatingSystem";
+import RatingSystem from "../Reviews/RatingSystem";
 
 const ProductCard = (props: { product: Product }) => {
   return (
