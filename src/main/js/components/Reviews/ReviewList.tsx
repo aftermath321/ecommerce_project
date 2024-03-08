@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReviewItem from './ReviewItem'
 
 type Reviewed = {
@@ -50,7 +50,12 @@ const review4: Reviewed = {
 };
 
 
-const ReviewList = () => {
+const ReviewList = (props: {countFunction: Function}) => {
+
+    useEffect(()=>{
+
+    }, [])
+
   return (
     <div className="w-[100%] h-[100%]flex flex-col gap-4 mx-auto left-0 right-0">
       <ul className="mx-auto left-0 right-0 flex flex-col justify-center gap-4">
