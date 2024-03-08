@@ -16,10 +16,14 @@ public class Opinion {
     private Long id;
 
     @Column
+    private String title;
+    @Column
     private String body;
 
     @Column
     private LocalDateTime posted;
+    @Column
+    private String author;
 //
 //    @ManyToOne
 //    @JoinColumn
@@ -29,6 +33,34 @@ public class Opinion {
     @JoinColumn
     private Product product;
 
+    @Column
+    private double rating;
+    
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void SetAuthor(String author) {
+        this.author = author;
+    }
+    public String getTitle() {
+        return title;
+    }
+
+    public void SetTitle(String title) {
+        this.title = title;
+    }
+    public Long getId() {
+        return id;
+    }
+    public double getRating() {
+        return rating;
+    }
+
+    public void SetRating(double rating) {
+        this.rating = rating;
+    }
     public String getBody() {
         return body;
     }
