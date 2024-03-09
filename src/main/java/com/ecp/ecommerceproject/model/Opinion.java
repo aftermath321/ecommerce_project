@@ -3,7 +3,7 @@ package com.ecp.ecommerceproject.model;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 
@@ -23,7 +23,7 @@ public class Opinion {
     @Column
     private String body;
     @Column
-    private LocalDateTime posted;
+    private LocalDate posted;
     @Column
     private String author;
 
@@ -86,11 +86,11 @@ public class Opinion {
 //        this.user = user;
 //    }
 
-    public LocalDateTime getPosted() {
+    public LocalDate getPosted() {
         return posted;
     }
 
-    public void setPosted(LocalDateTime posted) {
+    public void setPosted(LocalDate posted) {
         this.posted = posted;
     }
 

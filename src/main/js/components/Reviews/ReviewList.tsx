@@ -1,64 +1,15 @@
-import React, { useEffect } from 'react'
 import ReviewItem from './ReviewItem'
+import { Opinion } from '../../../types/Opinion';
 
-type Reviewed = {
-    title: string,
-    author: string,
-    rating: number,
-    date: string,
-    review: string,
-}
+const ReviewList = (props: {reviews: Opinion[]}) => {
 
-const review1: Reviewed = {
-  title: "Comfortable Office Chair",
-  author: "John Smith",
-  rating: 0.5,
-  date: "2024-03-04",
-  review: "Great chair, very comfortable for long hours of work.",
-  
-};
-
-const review2: Reviewed = {
-  title: "Sturdy Desk",
-  author: "Alice Johnson",
-  rating: 3.3,
-  date: "2024-03-02",
-  review: "Solid desk, easy to assemble.",
-
-};
-const review3: Reviewed = {
-  title: "Modern Ergonomic Chair",
-  author: "Emily Brown",
-  rating: 4.7,
-  date: "2024-03-01",
-  review: "Love the design and comfort of this chair!",
-
-    
-};
-
-const review4: Reviewed = {
-  title: "Adjustable Standing Desk",
-  author: "David Miller",
-  rating: 3.6,
-  date: "2024-02-28",
-  review: "Excellent desk, helps with posture and productivity.",
- 
-};
-
-
-const ReviewList = (props: {countFunction: Function}) => {
-
-    useEffect(()=>{
-
-    }, [])
 
   return (
     <div className="w-[100%] h-[100%]flex flex-col gap-4 mx-auto left-0 right-0">
       <ul className="mx-auto left-0 right-0 flex flex-col justify-center gap-4">
-        <ReviewItem review={review1} />
-        <ReviewItem review={review2} />
-        <ReviewItem review={review3} />
-        <ReviewItem review={review4} />
+        {props.reviews.map((item, index)=>{
+          return <ReviewItem review={item} key={index} />;
+        })}
       </ul>
     </div>
   );
