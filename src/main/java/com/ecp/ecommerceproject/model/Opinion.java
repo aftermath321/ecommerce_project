@@ -15,16 +15,18 @@ public class Opinion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    
+    @Column(name="productid")
+    private Long productid;
     @Column
     private String title;
     @Column
     private String body;
-
     @Column
     private LocalDateTime posted;
     @Column
     private String author;
-//
+
 //    @ManyToOne
 //    @JoinColumn
 //    private User user;
@@ -43,6 +45,13 @@ public class Opinion {
 
     public void SetAuthor(String author) {
         this.author = author;
+    }
+     public Long getProductid() {
+        return productid;
+    }
+
+    public void SetProductid(Long productid) {
+        this.productid = productid;
     }
     public String getTitle() {
         return title;

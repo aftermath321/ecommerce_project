@@ -36,5 +36,9 @@ public class OpinionController {
         return opinionService.findByID(id);
 
     }
+    @GetMapping("/product/{id}")
+    List<Opinion> findByProductId(@PathVariable Long id){
+        return opinionService.findByProductID(id);
+    }
 
 }
