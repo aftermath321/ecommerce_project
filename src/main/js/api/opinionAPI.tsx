@@ -16,6 +16,14 @@ export async function getOpinion(id: Number) {
     return response.json();
   });
 }
+export async function getOpinionsOnProduct(id: Number) {
+  return fetch(`http://localhost:8080/opinion/product/${id}`).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return response.json();
+  });
+}
 
 export async function postUser(opinion: Opinion) {
   const requestOptions = {

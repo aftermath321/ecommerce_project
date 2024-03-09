@@ -1,14 +1,22 @@
 import { Product } from "../../../types/Product";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsCashCoin } from "react-icons/bs";
 import RatingSystem from "../Reviews/RatingSystem";
 import ReviewList from "../Reviews/ReviewList";
+import { Opinion } from "../../../types/Opinion";
+import { getOpinionsOnProduct } from "../../api/opinionAPI";
 
 const ProductView = (props: { product: Product }) => {
   const [count, setCount] = useState<number>(0);
   const [display, setDisplay] = useState<boolean>(true);
   const [zoomed, setZoomed] = useState<boolean>(false);
-  const [numberOfReview, setNumberOfReviews] = useState<number>(4)
+  const [reviews, SetReviews] = useState<Opinion[]>([]);
+
+  useEffect(() => {
+    getOpinionsOnProduct(props.product.id).then((data) => {
+      SetReviews(data);
+    });
+  }, [props.product]);
 
   const handleCount = () => {
     if (count == 0) {
@@ -35,7 +43,7 @@ const ProductView = (props: { product: Product }) => {
             Description
           </button>
           <button className="font-bold p-4" onClick={() => setDisplay(false)}>
-            Reviews ({numberOfReview})
+            Reviews ({reviews.length})
           </button>
         </div>
       );
@@ -49,7 +57,7 @@ const ProductView = (props: { product: Product }) => {
             className="font-bold border-t-2 border-gray-700 p-4"
             onClick={() => setDisplay(false)}
           >
-            Reviews ({numberOfReview})
+            Reviews ({reviews.length})
           </button>
         </div>
       );
@@ -76,7 +84,7 @@ const ProductView = (props: { product: Product }) => {
       return (
         <>
           <div>
-            <ReviewList countFunction={setNumberOfReviews}/>
+            <ReviewList reviews={reviews} />
           </div>
         </>
       );
