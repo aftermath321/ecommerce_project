@@ -51,16 +51,16 @@ const Footer = () => {
         <div className="items-center justify-center gap-4 flex flex-col">
           <h1 className="text-xl md:text-2xl font-bold ">About Us</h1>
           <ul className="items-center flex flex-col">
-            <li className="text-gray-500 cursor-pointer hover:text-gray-700 ">
-              About Us
+            <li className="text-gray-500 cursor-pointer hover:text-gray-700 hover:underline">
+              <Link to="/about-us">About us</Link>
             </li>
-            <li className="text-gray-500 cursor-pointer hover:text-gray-700 ">
+            <li className="text-gray-500 cursor-pointer hover:text-gray-700 hover:underline ">
               Contact
             </li>
-            <li className="text-gray-500 cursor-pointer hover:text-gray-700 ">
+            <li className="text-gray-500 cursor-pointer hover:text-gray-700 hover:underline ">
               Careers
             </li>
-            <li className="text-gray-500 cursor-pointer hover:text-gray-700 ">
+            <li className="text-gray-500 cursor-pointer hover:text-gray-700 hover:underline ">
               Our Shops
             </li>
           </ul>
@@ -68,16 +68,16 @@ const Footer = () => {
         <div className="items-center justify-center gap-4 flex flex-col">
           <h1 className="text-xl md:text-2xl font-bold ">Categories</h1>
           <ul className="items-center flex flex-col">
-            <li className="text-gray-500 cursor-pointer hover:text-gray-700 ">
+            <li className="text-gray-500 cursor-pointer hover:text-gray-700 hover:underline ">
               Tables
             </li>
-            <li className="text-gray-500 cursor-pointer hover:text-gray-700 ">
+            <li className="text-gray-500 cursor-pointer hover:text-gray-700 hover:underline ">
               Chairs
             </li>
-            <li className="text-gray-500 cursor-pointer hover:text-gray-700 ">
+            <li className="text-gray-500 cursor-pointer hover:text-gray-700 hover:underline ">
               Shelves
             </li>
-            <li className="text-gray-500 cursor-pointer hover:text-gray-700 ">
+            <li className="text-gray-500 cursor-pointer hover:text-gray-700 hover:underline ">
               Accessories
             </li>
           </ul>

@@ -45,7 +45,9 @@ const HeaderDark = (props: {
             <li className="active:text-yellow-400">Shop</li>
             <li className="active:text-yellow-400">Office</li>
             <li className="active:text-yellow-400">Home Office</li>
-            <li className="active:text-yellow-400">About us</li>
+            <li className="active:text-yellow-400">
+              <Link to="/about-us">About us</Link>
+            </li>
             <li className="active:text-yellow-400">Contact</li>
           </ul>
         </div>
@@ -148,7 +150,7 @@ const HeaderDark = (props: {
         <div className="right-0 flex flex-row font-light">
           <ul className="flex flex-row gap-4">
             <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
-              About
+              <Link to="/about-us">About</Link>
             </li>
             <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
               Contact Us

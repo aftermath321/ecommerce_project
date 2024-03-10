@@ -7,6 +7,8 @@ export default {
     extend: {
       backgroundImage: {
         "home-office": "url('./src/main/static/public/homeOF.jpg')",
+        "about": "url('./src/main/static/public/about.jpg')",
+        // "white-overlay"
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
@@ -16,7 +18,7 @@ export default {
       boxShadow: {
         border: "1px 1px 1px 1px rgba(23, 23, 23, 0.03)",
         bigShadow: "2px 2px 2px 2px rgba(23, 23, 23, 0.5)",
-        button: "1px 1px 1px 1px rgba(23, 23, 23, 0.3)"
+        button: "1px 1px 1px 1px rgba(23, 23, 23, 0.3)",
       },
     },
   },
