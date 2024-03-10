@@ -46,7 +46,9 @@ const HeaderLight = (props: {
             <li className="active:text-yellow-400">Shop</li>
             <li className="active:text-yellow-400">Office</li>
             <li className="active:text-yellow-400">Home Office</li>
-            <li className="active:text-yellow-400">About us</li>
+            <li className="active:text-yellow-400">
+              <Link to="/about-us">About</Link>
+            </li>
             <li className="active:text-yellow-400">Contact</li>
           </ul>
         </div>

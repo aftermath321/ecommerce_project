@@ -9,6 +9,7 @@ import shuffleArray from "../../functions/shuffleArray";
 const ProductGrid = () => {
   const [productList, setProductList] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [renderMore, setRenderMore] = useState<boolean>(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -18,14 +19,47 @@ const ProductGrid = () => {
     });
   }, []);
 
+  const buttonRender = (): JSX.Element => {
+    if (renderMore === false) {
+      return (
+        <div className="w-full h-[5%] flex justify-center p-4">
+          <button
+            className="bg-yellow-400 hover:bg-yellow-600 duration-200 p-5 rounded-md shadow-button"
+            onClick={() => setRenderMore(true)}
+          >
+            View more
+          </button>
+        </div>
+      );
+    } else {
+      return <></>;
+    }
+  };
+
   const renderGrid = (): JSX.Element => {
     if (isLoading) {
       return <>Loading</>;
-    } else {
+    } else if (!isLoading && renderMore) {
       return (
         <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
           <ul className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
             {productList.map((item) => {
+              return (
+                <li key={item.id}>
+                  <Link to={"/product/" + item.id}>
+                    <ProductCard product={item} />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
+          <ul className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
+            {productList.slice(0, 10).map((item) => {
               return (
                 <li key={item.id}>
                   <Link to={"/product/" + item.id}>
@@ -56,11 +90,7 @@ const ProductGrid = () => {
         {/* Content */}
         {renderGrid()}
         {/* Bottom */}
-        <div className="w-full h-[5%] flex justify-center p-4">
-          <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 p-5 rounded-md shadow-button">
-            View more
-          </button>
-        </div>
+        {buttonRender()}
       </div>
     </div>
   );

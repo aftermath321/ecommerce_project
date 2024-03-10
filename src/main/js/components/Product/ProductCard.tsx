@@ -18,7 +18,7 @@ const ProductCard = (props: { product: Product }) => {
         <h3 className="text-lg text-gray-500 flex justify-start">
           $ {props.product.price}
         </h3>
-        <RatingSystem rating={props.product.rating} />
+        <RatingSystem stars={props.product.rating} />
       </div>
     </div>
   );
