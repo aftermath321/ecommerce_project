@@ -1,9 +1,8 @@
-
 const AboutContent = () => {
   return (
-    <div className="bg-white h-[90vh] w-[100%]">
-      <div className="flex flex-row  h-[100%] justify-center gap-[50px]">
-        <div className="h-[100%] w-[70vw]  justify-center text-center flex flex-col">
+    <div className="bg-white  w-[100%]">
+      <div className="flex flex-row  h-[100%] justify-center gap-[50px] ">
+        <div className="h-[100%] w-[70vw]  justify-center text-center flex flex-col py-4">
           <div className=" md:w-[500px] h-[80%] self-center gap-4 ">
             <h1 className="text-5xl my-4">About us</h1>
             <p className="text-xl py-4">
@@ -24,11 +23,11 @@ const AboutContent = () => {
           </div>
         </div>
 
-        <div className="h-[100%] w-[70vw] flex flex-row right-0">
+        <div className="h-auto w-[70vw] hidden lg:flex flex-row right-0">
           <div className="h-[100%] w-[20vw] bg-gradient-to-l to-white from-transparent absolute"></div>
           <img
             src="./src/main/static/public/about2.jpg"
-            className="h-[100%] w-[60vw]"
+            className="h-auto w-[90vw] "
           ></img>
         </div>
       </div>
