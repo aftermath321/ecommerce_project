@@ -24,7 +24,7 @@ const AboutContent = () => {
         </div>
 
         <div className="h-auto w-[70vw] hidden lg:flex flex-row right-0">
-          <div className="h-[200%] w-[20vw] bg-gradient-to-l to-white from-transparent absolute"></div>
+          <div className="h-[100%] w-[20vw] bg-gradient-to-l to-white from-transparent absolute"></div>
           <img
             src="./src/main/static/public/about2.jpg"
             className="h-auto w-[90vw] "
