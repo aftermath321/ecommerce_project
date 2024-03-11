@@ -15,7 +15,6 @@ public class Opinion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    
     @Column(name="productid")
     private Long productid;
     @Column
