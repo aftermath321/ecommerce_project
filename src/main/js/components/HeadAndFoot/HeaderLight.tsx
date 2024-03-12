@@ -12,9 +12,10 @@ const HeaderLight = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: Function;
 }) => {
-  // const [profileMenu, setProfileMenu] = useState<boolean>(false);
-  const [cartMenu, setCartMenu] = useState<boolean>(false);
+  const [profileState] = useState<boolean>(true);
   const [product, setProduct] = useState<Product[]>([]);
+  const [cartMenu, setCartMenu] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
     getProducts().then((data) => {
@@ -22,22 +23,20 @@ const HeaderLight = (props: {
     });
   }, []);
 
-  // light background
-
-  const mobileMenuLight = (): JSX.Element => {
+  const mobileMenuDark = (): JSX.Element => {
     if (props.mobileMenu) {
       return (
         <div className="w-full h-[100vh] fixed top-0 left-0 bg-black/75 z-50">
           <span
-            className="absolute text-white z-60 top-[5%] right-[10%]"
+            className="absolute text-black z-60 top-[5%] right-[10%]"
             onClick={() => props.mobileMenuSetter(false)}
           >
             <RxCross1 size={40} />
           </span>
-          <h1 className="text-white text-5xl absolute left-[10%] top-[5%]">
+          <h1 className="text-black text-5xl absolute left-[10%] top-[5%]">
             H
           </h1>
-          <ul className="w-[90%] h-[80%] font-bold gap-4 text-white text-3xl justify-center flex flex-col items-center">
+          <ul className="w-[90%] h-[80%] font-bold gap-4 text-black text-3xl justify-center flex flex-col items-center">
             <li className="active:text-yellow-400">
               <Link to="/sign-up">Sign up</Link>
             </li>
@@ -47,7 +46,7 @@ const HeaderLight = (props: {
             <li className="active:text-yellow-400">Office</li>
             <li className="active:text-yellow-400">Home Office</li>
             <li className="active:text-yellow-400">
-              <Link to="/about-us">About</Link>
+              <Link to="/about-us">About us</Link>
             </li>
             <li className="active:text-yellow-400">Contact</li>
           </ul>
@@ -57,10 +56,22 @@ const HeaderLight = (props: {
       return <></>;
     }
   };
+  const profileMenu = (): JSX.Element => {
+    if (profileState) {
+      return (
+        // <div className="fixed bg-white w-[100px] h-[100px] z-60 top-0 block duration-300">
+
+        // </div>
+        <></>
+      );
+    } else {
+      return <></>;
+    }
+  };
   const cartMenuToggle = (): JSX.Element => {
     return (
       <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
-        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] md:w-[40%] lg:w-[30%]">
+        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] w-[100vw] md:w-[40%] lg:w-[30%]">
           <div className="h-[100px] w-[100%] flex flex-col  ">
             <span
               className="cursor-pointer  w-[50px] h-[50px] p-4"
@@ -82,14 +93,15 @@ const HeaderLight = (props: {
 
   return (
     <>
-      {mobileMenuLight()}
+      {profileMenu()}
+      {mobileMenuDark()}
       {/* Mobile Display */}
-      <div className="flex flex-row md:hidden border-black/10 border-b-2 border-solid relative z-10 top-0 w-[full] h-[75px]">
+      <div className="flex flex-row md:hidden bg-white border-white/10 border-b-2 border-solid absolute z-10 top-0 w-full h-[75px]">
         <div className="p-4 font-extrabold text-black text-3xl cursor-pointer group-hover:scale-110 duration-200">
-          <Link to="/"> H</Link>
+          H
         </div>
-        <div className="p-4 py-6 font-extrabold text-black text-xl cursor-pointer group-hover:text-yellow-500 duration-200 ">
-          <Link to="/"> HomeOFFFICE</Link>
+        <div className="p-4 py-6 font-extrabold text-black text-xl cursor-pointer group-hover:text-yellow-500 duration-200">
+          HomeOFFFICE
         </div>
         <div className="flex flex-row p-4 absolute right-0 ">
           <span className="text-black p-2" onClick={() => setCartMenu(true)}>
@@ -105,19 +117,17 @@ const HeaderLight = (props: {
       </div>
 
       {/* Normal Display */}
-      <div className="hidden z-10 top-0 w-full bg-white/10 h-[75px] md:flex flex-row justify-between p-4 border-black/10 border-b-2 border-solid  font-light">
+      <div className="hidden z-10 top-0 w-full bg-white h-[75px] md:flex flex-row justify-between p-4 border-black/10 border-b-2 border-solid  font-light">
         {/* Left */}
         <div className="left-0 flex flex-row">
-          <Link to="/">
-            <div className="group flex flex-row">
-              <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
-                H
-              </div>
-              <div className="p-4 font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
-                HomeOFFFICE
-              </div>
+          <div className="group flex flex-row">
+            <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
+              H
             </div>
-          </Link>
+            <div className="p-4 font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
+              <Link to="/"> HomeOFFFICE</Link>
+            </div>
+          </div>
           <div className="p-4 flex">
             <ul className="flex flex-row gap-4">
               <li className="text-black self-center cursor-pointer  hover:text-yellow-500  hover:underline duration-200">
@@ -140,20 +150,25 @@ const HeaderLight = (props: {
         <div className="right-0 flex flex-row font-light">
           <ul className="flex flex-row gap-4">
             <li className="text-black self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
-              About
+              <Link to="/about-us">About</Link>
             </li>
             <li className="text-black self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
               Contact Us
             </li>
-            <li className="text-black self-center hover:text-yellow-500 duration-200">
+            <li className="text-black self-center hover:text-yellow-500 duration-200 ">
               <div className="flex gap-2">
                 <input
+                  value={search}
                   placeholder="Search products..."
-                  className="p-1 rounded-md cursor-pointer font-light px-2 border-[1px] border-solid border-black"
+                  onChange={(event) => setSearch(event.target.value)}
+                  className="p-1 rounded-md  bg-black/10 cursor-pointer font-light px-2 hover:cursor-text border-[1px] border-black/10"
                 ></input>
-                <button className="bg-yellow-300 hover:bg-yellow-500 duration-200 px-3 rounded-md text-black font-bold cursor-pointer shadow-button">
-                  &gt;
-                </button>
+
+                <Link to={"/product/search?phrase=" + search} className="">
+                  <button className="bg-yellow-400 hover:bg-yellow-600  h-[100%] duration-200 px-3 rounded-md active:translate-y-[2px] text-black font-bold cursor-pointer border border-white shadow-button">
+                    &gt;
+                  </button>
+                </Link>
               </div>
             </li>
             <li
@@ -170,6 +185,7 @@ const HeaderLight = (props: {
           </ul>
         </div>
       </div>
+
       {/* Cart */}
       {cartMenu ? cartMenuToggle() : <></>}
     </>
