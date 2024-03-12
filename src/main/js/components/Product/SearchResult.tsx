@@ -21,7 +21,7 @@ const SearchResult = (props: { phrase: string }) => {
       return <>Loading</>;
     } else {
       return (
-        <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-green-500">
+        <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32">
           <ul className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
             {productList.map((item) => {
               return (
@@ -38,7 +38,7 @@ const SearchResult = (props: { phrase: string }) => {
     }
   };
 
-  return <div className="w-[100%] h-[80vh]">{renderGrid()}</div>;
+  return <div className="w-[100%] min-h-[80vh]">{renderGrid()}</div>;
 };
 
 export default SearchResult;

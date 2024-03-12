@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="relative bottom-0 bg-white md:h-[135px] w-[100%] px-[10%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4 gap-4 border-t-[1px] border-black/25 border-solid">
+      <div className="relative bottom-0 bg-white lg:h-[135px] w-[100%] px-[10%] grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4 gap-4 border-t-[1px] border-black/25 border-solid">
         <div className="flex flex-col  items-center justify-evenly gap-4">
           <Link to="/">
             <div className="group flex flex-row flex-start ">

@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import CartList from "./CartList";
 import { Product } from "../../../types/Product";
 import { getProducts } from "../../api/productsAPI";
-import shuffleArray from "../../functions/shuffleArray";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
@@ -20,13 +19,11 @@ const HeaderDark = (props: {
 
   useEffect(() => {
     getProducts().then((data) => {
-      setProduct(shuffleArray(data));
+      setProduct(data);
     });
   }, []);
 
-  // const searchItems = () => {
-  //   <Link to={"/product/search?phrase=" + search}></Link>;
-  // };
+
   const mobileMenuDark = (): JSX.Element => {
     if (props.mobileMenu) {
       return (
@@ -168,8 +165,8 @@ const HeaderDark = (props: {
                   className="p-1 rounded-md cursor-pointer font-light px-2 hover:cursor-text"
                 ></input>
 
-                <Link to={"/product/search?phrase=" + search} className="h-[50px]">
-                  <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow-button">
+                <Link to={"/product/search?phrase=" + search} className="">
+                  <button className="bg-yellow-400 hover:bg-yellow-600  h-[100%] duration-200 px-3 rounded-md active:translate-y-[2px] text-black font-bold cursor-pointer border border-black shadow-button">
                     &gt;
                   </button>
                 </Link>
