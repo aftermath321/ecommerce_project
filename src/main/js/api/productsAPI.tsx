@@ -33,11 +33,14 @@ export async function postProduct(product: Product) {
     return response.json();
   });
 }
-export async function searchProductByName(phrase: String){
-    fetch(`http:///localhost:8080/product/lookup?phrase=${phrase}`).then((response) =>{
-        if(!response.ok){
-            throw new Error(response.statusText);
+
+export async function searchProductByName(phrase: string){
+    return fetch(`http:///localhost:8080/product/search?phrase=${phrase}`).then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
         }
         return response.json();
-    })
+      }
+    );
+  
 }

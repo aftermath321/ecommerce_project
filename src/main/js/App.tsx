@@ -8,12 +8,14 @@ import SignUpPage from "./pages/SignUpPage";
 import AdminPage from "./pages/AdminPage";
 import AddProductPage from "./pages/AddProductPage";
 import AboutPage from "./pages/AboutPage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/product/search" element={<SearchPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/users" element={<UsersPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
