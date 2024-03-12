@@ -38,4 +38,8 @@ public class ProductService {
     public List<Product> getProductsForGrid() {
         return productRepo.findProductsTop6();
     }
+
+    public Optional<List<Product>> searchProduct (String phrase){
+        return productRepo.searchByPhrase(phrase);
+    }
 }

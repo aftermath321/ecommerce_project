@@ -1,8 +1,10 @@
 package com.ecp.ecommerceproject.repositories;
 
+import com.ecp.ecommerceproject.model.Opinion;
 import com.ecp.ecommerceproject.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -24,4 +26,11 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
 
     @Query(value = "SELECT * FROM Product ORDER BY price DESC limit 10", nativeQuery = true)
     List<Product> findProductsTop6();
+
+
+     @Query("SELECT p FROM Product p WHERE p.name LIKE %:phrase% OR p.producer LIKE %:phrase%")
+    Optional<List<Product>> searchByPhrase(@Param("phrase") String phrase);
+
+
+
 }

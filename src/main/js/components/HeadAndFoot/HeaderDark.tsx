@@ -16,6 +16,7 @@ const HeaderDark = (props: {
   const [profileState] = useState<boolean>(true);
   const [product, setProduct] = useState<Product[]>([]);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
     getProducts().then((data) => {
@@ -23,6 +24,9 @@ const HeaderDark = (props: {
     });
   }, []);
 
+  // const searchItems = () => {
+  //   <Link to={"/product/search?phrase=" + search}></Link>;
+  // };
   const mobileMenuDark = (): JSX.Element => {
     if (props.mobileMenu) {
       return (
@@ -155,15 +159,20 @@ const HeaderDark = (props: {
             <li className="text-white self-center cursor-pointer hover:text-yellow-500 hover:underline duration-200">
               Contact Us
             </li>
-            <li className="text-white self-center hover:text-yellow-500 duration-200">
+            <li className="text-black self-center hover:text-yellow-500 duration-200 ">
               <div className="flex gap-2">
                 <input
+                  value={search}
                   placeholder="Search products..."
-                  className="p-1 rounded-md cursor-pointer font-light px-2"
+                  onChange={(event) => setSearch(event.target.value)}
+                  className="p-1 rounded-md cursor-pointer font-light px-2 hover:cursor-text"
                 ></input>
-                <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow-button">
-                  &gt;
-                </button>
+
+                <Link to={"/product/search?phrase=" + search} className="h-[50px]">
+                  <button className="bg-yellow-400 hover:bg-yellow-600 duration-200 px-3 rounded-md text-black font-bold cursor-pointer border border-black shadow-button">
+                    &gt;
+                  </button>
+                </Link>
               </div>
             </li>
             <li

@@ -2,7 +2,11 @@ package com.ecp.ecommerceproject.controller;
 
 import com.ecp.ecommerceproject.model.Product;
 import com.ecp.ecommerceproject.services.ProductService;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,5 +48,14 @@ public class ProductController {
 
     }
 
+    @GetMapping("/search")
+    ResponseEntity<List<Product>> searchProducts(@RequestParam("phrase") String phrase){
+        Optional<List<Product>> searchResult = productService.searchProduct(phrase);
+         if (searchResult.isPresent()) {
+            return ResponseEntity.ok(searchResult.get());
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No products found with the provided phrase");
+        }
+    }
 
 }
