@@ -2,9 +2,12 @@
 <p>This is a mockup for a Ecommerce website. Currently working MainPage, ItemView, Abous Us Page. </p>
 <p>It's not yet hosted live.</p>
 <h3>How to run</h3>
-<p>For PC/Linux:</p>
+
 `npm run dev`
 `mvn spring-boot:run`
+
+<p>SQL queries for creating Database and adding content are not yet implemented!</p>
+
 <h3>Technologies used</h3>
 <h4>
 Front End
