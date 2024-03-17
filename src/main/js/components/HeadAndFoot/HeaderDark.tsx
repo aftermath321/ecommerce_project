@@ -73,7 +73,7 @@ const HeaderDark = (props: {
     return (
       <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
         <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] w-[100vw] md:w-[40%] lg:w-[30%]">
-          <div className="h-[100px] w-[100%] flex flex-col  ">
+          <div className="h-[100px] w-[100%] flex flex-col overflow-visible  ">
             <span
               className="cursor-pointer  w-[50px] h-[50px] p-4"
               onClick={() => setCartMenu(false)}
@@ -84,7 +84,7 @@ const HeaderDark = (props: {
               My Cart
             </h2>
           </div>
-          <div className="w-[90%] h-[100%]  mx-auto left-0 right-0 rounded-lg">
+          <div className="w-[90%] h-[80%]  mx-auto left-0 right-0 rounded-lg overflow-y-scroll py-4">
             <CartList product={product} />
           </div>
         </div>
