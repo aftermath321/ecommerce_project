@@ -10,7 +10,7 @@ const Main = () => {
           src="./src/main/static/public/homeOF.jpg"
         />
         <div className=" w-[70%] h-[70vh] flex flex-col justify-center gap-10 relative text-shadow-sm">
-          <p className="text-white text-lg md:text-2xl font-semibold ">
+          <p className="text-white text-3xl md:text-2xl font-semibold ">
             Office & Home Office furniture
           </p>
           <p className="text-white font-bold text-2xl md:text-6xl text-shadow-lg">

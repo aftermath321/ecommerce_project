@@ -1,57 +1,22 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
-import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import CartList from "./CartList";
-import { getProducts } from "../../api/productsAPI";
-import { Product } from "../../../types/Product";
+import { SetStateAction, useState } from "react";
+import CartMenu from "../CartMenu/CartMenu";
+import MobileMenu from "../Mobile/MobileMenu";
 
 const HeaderLight = (props: {
   mobileMenu: boolean;
-  mobileMenuSetter: Function;
+  mobileMenuSetter: React.Dispatch<SetStateAction<boolean>>;
 }) => {
   const [profileState] = useState<boolean>(true);
-  const [product, setProduct] = useState<Product[]>([]);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
-  useEffect(() => {
-    getProducts().then((data) => {
-      setProduct(data);
-    });
-  }, []);
-
-  const mobileMenuDark = (): JSX.Element => {
+  const mobileMenu = (): JSX.Element => {
     if (props.mobileMenu) {
-      return (
-        <div className="w-full h-[100vh] fixed top-0 left-0 bg-black/75 z-50">
-          <span
-            className="absolute text-black z-60 top-[5%] right-[10%]"
-            onClick={() => props.mobileMenuSetter(false)}
-          >
-            <RxCross1 size={40} />
-          </span>
-          <h1 className="text-black text-5xl absolute left-[10%] top-[5%]">
-            H
-          </h1>
-          <ul className="w-[90%] h-[80%] font-bold gap-4 text-black text-3xl justify-center flex flex-col items-center">
-            <li className="active:text-yellow-400">
-              <Link to="/sign-up">Sign up</Link>
-            </li>
-            <li className="active:text-yellow-400">Login</li>
-            <li className="active:text-yellow-400">Locations</li>
-            <li className="active:text-yellow-400">Shop</li>
-            <li className="active:text-yellow-400">Office</li>
-            <li className="active:text-yellow-400">Home Office</li>
-            <li className="active:text-yellow-400">
-              <Link to="/about-us">About us</Link>
-            </li>
-            <li className="active:text-yellow-400">Contact</li>
-          </ul>
-        </div>
-      );
+      return <MobileMenu menuToggle={props.mobileMenuSetter} />;
     } else {
       return <></>;
     }
@@ -70,38 +35,23 @@ const HeaderLight = (props: {
   };
   const cartMenuToggle = (): JSX.Element => {
     return (
-      <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
-        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] w-[100vw] md:w-[40%] lg:w-[30%]">
-          <div className="h-[100px] w-[100%] flex flex-col  ">
-            <span
-              className="cursor-pointer  w-[50px] h-[50px] p-4"
-              onClick={() => setCartMenu(false)}
-            >
-              <RxCross1 size={40} />
-            </span>
-            <h2 className="text-4xl text-center  align-middle self-center mx-auto left-0 right-0 ">
-              My Cart
-            </h2>
-          </div>
-          <div className="w-[90%] h-[100%]  mx-auto left-0 right-0 rounded-lg">
-            <CartList product={product} />
-          </div>
-        </div>
-      </div>
+      <>
+        <CartMenu toggleMenu={setCartMenu} />
+      </>
     );
   };
 
   return (
     <>
       {profileMenu()}
-      {mobileMenuDark()}
+      {mobileMenu()}
       {/* Mobile Display */}
       <div className="flex flex-row md:hidden bg-white border-white/10 border-b-2 border-solid absolute z-10 top-0 w-full h-[75px]">
         <div className="p-4 font-extrabold text-black text-3xl cursor-pointer group-hover:scale-110 duration-200">
-          H
+          <Link to="/">H</Link>
         </div>
         <div className="p-4 py-6 font-extrabold text-black text-xl cursor-pointer group-hover:text-yellow-500 duration-200">
-          HomeOFFFICE
+          <Link to="/"> HomeOFFFICE</Link>
         </div>
         <div className="flex flex-row p-4 absolute right-0 ">
           <span className="text-black p-2" onClick={() => setCartMenu(true)}>
@@ -122,7 +72,7 @@ const HeaderLight = (props: {
         <div className="left-0 flex flex-row">
           <div className="group flex flex-row">
             <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
-              H
+              <Link to="/">H</Link>
             </div>
             <div className="p-4 font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
               <Link to="/"> HomeOFFFICE</Link>
