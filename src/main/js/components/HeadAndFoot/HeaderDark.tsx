@@ -3,25 +3,19 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import CartList from "./CartList";
-import { Product } from "../../../types/Product";
-import { getProducts } from "../../api/productsAPI";
+import { useState } from "react";
+import CartList from "../CartMenu/CartList";
+import CartMenu from "../CartMenu/CartMenu";
+
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: Function;
 }) => {
   const [profileState] = useState<boolean>(true);
-  const [product, setProduct] = useState<Product[]>([]);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
-  useEffect(() => {
-    getProducts().then((data) => {
-      setProduct(data);
-    });
-  }, []);
 
 
   const mobileMenuDark = (): JSX.Element => {
@@ -70,26 +64,9 @@ const HeaderDark = (props: {
     }
   };
   const cartMenuToggle = (): JSX.Element => {
-    return (
-      <div className="bg-black/60 fixed top-0 right-0 z-10 w-[100vw] h-[100vh]">
-        <div className="absolute right-0 top-0 z-10 bg-white h-[100vh] w-[100vw] md:w-[40%] lg:w-[30%]">
-          <div className="h-[100px] w-[100%] flex flex-col overflow-visible  ">
-            <span
-              className="cursor-pointer  w-[50px] h-[50px] p-4"
-              onClick={() => setCartMenu(false)}
-            >
-              <RxCross1 size={40} />
-            </span>
-            <h2 className="text-4xl text-center  align-middle self-center mx-auto left-0 right-0 ">
-              My Cart
-            </h2>
-          </div>
-          <div className="w-[90%] h-[80%]  mx-auto left-0 right-0 rounded-lg overflow-y-scroll py-4">
-            <CartList product={product} />
-          </div>
-        </div>
-      </div>
-    );
+    return (<>
+      <CartMenu toggleMenu={setCartMenu}/>
+      </>)
   };
 
   return (
