@@ -15,7 +15,7 @@ const HeaderDark = (props: {
   const [cartMenu, setCartMenu] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
-  const mobileMenuDark = (): JSX.Element => {
+  const mobileMenu = (): JSX.Element => {
     if (props.mobileMenu) {
       return <MobileMenu menuToggle={props.mobileMenuSetter} />;
     } else {
@@ -45,7 +45,7 @@ const HeaderDark = (props: {
   return (
     <>
       {profileMenu()}
-      {mobileMenuDark()}
+      {mobileMenu()}
       {/* Mobile Display */}
       <div className="flex flex-row md:hidden border-white/10 border-b-2 border-solid absolute z-10 top-0 w-full h-[75px]">
         <div className="p-4 font-extrabold text-white text-3xl cursor-pointer group-hover:scale-110 duration-200">
