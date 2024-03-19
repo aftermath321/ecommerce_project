@@ -1,7 +1,31 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import { login } from "../../api/usersAPI";
+import { UserForm } from "../../../types/UserForm";
 
 const LoginAndSignUp = (props: { state: boolean; toggle: Function }) => {
+  const [loginForm, setLoginForm] = useState<UserForm>({
+    email: "",
+    password: "",
+  });
+
+  const submitLogin = (user: UserForm): void => {
+    login(user);
+  };
+
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setLoginForm({
+      ...loginForm,
+      email: event.target.value,
+    });
+  };
+  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setLoginForm({
+      ...loginForm,
+      password: event.target.value,
+    });
+  };
+
   return (
     <>
       <Transition appear show={props.state} as={Fragment}>
@@ -33,28 +57,40 @@ const LoginAndSignUp = (props: { state: boolean; toggle: Function }) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-center align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
+                    className="text-2xl font-bold  leading-6 text-gray-900 py-4"
                   >
-                    Sign in
+                    Log in
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <label>Login</label>
-                    <input type="text"></input>
-                    <label>Password</label>
-                    <input type="password"></input>
-                  </div>
+                  <div className="w-[100%] p-2">
+                    <form onSubmit={() => submitLogin(loginForm)}>
+                      <div className="mt-2 flex flex-col flex-nowrap gap-2">
+                        <label>Email</label>
+                        <input
+                          type="text"
+                          className="bg-slate-200 rounded-md border-[1px] border-black/10 shadow-bigShadow w-[50%] self-center"
+                          onChange={(event) => handleEmail(event)}
+                        ></input>
+                        <label>Password</label>
+                        <input
+                          type="password"
+                          className="bg-slate-200 rounded-md border-[1px] border-black/10 shadow-bigShadow w-[50%] self-center"
+                          onChange={(event) => handlePassword(event)}
+                        ></input>
+                      </div>
 
-                  <div className="mt-4">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-yellow-200 px-4 py-2 text-sm font-medium text-yellow-600 hover:bg-yellow-300 focus:outline-none focus-visible:ring-2 focus-visible:text-yellow-400 focus-visible:ring-offset-2"
-                      onClick={() => props.toggle(false)}
-                    >
-                      Sign up
-                    </button>
+                      <div className="mt-4">
+                        <button
+                          type="button"
+                          className="inline-flex justify-center rounded-md border border-transparent bg-yellow-200 px-4 py-2 text-sm font-medium text-yellow-600 hover:bg-yellow-300 focus:outline-none focus-visible:ring-2 focus-visible:text-yellow-400 focus-visible:ring-offset-2"
+                          onClick={() => props.toggle(false)}
+                        >
+                          Log in
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
