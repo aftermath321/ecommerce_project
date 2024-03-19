@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { SetStateAction, useState } from "react";
 import CartMenu from "../CartMenu/CartMenu";
 import MobileMenu from "../Mobile/MobileMenu";
-
+import LoginAndSignUp from "./LoginAndSignUp";
+import { Popover } from "@headlessui/react";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;
   mobileMenuSetter: React.Dispatch<SetStateAction<boolean>>;
 }) => {
-  const [profileState] = useState<boolean>(true);
+  const [profileState, setProfileState] = useState<boolean>(false);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
@@ -22,18 +23,7 @@ const HeaderDark = (props: {
       return <></>;
     }
   };
-  const profileMenu = (): JSX.Element => {
-    if (profileState) {
-      return (
-        // <div className="fixed bg-white w-[100px] h-[100px] z-60 top-0 block duration-300">
 
-        // </div>
-        <></>
-      );
-    } else {
-      return <></>;
-    }
-  };
   const cartMenuToggle = (): JSX.Element => {
     return (
       <>
@@ -44,7 +34,7 @@ const HeaderDark = (props: {
 
   return (
     <>
-      {profileMenu()}
+      <LoginAndSignUp toggle={() => setProfileState} state={profileState} />
       {mobileMenu()}
       {/* Mobile Display */}
       <div className="flex flex-row md:hidden border-white/10 border-b-2 border-solid absolute z-10 top-0 w-full h-[75px]">
@@ -128,10 +118,11 @@ const HeaderDark = (props: {
             >
               <AiOutlineShoppingCart size={30} />
             </li>
-            <li className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200">
-              <Link to="/sign-up">
-                <BsFillPersonFill size={30} />
-              </Link>
+            <li
+              className="text-white self-center cursor-pointer hover:text-yellow-500 duration-200"
+              onClick={() => setProfileState(true)}
+            >
+              <BsFillPersonFill size={30} />
             </li>
           </ul>
         </div>
