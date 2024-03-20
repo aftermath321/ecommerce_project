@@ -13,9 +13,9 @@ const LoginAndSignUp = (props: { state: boolean; toggle: Function }) => {
   const submitLogin = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    // login(loginForm).then((response) => {
-    //   setLoginMessage(response);
-    // });
+    login(loginForm).then((response) => {
+      console.log(response);
+    });
     
   };
 
