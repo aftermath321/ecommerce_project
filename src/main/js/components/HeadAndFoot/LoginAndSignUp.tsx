@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { FormEvent, Fragment, SetStateAction, useState } from "react";
 import { login } from "../../api/usersAPI";
 import { UserForm } from "../../../types/UserForm";
 
@@ -8,9 +8,15 @@ const LoginAndSignUp = (props: { state: boolean; toggle: Function }) => {
     email: "",
     password: "",
   });
+  const [loginMessage, setLoginMessage] = useState<String>("");
 
-  const submitLogin = (user: UserForm): void => {
-    login(user);
+  const submitLogin = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+
+    // login(loginForm).then((response) => {
+    //   setLoginMessage(response);
+    // });
+    
   };
 
   const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -64,18 +70,23 @@ const LoginAndSignUp = (props: { state: boolean; toggle: Function }) => {
                   >
                     Log in
                   </Dialog.Title>
+                  <Dialog.Title className="text-xl text-red-600">
+                    {loginMessage}
+                  </Dialog.Title>
                   <div className="w-[100%] p-2">
-                    <form onSubmit={() => submitLogin(loginForm)}>
+                    <form onSubmit={submitLogin}>
                       <div className="mt-2 flex flex-col flex-nowrap gap-2">
                         <label>Email</label>
                         <input
                           type="text"
                           className="bg-slate-200 rounded-md border-[1px] border-black/10 shadow-bigShadow w-[50%] self-center"
+                          value={loginForm.email}
                           onChange={(event) => handleEmail(event)}
                         ></input>
                         <label>Password</label>
                         <input
                           type="password"
+                          value={loginForm.password}
                           className="bg-slate-200 rounded-md border-[1px] border-black/10 shadow-bigShadow w-[50%] self-center"
                           onChange={(event) => handlePassword(event)}
                         ></input>
@@ -83,9 +94,8 @@ const LoginAndSignUp = (props: { state: boolean; toggle: Function }) => {
 
                       <div className="mt-4">
                         <button
-                          type="button"
                           className="inline-flex justify-center rounded-md border border-transparent bg-yellow-200 px-4 py-2 text-sm font-medium text-yellow-600 hover:bg-yellow-300 focus:outline-none focus-visible:ring-2 focus-visible:text-yellow-400 focus-visible:ring-offset-2"
-                          onClick={() => props.toggle(false)}
+                          type="submit"
                         >
                           Log in
                         </button>
