@@ -23,11 +23,21 @@ public class UserService {
     }
 
     public Optional<User> findByID (Long id){
-        return this.userRepo.findById(id);
+        return userRepo.findById(id);
     }
 
     public List<User> findAll (){
         return userRepo.findAll();
 
+    }
+
+    public boolean verfiyUser(String email, String password)
+    {
+        User user = userRepo.findByEmail(email);
+        if (user != null && user.getPassword().equals(password)){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
