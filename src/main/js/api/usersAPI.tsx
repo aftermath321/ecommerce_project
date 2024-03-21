@@ -34,21 +34,21 @@ export async function postUser(user: UserForm) {
   });
 }
 
-export async function login(user: UserForm) {
-  const requestOptions ={
+export async function login(user: UserForm): Promise<any> {
+  const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(user)
-  }
+    body: JSON.stringify(user),
+  };
 
-  fetch("http://localhost:8080/user/login", requestOptions).then((response) =>{
-    if (!response.ok){
-      throw new Error(response.statusText);
-    }else{
+  fetch("http://localhost:8080/user/login", requestOptions).then((response) => {
+    if (!response.ok) {
+      return new Error(response.statusText);
+    } else {
+      // console.log(response.json());
       return response.json();
     }
-    
-  })
+  });
 }

@@ -1,10 +1,10 @@
 package com.ecp.ecommerceproject.controller;
 
 import com.ecp.ecommerceproject.model.User;
+import com.ecp.ecommerceproject.other.ResponseTransfer;
 import com.ecp.ecommerceproject.services.UserService;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,16 +21,17 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    @PostMapping("/login")
-    ResponseEntity<String> loginUser (@RequestBody User user){
+    @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    ResponseTransfer loginUser (@RequestBody User user){
         String email = user.getEmail();
         String password = user.getPassword();
 
         boolean isAuthenticated = userService.verfiyUser(email, password);
         if (isAuthenticated){
-            return ResponseEntity.ok("Login Succesful!");
+            return new ResponseTransfer("Login Succesful!");
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login failed!");
+            return new ResponseTransfer("Login failed!");
         }
     }
 

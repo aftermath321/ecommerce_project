@@ -8,15 +8,18 @@ const LoginAndSignUp = (props: { state: boolean; toggle: Function }) => {
     email: "",
     password: "",
   });
-  const [loginMessage, setLoginMessage] = useState<String>("");
+  const [loginMessage, setLoginMessage] = useState<String>();
 
   const submitLogin = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
     login(loginForm).then((response) => {
-      console.log(response);
+      // if (response.ok) {
+      //   console.log("sdfasdf");
+      // }
+      console.log(response.json());
+      // setLoginMessage(response.text);
     });
-    
   };
 
   const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
