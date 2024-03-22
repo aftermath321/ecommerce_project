@@ -34,7 +34,7 @@ export async function postProduct(product: Product) {
   });
 }
 
-export async function searchProductByName(phrase: string){
+export async function searchProductByName(phrase: string | null){
     return fetch(`http:///localhost:8080/product/search?phrase=${phrase}`).then((response) => {
         if (!response.ok) {
           throw new Error(response.statusText);
