@@ -10,15 +10,14 @@ const LoginAndSignUp = (props: { state: boolean; toggle: Function }) => {
   });
   const [loginMessage, setLoginMessage] = useState<String>();
 
-  const submitLogin = (event: FormEvent<HTMLFormElement>): void => {
+  const submitLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     login(loginForm).then((response) => {
-      // if (response.ok) {
-      //   console.log("sdfasdf");
-      // }
-      console.log(response.json());
-      // setLoginMessage(response.text);
+      if (!response) {
+        throw new Error("Error with response");
+      }
+      setLoginMessage(response.text);
     });
   };
 

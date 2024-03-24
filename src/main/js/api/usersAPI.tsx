@@ -1,5 +1,9 @@
 import { UserForm } from "../../types/UserForm";
 
+interface JSONResponse {
+  text: string;
+}
+
 export async function getUsers() {
   return fetch("http://localhost:8080/user/all-users").then((response) => {
     if (!response.ok) {
@@ -26,15 +30,17 @@ export async function postUser(user: UserForm) {
     body: JSON.stringify(user),
   };
 
-  fetch("http://localhost:8080/user/save", requestOptions).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.statusText);
+  await fetch("http://localhost:8080/user/save", requestOptions).then(
+    (response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
     }
-    return response.json();
-  });
+  );
 }
 
-export async function login(user: UserForm): Promise<any> {
+export async function login(user: UserForm): Promise<JSONResponse> {
   const requestOptions = {
     method: "POST",
     headers: {
@@ -43,12 +49,20 @@ export async function login(user: UserForm): Promise<any> {
     body: JSON.stringify(user),
   };
 
-  fetch("http://localhost:8080/user/login", requestOptions).then((response) => {
+  try {
+    const response = await fetch(
+      "http://localhost:8080/user/login",
+      requestOptions
+    );
+
     if (!response.ok) {
-      return new Error(response.statusText);
-    } else {
-      // console.log(response.json());
-      return response.json();
+      throw new Error(response.statusText);
     }
-  });
+
+    const tempResponse: JSONResponse = await response.json();
+    return tempResponse;
+  } catch (error) {
+    console.error("Error logging in:", error);
+    throw new Error("Failed to log in.");
+  }
 }
