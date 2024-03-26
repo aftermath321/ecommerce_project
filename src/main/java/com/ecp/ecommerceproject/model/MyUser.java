@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @EnableAutoConfiguration
-public class User {
+public class MyUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,13 +17,13 @@ public class User {
     @Column
     private String password;
     @Column
-    private Role role;
+    private String role;
 
 
-    public User() {
+    public MyUser() {
     }
 
-    public User(Long id, String email, String password, Role role) {
+    public MyUser(Long id, String email, String password, String role) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -54,11 +54,11 @@ public class User {
         this.password = password;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return this.role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
     
@@ -72,5 +72,6 @@ public class User {
             ", role='" + getRole() + "'" +
             "}";
     }
+
    
 }

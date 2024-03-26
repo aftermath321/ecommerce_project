@@ -1,6 +1,6 @@
 package com.ecp.ecommerceproject.services;
 
-import com.ecp.ecommerceproject.model.User;
+import com.ecp.ecommerceproject.model.MyUser;
 import com.ecp.ecommerceproject.repositories.UserRepo;
 import org.springframework.stereotype.Service;
 
@@ -18,22 +18,22 @@ public class UserService {
     }
 
 
-    public User saveUser (User user){
+    public MyUser saveUser (MyUser user){
         return userRepo.save(user);
     }
 
-    public Optional<User> findByID (Long id){
+    public Optional<MyUser> findByID (Long id){
         return userRepo.findById(id);
     }
 
-    public List<User> findAll (){
+    public List<MyUser> findAll (){
         return userRepo.findAll();
 
     }
 
     public boolean verfiyUser(String email, String password)
     {
-        User user = userRepo.findByEmail(email);
+        MyUser user = userRepo.findByEmail(email);
         if (user != null && user.getPassword().equals(password)){
             return true;
         } else {
