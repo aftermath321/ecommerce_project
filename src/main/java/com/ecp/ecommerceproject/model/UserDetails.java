@@ -1,12 +1,12 @@
-package com.ecp.ecommerceproject.model;
+// package com.ecp.ecommerceproject.model;
 
 
-//@Entity
-public class UserDetails {
+// @Entity
+// public class UserDetails {
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Long id;
+//    private string role;
 
-
-}
+// }
