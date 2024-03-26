@@ -1,6 +1,6 @@
 package com.ecp.ecommerceproject.controller;
 
-import com.ecp.ecommerceproject.model.User;
+import com.ecp.ecommerceproject.model.MyUser;
 import com.ecp.ecommerceproject.other.ResponseTransfer;
 import com.ecp.ecommerceproject.services.UserService;
 
@@ -23,7 +23,7 @@ public class UserController {
     }
     @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    ResponseTransfer loginUser (@RequestBody User user){
+    ResponseTransfer loginUser (@RequestBody MyUser user){
         String email = user.getEmail();
         String password = user.getPassword();
 
@@ -37,18 +37,18 @@ public class UserController {
 
 
     @PostMapping("/save")
-    User saveUser (@RequestBody User user){
+    MyUser saveUser (@RequestBody MyUser user){
         return userService.saveUser(user);
 
     }
     @GetMapping("/all-users")
-    List<User> findAllUsers (){
+    List<MyUser> findAllUsers (){
         return userService.findAll();
 
     }
 
     @GetMapping("/{id}")
-    Optional<User> findByID(@PathVariable Long id){
+    Optional<MyUser> findByID(@PathVariable Long id){
         return userService.findByID(id);
 
     }

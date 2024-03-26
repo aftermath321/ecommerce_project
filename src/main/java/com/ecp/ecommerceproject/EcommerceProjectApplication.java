@@ -8,11 +8,12 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
+import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
@@ -35,13 +36,16 @@ public class EcommerceProjectApplication {
 				requests.requestMatchers("/checkout/*", "/panel/*").hasRole("USER");
 				requests.anyRequest().authenticated();
 			})
-			.formLogin(formLogin -> formLogin.permitAll())
+			.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
 			.build();
 				
 				
 				
 		
 	}
+private FormLoginConfigurer<HttpSecurity> extracted(FormLoginConfigurer<HttpSecurity> formLogin) {
+	return formLogin.permitAll();
+}
 
 	@Bean
 	public UserDetailsService userDetailsService() {
