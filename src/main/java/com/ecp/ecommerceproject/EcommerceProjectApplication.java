@@ -12,6 +12,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -36,7 +37,8 @@ public class EcommerceProjectApplication {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http
-			.authorizeHttpRequests(requests -> {
+		.csrf(AbstractHttpConfigurer::disable)
+		.authorizeHttpRequests(requests -> {
 				requests.requestMatchers("/*", "/product/*", "/user/*").permitAll();
 				requests.requestMatchers("/admin/*").hasRole("ADMIN");
 				requests.requestMatchers("/checkout/*", "/panel/*").hasRole("USER");
@@ -69,6 +71,8 @@ public class EcommerceProjectApplication {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+
 
 
 }
