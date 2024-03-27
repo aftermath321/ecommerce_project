@@ -4,7 +4,9 @@ import com.ecp.ecommerceproject.model.MyUser;
 import com.ecp.ecommerceproject.other.ResponseTransfer;
 import com.ecp.ecommerceproject.services.UserService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +17,10 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
     final UserService userService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     public UserController(UserService userService) {
@@ -51,6 +56,12 @@ public class UserController {
     Optional<MyUser> findByID(@PathVariable Long id){
         return userService.findByID(id);
 
+    }
+
+    @PostMapping("/sign-up")
+    public MyUser createUser(@RequestBody MyUser myUser){
+        myUser.setPassword(passwordEncoder.encode(myUser.getPassword()));
+        return userService.saveUser(myUser);
     }
     
 

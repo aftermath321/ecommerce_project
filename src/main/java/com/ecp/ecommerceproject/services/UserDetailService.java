@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.User;
 
 
 import com.ecp.ecommerceproject.model.MyUser;
 import com.ecp.ecommerceproject.repositories.UserRepo;
 
+@Service
 public class UserDetailService implements UserDetailsService{
 
 
@@ -37,10 +39,10 @@ public class UserDetailService implements UserDetailsService{
     }
 
 
-    private String[] getRole(MyUser user) {
-        if (user.getRole() == null){
-            return new String[]{ "USER"};
-        } 
+     private String[] getRole(MyUser user) {
+        if (user.getRole() == null) {
+            return new String[]{"USER"};
+        }
         return user.getRole().split(",");
     }
 

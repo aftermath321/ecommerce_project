@@ -3,8 +3,6 @@ package com.ecp.ecommerceproject.model;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
-import com.ecp.ecommerceproject.other.Role;
-import java.util.Objects;
 
 @Entity
 @EnableAutoConfiguration
@@ -18,16 +16,27 @@ public class MyUser {
     private String password;
     @Column
     private String role;
+    @Column
+    private String username;
 
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public MyUser() {
     }
 
-    public MyUser(Long id, String email, String password, String role) {
+    public MyUser(Long id, String email, String password, String role, String username) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.role = role;
+        this.username = username;
     }
 
     public Long getId() {
