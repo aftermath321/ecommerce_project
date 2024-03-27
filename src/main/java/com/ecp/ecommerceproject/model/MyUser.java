@@ -15,7 +15,7 @@ public class MyUser {
     @Column
     private String password;
     @Column
-    private String role = "USER";
+    private String role;
     @Column
     private String username;
 

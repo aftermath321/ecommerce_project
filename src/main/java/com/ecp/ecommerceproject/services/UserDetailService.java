@@ -39,10 +39,10 @@ public class UserDetailService implements UserDetailsService{
     }
 
 
-    private String[] getRole(MyUser user) {
-        if (user.getRole() == null){
-            return new String[]{ "USER"};
-        } 
+     private String[] getRole(MyUser user) {
+        if (user.getRole() == null) {
+            return new String[]{"USER"};
+        }
         return user.getRole().split(",");
     }
 
