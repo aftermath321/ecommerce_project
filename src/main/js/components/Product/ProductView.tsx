@@ -14,9 +14,9 @@ const ProductView = (props: { product: Product }) => {
   const [loadingState, setLoadingState] = useState<boolean>(true);
 
   useEffect(() => {
+    setLoadingState(false);
     getOpinionsOnProduct(props.product.id).then((data) => {
       SetReviews(data);
-      setLoadingState(false);
     });
   }, [props.product]);
 
@@ -102,7 +102,10 @@ const ProductView = (props: { product: Product }) => {
             onClick={() => setZoomed(false)}
           ></img>
 
-          <div className="top-0 fixed bg-black/50 z-40 w-[100vw] h-full"></div>
+          <div
+            className="top-0 fixed bg-black/50 z-40 w-[100vw] h-full"
+            onClick={() => setZoomed(false)}
+          ></div>
         </div>
       );
     } else {
@@ -120,7 +123,7 @@ const ProductView = (props: { product: Product }) => {
     return (
       <>
         {zoomImage()}
-        <div className=" w-[80vw] relative mx-auto left-0 right-0 my-10 flex flex-col">
+        <div className=" w-[80vw] min-h-[70vh] relative mx-auto left-0 right-0 my-10 flex flex-col">
           <div className="flex flex-col md:flex-row w-full justify-center md:gap-x-10 gap-x-3 gap-y-6 py-4">
             <img
               src={props.product?.imagePath}

@@ -38,8 +38,9 @@ public class EcommerceProjectApplication {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http
 		.csrf(AbstractHttpConfigurer::disable)
+		.cors(cors -> cors.disable())
 		.authorizeHttpRequests(requests -> {
-				requests.requestMatchers("/*", "/product/*", "/user/*").permitAll();
+				requests.requestMatchers("/*", "/product/*", "/user/*", "/opinion/*", "/opinion/product/*").permitAll();
 				requests.requestMatchers("/admin/*").hasRole("ADMIN");
 				requests.requestMatchers("/checkout/*", "/panel/*").hasRole("USER");
 				requests.anyRequest().authenticated();
