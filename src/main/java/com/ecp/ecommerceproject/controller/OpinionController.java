@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin
+// @CrossOrigin(origins = "http://localhost:7070")
 @RequestMapping("/opinion")
 public class OpinionController {
 
@@ -37,6 +37,7 @@ public class OpinionController {
 
     }
     @GetMapping("/product/{id}")
+    // @CrossOrigin(origins = "http://localhost:7070")
     List<Opinion> findByProductId(@PathVariable Long id){
         return opinionService.findByProductID(id);
     }
