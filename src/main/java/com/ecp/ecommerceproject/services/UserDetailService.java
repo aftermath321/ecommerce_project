@@ -3,7 +3,6 @@ package com.ecp.ecommerceproject.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,7 +28,7 @@ public class UserDetailService implements UserDetailsService {
             return User.builder()
                     .username(userObj.getEmail())
                     .password(userObj.getPassword())
-                    // .roles(getRole(userObj))
+                    .roles(getRole(userObj))
                     .build();
 
         } else {
@@ -37,17 +36,11 @@ public class UserDetailService implements UserDetailsService {
         }
     }
 
-    private Role getRole(MyUser user) {
-        if (user.getRole() == null) {
-            user.setRole(Role.USER);
-        }
-        return user.getRole();
+    private String getRole(MyUser user) {
+    if (user.getRole() == null) {
+    user.setRole(Role.USER);
     }
-
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return username -> userRepo.findByUser(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    return (user.getRole()).toString();
     }
 
 }

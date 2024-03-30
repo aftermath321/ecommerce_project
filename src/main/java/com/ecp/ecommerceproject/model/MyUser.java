@@ -9,12 +9,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Collection;
-import java.util.List;
-
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.ecp.ecommerceproject.other.Role;
@@ -42,8 +39,9 @@ public class MyUser implements UserDetails {
     private String username;
 
     @Override
-    public boolean isAccountNonExpired() {return true;
-        
+    public boolean isAccountNonExpired() {
+        return true;
+
     }
 
     @Override
@@ -66,7 +64,4 @@ public class MyUser implements UserDetails {
         return role.getAuthorities();
     }
 
- 
-
-   
 }
