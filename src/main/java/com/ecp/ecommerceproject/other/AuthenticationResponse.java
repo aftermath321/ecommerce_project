@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject.model;
+package com.ecp.ecommerceproject.other;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

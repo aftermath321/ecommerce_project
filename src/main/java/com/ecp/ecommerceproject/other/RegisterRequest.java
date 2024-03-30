@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject.controller;
+package com.ecp.ecommerceproject.other;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuthenticationRequest {
+public class RegisterRequest {
 
+    private String firstName;
+    private String lastname;
     private String email;
     private String password;
+
+    
 
 }

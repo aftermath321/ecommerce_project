@@ -39,7 +39,7 @@ public class UserDetailService implements UserDetailsService {
 
     private Role getRole(MyUser user) {
         if (user.getRole() == null) {
-            // return user.setRole('USER');
+            user.setRole(Role.USER);
         }
         return user.getRole();
     }

@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecp.ecommerceproject.model.AuthenticationResponse;
+import com.ecp.ecommerceproject.other.AuthenticationRequest;
+import com.ecp.ecommerceproject.other.AuthenticationResponse;
+import com.ecp.ecommerceproject.other.RegisterRequest;
 import com.ecp.ecommerceproject.services.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;
