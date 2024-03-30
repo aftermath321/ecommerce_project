@@ -1,12 +1,24 @@
 package com.ecp.ecommerceproject.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+
+import java.util.Collection;
+import java.util.List;
+
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.ecp.ecommerceproject.other.Role;
 
 
 @Entity
 @EnableAutoConfiguration
-public class MyUser {
+@Builder
+public class MyUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,7 +27,8 @@ public class MyUser {
     @Column
     private String password;
     @Column
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
     @Column
     private String username;
 
@@ -31,7 +44,7 @@ public class MyUser {
     public MyUser() {
     }
 
-    public MyUser(Long id, String email, String password, String role, String username) {
+    public MyUser(Long id, String email, String password, Role role, String username) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -63,11 +76,11 @@ public class MyUser {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return this.role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
     
@@ -81,6 +94,33 @@ public class MyUser {
             ", role='" + getRole() + "'" +
             "}";
     }
+
+    @Override
+    public boolean isAccountNonExpired() {return true;
+        
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return role.getAuthorities();
+    }
+
+ 
 
    
 }
