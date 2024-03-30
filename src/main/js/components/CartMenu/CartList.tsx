@@ -11,7 +11,6 @@ const CartList = (props: { product: Product[] }) => {
     for (let i = 0; i > props.product.length; i++) {
       tempPrice += props.product[i].price;
     }
-    // setPrice(tempPrice);
 
     if (props.product.length === 0) {
       return <div className="w-[100%] h-[150px]"></div>;
