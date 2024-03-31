@@ -24,7 +24,7 @@ public class Opinion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="productid")
+    @Column(name = "productid")
     private Long productid;
     @Column
     private String title;
@@ -35,9 +35,9 @@ public class Opinion {
     @Column
     private String author;
 
-//    @ManyToOne
-//    @JoinColumn
-//    private User user;
+    // @ManyToOne
+    // @JoinColumn
+    // private User user;
 
     @ManyToOne
     @JoinColumn
@@ -45,7 +45,5 @@ public class Opinion {
 
     @Column
     private double rating;
-    
 
-  
 }

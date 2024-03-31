@@ -18,40 +18,38 @@ public class ProductController {
 
     final ProductService productService;
 
-    public ProductController(ProductService productService)
-    {
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
     @GetMapping("/all-products")
-    List<Product> getAll(){
+    List<Product> getAll() {
 
         return productService.getAllProducts();
 
     }
 
     @PostMapping("/save")
-    Product saveProduct (@RequestBody Product product){
+    Product saveProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
     }
 
-
     @GetMapping("/lookup")
-    List<Product> findByName (@RequestParam String phrase){
+    List<Product> findByName(@RequestParam String phrase) {
         return productService.findByName(phrase);
 
     }
 
     @GetMapping("/{id}")
-    Optional<Product> getByID (@PathVariable Long id){
+    Optional<Product> getByID(@PathVariable Long id) {
         return productService.findById(id);
 
     }
 
     @GetMapping("/search")
-    ResponseEntity<List<Product>> searchProducts(@RequestParam("phrase") String phrase){
+    ResponseEntity<List<Product>> searchProducts(@RequestParam("phrase") String phrase) {
         Optional<List<Product>> searchResult = productService.searchProduct(phrase);
-         if (searchResult.isPresent()) {
+        if (searchResult.isPresent()) {
             return ResponseEntity.ok(searchResult.get());
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No products found with the provided phrase");

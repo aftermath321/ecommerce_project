@@ -8,37 +8,36 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-// @CrossOrigin(origins = "http://localhost:7070")
+@CrossOrigin(origins = "http://localhost:7070")
 @RequestMapping("/opinion")
 public class OpinionController {
 
     final OpinionService opinionService;
 
-
-    public OpinionController(OpinionService opinionService)
-    {
+    public OpinionController(OpinionService opinionService) {
         this.opinionService = opinionService;
     }
 
     @PostMapping("/save")
-    Opinion saveOpinion (@RequestBody Opinion opinion){
+    Opinion saveOpinion(@RequestBody Opinion opinion) {
         return opinionService.save(opinion);
     }
 
     @GetMapping("/all-opinions")
-    List<Opinion> getAllOpinions(){
+    List<Opinion> getAllOpinions() {
         return opinionService.findAll();
 
     }
 
     @GetMapping("/{id}")
-    Optional<Opinion> findById(@PathVariable Long id){
+    Optional<Opinion> findById(@PathVariable Long id) {
         return opinionService.findByID(id);
 
     }
+
     @GetMapping("/product/{id}")
-    // @CrossOrigin(origins = "http://localhost:7070")
-    List<Opinion> findByProductId(@PathVariable Long id){
+    @CrossOrigin(origins = "http://localhost:7070")
+    List<Opinion> findByProductId(@PathVariable Long id) {
         return opinionService.findByProductID(id);
     }
 

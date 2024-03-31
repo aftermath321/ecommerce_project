@@ -31,13 +31,5 @@ public class UserService {
 
     }
 
-    public boolean verfiyUser(String email, String password)
-    {
-        MyUser user = userRepo.findByEmail(email);
-        if (user != null && user.getPassword().equals(password)){
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 }

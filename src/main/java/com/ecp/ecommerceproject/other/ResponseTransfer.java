@@ -1,8 +1,8 @@
 package com.ecp.ecommerceproject.other;
 
 public class ResponseTransfer {
-    private String text; 
-    
+    private String text;
+
     public ResponseTransfer(String text) {
         this.text = text;
     }
