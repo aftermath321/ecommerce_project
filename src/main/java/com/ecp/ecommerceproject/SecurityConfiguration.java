@@ -26,7 +26,7 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(requests -> {
-                    requests.requestMatchers("/*", "/product/*", "/user/*", "/opinion/*", "/opinion/product/*")
+                    requests.requestMatchers("/*", "/product/*", "/user/*", "/opinion/*", "/opinion/product/*", "/user/register")
                             .permitAll();
                     requests.requestMatchers("/admin/*").hasRole("ADMIN");
                     requests.requestMatchers("/checkout/*", "/panel/*").hasRole("USER");

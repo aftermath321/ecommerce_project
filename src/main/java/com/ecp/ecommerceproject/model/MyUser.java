@@ -32,8 +32,8 @@ public class MyUser implements UserDetails {
     private String email;
     @Column
     private String password;
-    @Column
     @Enumerated(EnumType.STRING)
+    @Column
     private Role role;
     @Column
     private String username;
@@ -61,7 +61,8 @@ public class MyUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return role.getAuthorities();
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
     }
 
 }
