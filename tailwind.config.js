@@ -7,7 +7,8 @@ export default {
     extend: {
       backgroundImage: {
         "home-office": "url('./src/main/static/public/homeOF.jpg')",
-        "about": "url('./src/main/static/public/about.jpg')",
+        about: "url('./src/main/static/public/about.jpg')",
+        banner: "url('./src/main/static/public/office5.jpg')",
         // "white-overlay"
       },
       textShadow: {
