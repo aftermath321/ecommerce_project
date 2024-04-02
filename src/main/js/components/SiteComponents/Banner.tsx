@@ -2,11 +2,9 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="w-[100%] h-[70vh] h-max-[800px] relative ">
+    <div className="w-[100%] h-[60vh] h-max-[700px] relative ">
       <div className="flex relative z-10 flex-col gap-4 h-[80%] justify-center items-center ">
-        <h1 className="text-xl text-white p-2">
-          Our recommendation
-        </h1>
+        <h1 className="text-xl text-white p-2">Our recommendation</h1>
         <h1 className="text-5xl text-white p-4">
           Browse the newest collection!
         </h1>
