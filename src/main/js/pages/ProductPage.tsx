@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import HeaderLight from "../components/HeadAndFoot/HeaderLight";
 import ProductView from "../components/Product/ProductView";
 import Footer from "../components/HeadAndFoot/Footer";
+import Banner from "../components/SiteComponents/Banner";
 
 export type Params = {
   id: string;
@@ -39,6 +40,7 @@ const ProductPage = () => {
       <>
         <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} />
         <ProductView product={product} />
+        <Banner />
 
         <Footer />
       </>

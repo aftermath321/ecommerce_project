@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CartItem from "./CartItem";
 import { Product } from "../../../types/Product";
+import { Link } from "react-router-dom";
 
 const CartList = (props: { product: Product[] }) => {
   let [price] = useState<number>(0);
@@ -19,9 +20,11 @@ const CartList = (props: { product: Product[] }) => {
         <ul>
           {props.product.map((item) => {
             return (
-              <li key={item.id}>
-                <CartItem product={item} />
-              </li>
+              <Link to={"/product/" + item.id} className="cursor-pointer">
+                <li key={item.id}>
+                  <CartItem product={item} />
+                </li>
+              </Link>
             );
           })}
         </ul>
