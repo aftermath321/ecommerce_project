@@ -1,12 +1,12 @@
 const Banner = () => {
   return (
     <div className="w-[100%] h-[60vh] h-max-[700px] relative ">
-      <div className="flex relative z-10 flex-col gap-6 h-[80%] justify-center items-center ">
+      <div className="flex relative z-10 flex-col gap-2 md:gap-4 lg:gap-6 h-[80%] justify-center items-center ">
         <h1 className="text-xl text-white p-2">Our recommendation</h1>
-        <h1 className="text-8xl font-bold text-white p-6">
+        <h1 className="text-4xl md:text-8xl font-bold text-white p-6 text-center md:text-start">
           Browse the newest collection!
         </h1>
-        <button className="bg-yellow-400 md:px-10  p-6 md:p-2 w-[150px] md:w-[250px] hover:bg-yellow-600 duration-200 rounded-md text-black font-light text-xl cursor-pointer shadow-button">
+        <button className="bg-yellow-400 md:px-10  p-4 md:p-2 w-[150px] md:w-[250px] hover:bg-yellow-600 duration-200 rounded-md text-black font-light text-xl cursor-pointer shadow-button">
           Explore
         </button>
       </div>
