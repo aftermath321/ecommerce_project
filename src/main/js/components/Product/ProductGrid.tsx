@@ -83,7 +83,7 @@ const ProductGrid = () => {
           <h2 className="text-xl justify-center items-center flex font-bold">
             New products
           </h2>
-          <h1 className=" text-5xl justify-center items-center flex font-extrabold">
+          <h1 className=" text-5xl justify-center items-center flex font-extrabold text-center">
             Make your life comfortable
           </h1>
         </div>

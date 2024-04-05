@@ -5,6 +5,7 @@ import Features from "../components/SiteComponents/Features";
 import ProductGrid from "../components/Product/ProductGrid";
 import { useState } from "react";
 import Banner from "../components/SiteComponents/Banner";
+import BrowseCategory from "../components/SiteComponents/BrowseCategory";
 
 function MainPage() {
   const [mobile, setMobile] = useState<boolean>(false);
@@ -13,6 +14,7 @@ function MainPage() {
     <>
       <HeaderDark mobileMenu={mobile} mobileMenuSetter={setMobile} />
       <Main />
+      <BrowseCategory />
       <ProductGrid />
       <Features />
       <Banner />
