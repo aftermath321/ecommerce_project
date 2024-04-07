@@ -41,9 +41,9 @@ const ProductGrid = () => {
       return <>Loading</>;
     } else if (!isLoading && renderMore) {
       return (
-        <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
-          <ul className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
-            {productList.map((item) => {
+        <div className="w-[100vw] lg:w-[95vw]   flex flex-col text-center gap-y-6 p-2 md:p-4">
+          <ul className="w-[100%] lg:w-[85%] grid md:p-y-4  gap-4 md:gap-y-8 lg:gap-y-16 grid-cols-2 md:grid-cols-3 content-center self-center auto-rows-max">
+            {productList.slice(0, 12).map((item) => {
               return (
                 <li key={item.id}>
                   <Link to={"/product/" + item.id}>
@@ -57,11 +57,11 @@ const ProductGrid = () => {
       );
     } else {
       return (
-        <div className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
-          <ul className="w-[100%] h-[90%] flex justify-center flex-wrap  text-center p-4  gap-y-8 gap-x-32  bg-white">
-            {productList.slice(0, 10).map((item) => {
+        <div className="w-[100vw] lg:w-[95vw]   flex flex-col text-center gap-y-6 p-2 md:p-4">
+          <ul className="w-[100%] lg:w-[85%] grid md:p-y-4  gap-4 md:gap-y-8 lg:gap-y-16 grid-cols-2 md:grid-cols-3 content-center self-center auto-rows-max">
+            {productList.slice(0, 6).map((item) => {
               return (
-                <li key={item.id}>
+                <li key={item.id} >
                   <Link to={"/product/" + item.id}>
                     <ProductCard product={item} />
                   </Link>
@@ -75,7 +75,7 @@ const ProductGrid = () => {
   };
 
   return (
-    <div className="w-full ">
+    <div className="w-full p-4">
       {/* Wrapper */}
       <div className="h-full w-[95%]  flex flex-col mx-auto left-0 right-0 items-center">
         {/* Title */}
