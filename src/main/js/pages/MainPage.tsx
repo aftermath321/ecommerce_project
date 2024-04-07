@@ -14,9 +14,9 @@ function MainPage() {
     <>
       <HeaderDark mobileMenu={mobile} mobileMenuSetter={setMobile} />
       <Main />
-      <BrowseCategory />
       <ProductGrid />
       <Features />
+      <BrowseCategory />
       <Banner />
       <Footer />
     </>
