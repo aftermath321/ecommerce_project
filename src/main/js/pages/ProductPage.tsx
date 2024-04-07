@@ -31,6 +31,7 @@ const ProductPage = () => {
         <div className="w-screen h-[50vh] text-5xl justify-center flex items-center">
           No such product!
         </div>
+        <Banner />
 
         <Footer />
       </>
