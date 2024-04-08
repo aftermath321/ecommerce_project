@@ -12,7 +12,7 @@ const SearchResult = () => {
 
   useEffect(() => {
     SetURLSearchParams(search);
-    URLSearchParams.forEach((value: string, key: string) => {
+    URLSearchParams.forEach((value: string) => {
       searchProductByName(value).then((data) => {
         setProductList(data as Product[]);
       });
