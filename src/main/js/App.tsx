@@ -9,10 +9,12 @@ import AdminPage from "./pages/AdminPage";
 import AddProductPage from "./pages/AddProductPage";
 import AboutPage from "./pages/AboutPage";
 import SearchPage from "./pages/SearchPage";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/product/search" element={<SearchPage />} />
@@ -23,7 +25,7 @@ function App() {
         <Route path="/admin/addproduct" element={<AddProductPage />} />
         <Route path="/about-us" element={<AboutPage />} />
       </Routes>
-    </div>
+    </Provider>
   );
 }
 
