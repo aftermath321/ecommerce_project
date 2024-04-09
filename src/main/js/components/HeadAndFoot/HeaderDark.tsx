@@ -6,7 +6,6 @@ import { SetStateAction, useState } from "react";
 import CartMenu from "../CartMenu/CartMenu";
 import MobileMenu from "../Mobile/MobileMenu";
 import LoginAndSignUp from "./LoginAndSignUp";
-import { Popover } from "@headlessui/react";
 
 const HeaderDark = (props: {
   mobileMenu: boolean;

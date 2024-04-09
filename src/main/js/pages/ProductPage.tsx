@@ -40,9 +40,10 @@ const ProductPage = () => {
     return (
       <>
         <HeaderLight mobileMenu={mobile} mobileMenuSetter={setMobile} />
-        <ProductView product={product} />
-        <Banner />
-
+        <div className="flex flex-col gap-y-10">
+          <ProductView product={product} />
+          <Banner />
+        </div>
         <Footer />
       </>
     );
