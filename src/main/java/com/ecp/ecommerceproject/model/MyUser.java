@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.security.core.GrantedAuthority;
@@ -37,6 +38,9 @@ public class MyUser implements UserDetails {
     private Role role;
     @Column
     private String username;
+   
+    @OneToMany(mappedBy = "my_user")
+    private List<Opinion> opinions;
 
     @Override
     public boolean isAccountNonExpired() {
