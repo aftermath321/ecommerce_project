@@ -3,7 +3,7 @@ const AboutContent = () => {
     <div className="bg-white  w-[100%]">
       <div className="flex flex-row  h-[100%] justify-center gap-[50px] ">
         <div className="h-[100%] w-[70vw]  justify-center text-center flex flex-col py-4">
-          <div className=" md:w-[500px] h-[80%] self-center gap-4 ">
+          <div className=" md:w-[500px] h-[70vh] lg:h-[80%] self-center gap-4 ">
             <h1 className="text-5xl my-4">About us</h1>
             <p className="text-xl py-4">
               Welcome to HomeOffice, your destination for quality office

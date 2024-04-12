@@ -3,13 +3,13 @@ import RatingSystem from "../Reviews/RatingSystem";
 
 const ProductCard = (props: { product: Product }) => {
   return (
-    <div className="bg-white w-[100%] h-[300px] md:h-[350px] lg:h-[500px]  place-self-center shadow-border hover:scale-105 duration-300">
+    <div className="bg-white w-[100%] h-[300px] md:h-[350px] lg:h-[500px]  place-self-center shadow-border hover:scale-[102%] duration-300">
       <div
         className="w-[100%] h-[60%] md:h-[65%] lg:h-[75%] flex flex-col justify-center
         items-center relative overflow-hidden"
       >
         <img
-          className="inset-0 h-[100%] absolute w-full brightness-75 object-cover rounded-lg"
+          className="inset-0 object-cover h-[100%] absolute w-full brightness-75 rounded-lg"
           src={props.product.imagePath}
         />
       </div>

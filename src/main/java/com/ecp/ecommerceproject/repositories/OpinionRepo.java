@@ -13,6 +13,6 @@ public interface OpinionRepo extends JpaRepository<Opinion, Long> {
 
     List<Opinion> findAll();
 
-    @Query("SELECT o FROM Opinion o WHERE o.productid = :productid")
-    List<Opinion> findByProductID(@Param("productid") Long productid);
+    @Query("SELECT o FROM Opinion o WHERE o.product = :product")
+    List<Opinion> findByProductID(@Param("product") Long product);
 }

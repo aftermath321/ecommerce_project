@@ -9,6 +9,8 @@ import lombok.ToString;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
 
 @Entity
@@ -24,23 +26,20 @@ public class Opinion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "productid")
-    private Long productid;
     @Column
     private String title;
     @Column
     private String body;
     @Column
     private LocalDate posted;
-    @Column
-    private String author;
-
-    // @ManyToOne
-    // @JoinColumn
-    // private User user;
+    
+    @JoinColumn(name = "my_user")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
+    private MyUser my_user;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "product")
     private Product product;
 
     @Column
