@@ -47,7 +47,7 @@ public class Order {
     @Column
     private double price;
     @Column
-    @OneToMany(mappedBy = "orderId")
+    @OneToMany(mappedBy = "order")
     private List<ItemOrder> orderedItem;
     @Column
     @Enumerated(EnumType.STRING)

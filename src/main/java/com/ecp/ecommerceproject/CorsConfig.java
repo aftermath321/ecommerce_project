@@ -1,4 +1,6 @@
-package com.ecp.ecommerceproject.configs;
+package com.ecp.ecommerceproject;
+
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
