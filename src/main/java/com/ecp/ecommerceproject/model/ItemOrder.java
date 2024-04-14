@@ -41,6 +41,6 @@ public class ItemOrder {
     private List<Product> productId;
 
     @ManyToOne
-    private Order orderId;
+    private Order order;
 
 }

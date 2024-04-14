@@ -1,4 +1,6 @@
-package com.ecp.ecommerceproject.configs;
+package com.ecp.ecommerceproject;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
