@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject;
+package com.ecp.ecommerceproject.configs;
 
 import java.io.IOException;
 

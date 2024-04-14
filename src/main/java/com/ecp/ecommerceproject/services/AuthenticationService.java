@@ -6,11 +6,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.ecp.ecommerceproject.enums.Role;
 import com.ecp.ecommerceproject.model.MyUser;
 import com.ecp.ecommerceproject.other.AuthenticationRequest;
 import com.ecp.ecommerceproject.other.AuthenticationResponse;
 import com.ecp.ecommerceproject.other.RegisterRequest;
-import com.ecp.ecommerceproject.other.Role;
 import com.ecp.ecommerceproject.repositories.UserRepo;
 
 import lombok.RequiredArgsConstructor;

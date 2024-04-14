@@ -17,19 +17,6 @@ public class UserController {
     
     final private AuthenticationService authenticationService;
 
-    // @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
-    // @ResponseBody
-    // ResponseTransfer loginUser (@RequestBody MyUser user){
-    // String email = user.getEmail();
-    // String password = user.getPassword();
-
-    // boolean isAuthenticated = userService.verfiyUser(email, password);
-    // if (isAuthenticated){
-    // return new ResponseTransfer("Login Succesful!");
-    // } else {
-    // return new ResponseTransfer("Login failed!");
-    // }
-    // }
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
