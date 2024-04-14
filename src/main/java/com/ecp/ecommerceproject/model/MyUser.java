@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.ecp.ecommerceproject.other.Role;
+import com.ecp.ecommerceproject.enums.Role;
 
 @Entity
 @EnableAutoConfiguration

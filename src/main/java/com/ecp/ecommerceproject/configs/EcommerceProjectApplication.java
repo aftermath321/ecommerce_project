@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject;
+package com.ecp.ecommerceproject.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -24,14 +24,14 @@ import lombok.RequiredArgsConstructor;
 @EntityScan(basePackages = { "com.ecp.ecommerceproject.model" })
 public class EcommerceProjectApplication {
 
-	@Autowired
-	final private UserDetailService userDetailService;
+    @Autowired
+    final private UserDetailService userDetailService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(EcommerceProjectApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(EcommerceProjectApplication.class, args);
+    }
 
-	 @Bean
+    @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailService);
@@ -40,7 +40,7 @@ public class EcommerceProjectApplication {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager (AuthenticationConfiguration config) throws Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 

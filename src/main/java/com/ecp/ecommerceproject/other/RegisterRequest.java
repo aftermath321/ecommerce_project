@@ -1,5 +1,7 @@
 package com.ecp.ecommerceproject.other;
 
+import com.ecp.ecommerceproject.enums.Role;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

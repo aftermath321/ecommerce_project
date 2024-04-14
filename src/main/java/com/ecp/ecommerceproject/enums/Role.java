@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject.other;
+package com.ecp.ecommerceproject.enums;
 
 
 public enum Role {
