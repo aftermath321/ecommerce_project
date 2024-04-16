@@ -42,6 +42,9 @@ public class MyUser implements UserDetails {
     @OneToMany(mappedBy = "my_user")
     private List<Opinion> opinions;
 
+    @OneToMany(mappedBy = "customerId")
+    private List<MyOrder> orders;
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

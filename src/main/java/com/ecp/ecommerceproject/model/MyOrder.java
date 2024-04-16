@@ -17,6 +17,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,34 +29,38 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Setter
+@EnableAutoConfiguration
 @Getter
-@AllArgsConstructor
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 @Builder
-@EnableAutoConfiguration
-public class Order {
+public class MyOrder {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
-    @Column
-    private String customerID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long orderId;
+
     @Column
     private LocalDate dateOrdered;
     @Column
     private LocalDate dateSent;
     @Column
     private double price;
-    @Column
-    @OneToMany(mappedBy = "order")
-    private List<ItemOrder> orderedItem;
+
     @Column
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
     @Column
     private String shippingAddress;
+
+    @OneToMany(mappedBy = "orderId")
+    private List<ItemOrder> itemsOrdered;
+    
+    @ManyToOne
+    @JoinColumn(name = "orders")
+    private MyUser customerId;
 
 
 }
