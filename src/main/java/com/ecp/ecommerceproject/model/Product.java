@@ -42,8 +42,8 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Opinion> opinions;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<ItemOrder> itemOrder;
+    @OneToMany(mappedBy = "product")
+    private List<ItemOrder> productsOrdered;
     
 
 }
