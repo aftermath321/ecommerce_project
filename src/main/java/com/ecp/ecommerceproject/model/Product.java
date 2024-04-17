@@ -9,6 +9,8 @@ import lombok.ToString;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -38,11 +40,16 @@ public class Product {
     private String imagePath;
     @Column
     private String description;
+    @Column
+    private Long quantityAvailable;
+    
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Opinion> opinions;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<ItemOrder> productsOrdered;
     
 

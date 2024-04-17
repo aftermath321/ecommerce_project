@@ -45,6 +45,9 @@ public class MyUser implements UserDetails {
     @OneToMany(mappedBy = "customerId")
     private List<MyOrder> orders;
 
+    @OneToOne(mappedBy = "myUser", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private MyUserDetails myUserDetails;
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
