@@ -34,7 +34,7 @@ public class Opinion {
     private LocalDate posted;
     
     @JoinColumn(name = "my_user")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private MyUser my_user;
 
