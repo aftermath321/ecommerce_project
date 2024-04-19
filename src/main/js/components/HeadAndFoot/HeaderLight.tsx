@@ -46,7 +46,7 @@ const HeaderLight = (props: {
       {profileMenu()}
       {mobileMenu()}
       {/* Mobile Display */}
-      <div className="flex flex-row lg:hidden bg-white border-white/10 border-b-2 border-solid sticky z-10 top-0 w-full h-[75px]">
+      <div className="flex flex-row lg:hidden bg-white border-white/10 border-b-2 border-solid sticky top-0 w-full h-[75px] z-50">
         <div className="p-4 font-extrabold text-black text-3xl cursor-pointer group-hover:scale-110 duration-200">
           <Link to="/">H</Link>
         </div>

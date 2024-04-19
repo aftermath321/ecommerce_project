@@ -124,11 +124,11 @@ const ProductView = (props: { product: Product }) => {
     return (
       <>
         {zoomImage()}
-        <div className=" w-[80vw] h-auto md:min-h-[100vh] lg:min-h-[70vh] relative mx-auto left-0 right-0 my-10 inline-flex flex-col ">
+        <div className=" w-[80vw] py-10 md:min-h-[100vh] lg:min-h-[90vh] relative mx-auto left-0 right-0 my-10 flex flex-col ">
           <div className="flex flex-col md:flex-row w-full justify-center md:gap-x-10 gap-x-3 gap-y-6 py-4">
             <img
               src={props.product?.imagePath}
-              className="w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] inset-0 object-contain hover:z-20 hover:scale-125 duration-300 my-4 shadow-md"
+              className="w-[300px] h-[300px] lg:w-[450px] lg:h-[450px] inset-0 object-contain hover:z-20 hover:scale-[] duration-300 my-4 shadow-md"
               onClick={() => setZoomed(true)}
             />
             <div className="w-[90vw] md:w-[550px] md:h-[450px] flex flex-col gap-3 ">
