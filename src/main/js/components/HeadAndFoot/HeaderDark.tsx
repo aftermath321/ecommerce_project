@@ -36,7 +36,7 @@ const HeaderDark = (props: {
       <LoginAndSignUp toggle={() => setProfileState} state={profileState} />
       {mobileMenu()}
       {/* Mobile Display */}
-      <div className="flex flex-row md:hidden border-white/10 border-b-2 border-solid absolute z-10 top-0 w-full h-[75px]">
+      <div className="flex flex-row md:hidden border-white/10 border-b-2 border-solid absolute top-0 w-full h-[75px] z-50">
         <div className="p-4 font-extrabold text-white text-3xl cursor-pointer group-hover:scale-110 duration-200">
           H
         </div>
@@ -57,7 +57,7 @@ const HeaderDark = (props: {
       </div>
 
       {/* Normal Display */}
-      <div className="hidden absolute z-10 top-0 w-full bg-black/10 h-[75px] md:flex flex-row justify-between p-4 border-white/10 border-b-2 border-solid  font-light">
+      <div className="hidden absolute top-0 w-full bg-black/10 h-[75px] md:flex flex-row justify-between p-4 border-white/10 border-b-2 border-solid  font-light z-50">
         {/* Left */}
         <div className="left-0 flex flex-row">
           <div className="group flex flex-row">

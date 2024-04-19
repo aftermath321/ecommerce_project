@@ -1,6 +1,7 @@
 package com.ecp.ecommerceproject.controller;
 
 import com.ecp.ecommerceproject.model.Opinion;
+import com.ecp.ecommerceproject.model.Product;
 import com.ecp.ecommerceproject.services.OpinionService;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,14 +31,14 @@ public class OpinionController {
     }
 
     @GetMapping("/{id}")
-    Optional<Opinion> findById(@PathVariable Long id) {
+    Optional<Opinion> findById(@PathVariable Product id) {
         return opinionService.findByID(id);
 
     }
 
     @GetMapping("/product/{id}")
     @CrossOrigin(origins = "http://localhost:7070")
-    List<Opinion> findByProductId(@PathVariable Long id) {
+    List<Opinion> findByProductId(@PathVariable Product id) {
         return opinionService.findByProductID(id);
     }
 
