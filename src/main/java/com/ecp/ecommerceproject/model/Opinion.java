@@ -37,9 +37,10 @@ public class Opinion {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private MyUser my_user;
-
+    
     @ManyToOne
     @JoinColumn(name = "product")
+    @JsonIgnore
     private Product product;
 
     @Column

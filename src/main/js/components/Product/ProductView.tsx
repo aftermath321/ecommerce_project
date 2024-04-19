@@ -16,6 +16,7 @@ const ProductView = (props: { product: Product }) => {
   useEffect(() => {
     setLoadingState(false);
     getOpinionsOnProduct(props.product.id).then((data) => {
+      console.log(data);
       SetReviews(data);
     });
   }, [props.product]);

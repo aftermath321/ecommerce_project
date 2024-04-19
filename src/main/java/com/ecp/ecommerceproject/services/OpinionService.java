@@ -1,6 +1,7 @@
 package com.ecp.ecommerceproject.services;
 
 import com.ecp.ecommerceproject.model.Opinion;
+import com.ecp.ecommerceproject.model.Product;
 import com.ecp.ecommerceproject.repositories.OpinionRepo;
 import org.springframework.stereotype.Service;
 
@@ -26,12 +27,12 @@ public class OpinionService {
 
     }
 
-    public Optional<Opinion> findByID(Long id) {
+    public Optional<Opinion> findByID(Product id) {
         return opinionRepo.findById(id);
 
     }
 
-    public List<Opinion> findByProductID(Long id) {
+    public List<Opinion> findByProductID(Product id) {
         return opinionRepo.findByProductID(id);
     }
 

@@ -44,10 +44,9 @@ public class Product {
     private Long quantityAvailable;
     
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
-    @JsonIgnore
+    @OneToMany(mappedBy = "product")
     private List<Opinion> opinions;
-
+    
     @OneToMany(mappedBy = "product")
     @JsonIgnore
     private List<ItemOrder> productsOrdered;
