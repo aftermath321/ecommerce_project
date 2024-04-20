@@ -25,8 +25,6 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
 
     Optional<Product> findProductByReleased(Date date);
 
-    Optional<Product> findProductByRating(double rating);
-
     @Query(value = "SELECT * FROM Product ORDER BY price DESC limit 10", nativeQuery = true)
     List<Product> findProductsTop6();
 

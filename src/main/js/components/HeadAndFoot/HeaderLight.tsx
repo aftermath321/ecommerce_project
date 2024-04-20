@@ -71,10 +71,10 @@ const HeaderLight = (props: {
         {/* Left */}
         <div className="left-0 flex flex-row">
           <div className="group flex flex-row">
-            <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
+            <div className="px-2 font-extrabold text-black text-4xl cursor-pointer  duration-200">
               <Link to="/">H</Link>
             </div>
-            <div className="p-4 font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
+            <div className="px-2 self-center font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
               <Link to="/"> HomeOFFFICE</Link>
             </div>
           </div>

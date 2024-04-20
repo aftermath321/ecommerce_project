@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.AccessLevel;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
@@ -34,7 +35,8 @@ public class Product {
     private LocalDate released;
     @Column
     private double price;
-    @Column
+    @Transient
+    @Getter(AccessLevel.NONE)
     private double rating;
     @Column
     private String imagePath;
@@ -50,6 +52,18 @@ public class Product {
     @OneToMany(mappedBy = "product")
     @JsonIgnore
     private List<ItemOrder> productsOrdered;
+
+
+    public Double getRating (){
+        if (opinions != null && !opinions.isEmpty()){
+            double totalRating = 0.0;
+            for (Opinion opinion : opinions){
+                totalRating += opinion.getRating();
+            }
+            return totalRating/opinions.size();
+        }
+        return 0.0;
+    }
     
 
 }

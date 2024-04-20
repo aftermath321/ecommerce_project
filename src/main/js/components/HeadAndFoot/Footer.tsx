@@ -13,10 +13,10 @@ const Footer = () => {
         <div className="flex flex-col  items-center justify-evenly gap-4">
           <Link to="/">
             <div className="group flex flex-row flex-start ">
-              <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
+              <div className="px-2 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
                 H
               </div>
-              <div className="p-4 font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
+              <div className="px-2 font-extrabold self-center = useContext(second) text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
                 HomeOFFFICE
               </div>
             </div>
@@ -24,25 +24,25 @@ const Footer = () => {
           <ul className="flex flex-row gap-4">
             <li>
               <AiFillFacebook
-                className="text-gray-500 hover:text-yellow-500"
+                className="text-gray-500 hover:text-yellow-500 cursor-pointer"
                 size={30}
               />
             </li>
             <li>
               <AiOutlineInstagram
-                className="text-gray-500 hover:text-yellow-500"
+                className="text-gray-500 hover:text-yellow-500 cursor-pointer"
                 size={30}
               />
             </li>
             <li>
               <AiFillTwitterCircle
-                className="text-gray-500 hover:text-yellow-500"
+                className="text-gray-500 hover:text-yellow-500 cursor-pointer"
                 size={30}
               />
             </li>
             <li>
               <AiFillYoutube
-                className="text-gray-500 hover:text-yellow-500"
+                className="text-gray-500 hover:text-yellow-500 cursor-pointer"
                 size={30}
               />
             </li>
