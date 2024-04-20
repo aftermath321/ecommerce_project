@@ -13,10 +13,10 @@ const Footer = () => {
         <div className="flex flex-col  items-center justify-evenly gap-4">
           <Link to="/">
             <div className="group flex flex-row flex-start ">
-              <div className="p-4 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
+              <div className="px-2 font-extrabold text-black text-4xl cursor-pointer group-hover:scale-110 duration-200">
                 H
               </div>
-              <div className="p-4 font-extrabold text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
+              <div className="px-2 font-extrabold self-center = useContext(second) text-black text-2xl cursor-pointer group-hover:text-yellow-500 duration-200">
                 HomeOFFFICE
               </div>
             </div>
