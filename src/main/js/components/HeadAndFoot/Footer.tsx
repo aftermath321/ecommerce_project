@@ -24,25 +24,25 @@ const Footer = () => {
           <ul className="flex flex-row gap-4">
             <li>
               <AiFillFacebook
-                className="text-gray-500 hover:text-yellow-500"
+                className="text-gray-500 hover:text-yellow-500 cursor-pointer"
                 size={30}
               />
             </li>
             <li>
               <AiOutlineInstagram
-                className="text-gray-500 hover:text-yellow-500"
+                className="text-gray-500 hover:text-yellow-500 cursor-pointer"
                 size={30}
               />
             </li>
             <li>
               <AiFillTwitterCircle
-                className="text-gray-500 hover:text-yellow-500"
+                className="text-gray-500 hover:text-yellow-500 cursor-pointer"
                 size={30}
               />
             </li>
             <li>
               <AiFillYoutube
-                className="text-gray-500 hover:text-yellow-500"
+                className="text-gray-500 hover:text-yellow-500 cursor-pointer"
                 size={30}
               />
             </li>
