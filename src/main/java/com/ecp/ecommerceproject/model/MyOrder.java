@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import com.ecp.ecommerceproject.domain.entity.MyUser;
 import com.ecp.ecommerceproject.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

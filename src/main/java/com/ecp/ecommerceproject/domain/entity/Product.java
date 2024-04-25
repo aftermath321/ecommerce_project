@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject.model;
+package com.ecp.ecommerceproject.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,10 +10,16 @@ import lombok.AccessLevel;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import com.ecp.ecommerceproject.domain.valueobjects.Image;
+import com.ecp.ecommerceproject.domain.valueobjects.Money;
+import com.ecp.ecommerceproject.domain.valueobjects.Producer;
+import com.ecp.ecommerceproject.domain.valueobjects.Rating;
+import com.ecp.ecommerceproject.model.ItemOrder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDate;
 import java.util.List;
+
 
 @Entity
 @EnableAutoConfiguration
@@ -25,24 +31,35 @@ import java.util.List;
 public class Product {
 
     @Id
+    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+
+    @Column(nullable = false)
     private String name;
-    @Column
-    private String producer;
-    @Column
+
+    @Column(nullable = false)
+    private Producer producer;
+
+    @Column(nullable = false)
     private LocalDate released;
-    @Column
-    private double price;
+
+    @Column(nullable = false)
+    @Embedded
+    private Money price;
+
     @Transient
     @Getter(AccessLevel.NONE)
-    private double rating;
+    @Embedded
+    private Rating rating;
+
     @Column
-    private String imagePath;
+    private Image imagePath;
+
     @Column
     private String description;
-    @Column
+
+    @Column (nullable = false)
     private Long quantityAvailable;
     
 
@@ -54,15 +71,20 @@ public class Product {
     private List<ItemOrder> productsOrdered;
 
 
-    public Double getRating (){
+    public Rating getRating (){
+
         if (opinions != null && !opinions.isEmpty()){
-            double totalRating = 0.0;
+            Rating totalRating = new Rating(0.0);
+            double temp = 0.0;
+
             for (Opinion opinion : opinions){
-                totalRating += opinion.getRating();
+                temp += opinion.getRating();
             }
-            return totalRating/opinions.size();
+
+            temp = temp/opinions.size();
+            totalRating.parseDouble(temp);
         }
-        return 0.0;
+        return new Rating(0.0);
     }
     
 

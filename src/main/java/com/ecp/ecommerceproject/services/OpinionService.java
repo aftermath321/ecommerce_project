@@ -1,8 +1,9 @@
 package com.ecp.ecommerceproject.services;
 
-import com.ecp.ecommerceproject.model.Opinion;
-import com.ecp.ecommerceproject.model.Product;
-import com.ecp.ecommerceproject.repositories.OpinionRepo;
+import com.ecp.ecommerceproject.application.repositories.OpinionRepo;
+import com.ecp.ecommerceproject.domain.entity.Opinion;
+import com.ecp.ecommerceproject.domain.entity.Product;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

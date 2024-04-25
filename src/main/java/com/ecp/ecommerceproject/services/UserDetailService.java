@@ -9,9 +9,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.User;
 
+import com.ecp.ecommerceproject.application.repositories.UserRepo;
+import com.ecp.ecommerceproject.domain.entity.MyUser;
 import com.ecp.ecommerceproject.enums.Role;
-import com.ecp.ecommerceproject.model.MyUser;
-import com.ecp.ecommerceproject.repositories.UserRepo;
 
 @Service
 public class UserDetailService implements UserDetailsService {

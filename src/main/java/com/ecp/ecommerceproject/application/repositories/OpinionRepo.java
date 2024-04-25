@@ -1,12 +1,12 @@
-package com.ecp.ecommerceproject.repositories;
-
-import com.ecp.ecommerceproject.model.Opinion;
-import com.ecp.ecommerceproject.model.Product;
+package com.ecp.ecommerceproject.application.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.ecp.ecommerceproject.domain.entity.Opinion;
+import com.ecp.ecommerceproject.domain.entity.Product;
 
 import java.util.List;
 

@@ -1,7 +1,8 @@
 package com.ecp.ecommerceproject.services;
 
-import com.ecp.ecommerceproject.model.Product;
-import com.ecp.ecommerceproject.repositories.ProductRepo;
+import com.ecp.ecommerceproject.application.repositories.ProductRepo;
+import com.ecp.ecommerceproject.domain.entity.Product;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

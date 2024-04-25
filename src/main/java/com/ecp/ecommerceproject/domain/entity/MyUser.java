@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject.model;
+package com.ecp.ecommerceproject.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,6 +16,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.ecp.ecommerceproject.enums.Role;
+import com.ecp.ecommerceproject.model.MyOrder;
+import com.ecp.ecommerceproject.model.MyUserDetails;
 
 @Entity
 @EnableAutoConfiguration

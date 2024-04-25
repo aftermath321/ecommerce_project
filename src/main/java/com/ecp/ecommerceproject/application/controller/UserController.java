@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject.controller;
+package com.ecp.ecommerceproject.application.controller;
 
 import com.ecp.ecommerceproject.other.AuthenticationRequest;
 import com.ecp.ecommerceproject.other.AuthenticationResponse;

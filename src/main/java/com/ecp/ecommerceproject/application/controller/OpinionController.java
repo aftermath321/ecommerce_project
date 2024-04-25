@@ -1,7 +1,7 @@
-package com.ecp.ecommerceproject.controller;
+package com.ecp.ecommerceproject.application.controller;
 
-import com.ecp.ecommerceproject.model.Opinion;
-import com.ecp.ecommerceproject.model.Product;
+import com.ecp.ecommerceproject.domain.entity.Opinion;
+import com.ecp.ecommerceproject.domain.entity.Product;
 import com.ecp.ecommerceproject.services.OpinionService;
 import org.springframework.web.bind.annotation.*;
 

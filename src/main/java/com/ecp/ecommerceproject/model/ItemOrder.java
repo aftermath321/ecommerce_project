@@ -2,6 +2,8 @@ package com.ecp.ecommerceproject.model;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
+import com.ecp.ecommerceproject.domain.entity.Product;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
