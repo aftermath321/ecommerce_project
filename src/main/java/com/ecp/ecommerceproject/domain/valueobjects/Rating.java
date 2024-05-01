@@ -16,7 +16,7 @@ public class Rating {
 
     public void setValue (double value){
         if ( value < 0 || value > 5){
-            throw new IllegalAccessError("Value must be between 0 and 5.");
+            throw new IllegalArgumentException("Value must be between 0 and 5.");
         }
         this.value = value;
     }

@@ -20,17 +20,15 @@ public class Image {
         this.fileName = fileName;
     }
 
-    private void setURL (){
-        
+    public void setURL (){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(path).append(fileName).append('.').append(fileType);
+        URL = stringBuilder.toString();
     }
 
 
     public String getURL() {
         return this.URL;
-    }
-
-    public void setURL(String URL) {
-        this.URL = URL;
     }
 
     public int getWIDTH() {
