@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:7070")
@@ -29,12 +30,14 @@ public class ProductController {
 
 
 
-    // @GetMapping("/all-products")
-    // List<ProductDTO> getAll() {
+     @GetMapping("/all-products")
+     List<ProductDTO> getAll() {
 
-    //     return productService.getAllProducts();
-
-    // }
+         List<Product> productList = productService.getAllProducts();
+         return productList.stream()
+                 .map(productDTOMapper::mapToDTO)
+                 .collect(Collectors.toList());
+     }
 
     @PostMapping("/save")
     ProductDTO saveProduct(@RequestBody ProductAddDTO requestBody) {
