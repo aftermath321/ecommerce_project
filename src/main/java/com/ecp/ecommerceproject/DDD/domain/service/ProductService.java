@@ -23,4 +23,11 @@ public class ProductService  {
       return productRepository.getAllProducts();
     };
 
+    public Product updateProduct(Product product){
+        return productRepository.updateProduct(product);
+    }
+
+    public void deleteProduct(Product product){
+        productRepository.deleteProduct(product);
+    }
 }

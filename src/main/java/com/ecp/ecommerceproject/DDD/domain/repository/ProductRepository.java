@@ -10,4 +10,10 @@ public interface ProductRepository  {
 
     List<Product> getAllProducts ();
 
+    Product updateProduct(Product product);
+
+    void deleteProduct (Product product);
+
+
+
 }

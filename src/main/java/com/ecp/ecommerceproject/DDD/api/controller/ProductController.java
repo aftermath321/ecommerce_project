@@ -1,6 +1,8 @@
 package com.ecp.ecommerceproject.DDD.api.controller;
 
 import com.ecp.ecommerceproject.DDD.api.DTO.Request.ProductAddDTO;
+import com.ecp.ecommerceproject.DDD.api.DTO.Request.ProductDeleteDTO;
+import com.ecp.ecommerceproject.DDD.api.DTO.Request.ProductUpdateDTO;
 import com.ecp.ecommerceproject.DDD.api.DTO.Response.ProductDTO;
 import com.ecp.ecommerceproject.DDD.api.mapper.ProductDTOMapper;
 import com.ecp.ecommerceproject.DDD.domain.service.ProductService;
@@ -46,6 +48,21 @@ public class ProductController {
         return productDTOMapper.mapToDTO(product);
     }
 
+    @PutMapping("/update")
+    ProductDTO updateProduct (@RequestBody ProductUpdateDTO requestBody){
+        Product product = productDTOMapper.mapToProduct(requestBody);
+        product = productService.updateProduct(product);
+        return productDTOMapper.mapToDTO(product);
+    }
+
+    @PutMapping("/delete")
+        ResponseEntity<String> deleteProduct (@RequestBody ProductDeleteDTO requestBody){
+            Product product = productDTOMapper.mapToProduct(requestBody);
+            productService.deleteProduct(product);
+            return ResponseEntity.noContent().build();
+            }
+    }
+
 
     // 
 //    @GetMapping("/lookup")
@@ -70,4 +87,4 @@ public class ProductController {
 //        }
 //    }
 
-}
+

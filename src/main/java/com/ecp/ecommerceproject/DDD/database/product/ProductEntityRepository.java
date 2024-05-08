@@ -7,6 +7,7 @@ import com.ecp.ecommerceproject.DDD.domain.repository.ProductRepository;
 
 import lombok.AllArgsConstructor;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -29,6 +30,25 @@ public class ProductEntityRepository implements ProductRepository {
         return productList.stream()
                 .map(productEntityMapper::mapToProduct)
                 .collect(Collectors.toList());
-    };
+    }
+
+
+
+    @Override
+    public Product updateProduct(Product product) {
+        ProductEntity productEntity = productEntityMapper.mapToEntity(product);
+        productEntity = productEntityJPARepository.save(productEntity);
+        return productEntityMapper.mapToProduct(productEntity);
+
+
+    }
+
+    @Override
+    public void deleteProduct(Product product) {
+        ProductEntity productEntity = productEntityMapper.mapToEntity(product);
+        productEntityJPARepository.delete(productEntity);
+    }
+
+    ;
 
 }
