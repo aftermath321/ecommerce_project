@@ -41,5 +41,15 @@ public class Product {
         this.quantityAvailable = quantityAvailable;
     }
 
+    public Product(Integer id, String name, BigDecimal price, String description, Long quantityAvailable, LocalDate released) {
+        this.id = id;
+        this.name = name;
+        this.released = released;
+        this.price = price;
+        this.description = description;
+        this.quantityAvailable = quantityAvailable;
+    }
+
+
 
 }

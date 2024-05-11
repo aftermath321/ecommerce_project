@@ -30,4 +30,26 @@ public class ProductEntityMapper {
                 );
     }
 
+    public ProductEntity mapToDeleteEntity (Product product){
+        return new ProductEntity(
+                product.getId().longValue(),
+                product.getName(),
+                product.getDescription(),
+                product.getQuantityAvailable(),
+                product.getPrice().doubleValue(),
+                product.getReleased()
+        );
+    }
+
+    public ProductEntity mapToUpdateEntity (Product product){
+        return new ProductEntity(
+                product.getId().longValue(),
+                product.getName(),
+                product.getDescription(),
+                product.getQuantityAvailable(),
+                product.getPrice().doubleValue(),
+                product.getReleased()
+        );
+    }
+
 }

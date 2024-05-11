@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class ProductEntity {
 
     @Id
@@ -34,6 +36,15 @@ public class ProductEntity {
     private LocalDate released;
 
     public ProductEntity(String name, String description, Long quantityAvailable,  double price, LocalDate released) {
+        this.name = name;
+        this.description = description;
+        this.quantityAvailable = quantityAvailable;
+        this.price = price;
+        this.released = released;
+    }
+
+    public ProductEntity(Long id, String name, String description, Long quantityAvailable,  double price, LocalDate released) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.quantityAvailable = quantityAvailable;

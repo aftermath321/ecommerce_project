@@ -36,8 +36,11 @@ public class ProductEntityRepository implements ProductRepository {
 
     @Override
     public Product updateProduct(Product product) {
-        ProductEntity productEntity = productEntityMapper.mapToEntity(product);
+        System.out.println(product);
+        ProductEntity productEntity = productEntityMapper.mapToUpdateEntity(product);
+        System.out.println(productEntity);
         productEntity = productEntityJPARepository.save(productEntity);
+        System.out.println(productEntity);
         return productEntityMapper.mapToProduct(productEntity);
 
 
@@ -45,8 +48,9 @@ public class ProductEntityRepository implements ProductRepository {
 
     @Override
     public void deleteProduct(Product product) {
-        ProductEntity productEntity = productEntityMapper.mapToEntity(product);
+        ProductEntity productEntity = productEntityMapper.mapToDeleteEntity(product);
         productEntityJPARepository.delete(productEntity);
+        System.out.println(productEntity);
     }
 
     ;

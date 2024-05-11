@@ -55,7 +55,7 @@ public class ProductController {
         return productDTOMapper.mapToDTO(product);
     }
 
-    @PutMapping("/delete")
+    @DeleteMapping("/delete")
         ResponseEntity<String> deleteProduct (@RequestBody ProductDeleteDTO requestBody){
             Product product = productDTOMapper.mapToProduct(requestBody);
             productService.deleteProduct(product);

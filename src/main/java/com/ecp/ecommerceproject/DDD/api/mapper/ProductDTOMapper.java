@@ -41,12 +41,15 @@ public class ProductDTOMapper {
     }
 
     public Product mapToProduct (ProductDeleteDTO productDeleteDTO){
+        Integer id = Math.toIntExact(productDeleteDTO.getId());
         return new Product (
+                id,
                 productDeleteDTO.getName(),
                 productDeleteDTO.getPrice(),
                 productDeleteDTO.getDescription(),
-                productDeleteDTO.getQuantityAvailable()
-        );
+                productDeleteDTO.getQuantityAvailable(),
+                productDeleteDTO.getReleased()
+                );
     }
 
 }
