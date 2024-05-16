@@ -7,12 +7,16 @@ import com.ecp.ecommerceproject.DDD.api.DTO.Response.ProductDTO;
 import com.ecp.ecommerceproject.DDD.domain.model.Product;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class ProductDTOMapper {
 
     public Product mapToProduct (ProductAddDTO productAddDTO){
         return new Product (
+                null,
                 productAddDTO.getName(),
+                LocalDate.now(),
                 productAddDTO.getPrice(),
                 productAddDTO.getDescription(),
                 productAddDTO.getQuantityAvailable()
@@ -32,24 +36,13 @@ public class ProductDTOMapper {
 
     public Product mapToProduct (ProductUpdateDTO productUpdateDTO){
         return new Product (
-                Math.toIntExact(productUpdateDTO.getId()),
+                productUpdateDTO.getId(),
                 productUpdateDTO.getName(),
+                productUpdateDTO.getReleased(),
                 productUpdateDTO.getPrice(),
                 productUpdateDTO.getDescription(),
                 productUpdateDTO.getQuantityAvailable()
         );
-    }
-
-    public Product mapToProduct (ProductDeleteDTO productDeleteDTO){
-        Integer id = Math.toIntExact(productDeleteDTO.getId());
-        return new Product (
-                id,
-                productDeleteDTO.getName(),
-                productDeleteDTO.getPrice(),
-                productDeleteDTO.getDescription(),
-                productDeleteDTO.getQuantityAvailable(),
-                productDeleteDTO.getReleased()
-                );
     }
 
 }

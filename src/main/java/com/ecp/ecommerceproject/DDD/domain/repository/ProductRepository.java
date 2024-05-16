@@ -3,6 +3,7 @@ package com.ecp.ecommerceproject.DDD.domain.repository;
 import com.ecp.ecommerceproject.DDD.domain.model.Product;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductRepository  {
     
@@ -12,8 +13,7 @@ public interface ProductRepository  {
 
     Product updateProduct(Product product);
 
-    void deleteProduct (Product product);
+    void deleteProduct (long id);
 
-
-
+    Optional<Product> getProduct(Long id);
 }

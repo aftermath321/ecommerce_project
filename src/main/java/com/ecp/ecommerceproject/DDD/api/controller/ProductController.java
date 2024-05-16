@@ -1,17 +1,14 @@
 package com.ecp.ecommerceproject.DDD.api.controller;
 
 import com.ecp.ecommerceproject.DDD.api.DTO.Request.ProductAddDTO;
-import com.ecp.ecommerceproject.DDD.api.DTO.Request.ProductDeleteDTO;
 import com.ecp.ecommerceproject.DDD.api.DTO.Request.ProductUpdateDTO;
 import com.ecp.ecommerceproject.DDD.api.DTO.Response.ProductDTO;
 import com.ecp.ecommerceproject.DDD.api.mapper.ProductDTOMapper;
 import com.ecp.ecommerceproject.DDD.domain.service.ProductService;
 import com.ecp.ecommerceproject.DDD.domain.model.Product;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,16 +28,16 @@ public class ProductController {
     }
 
 
-
+//Paginacja (rozmiar strony i numer strony), limit i offset
      @GetMapping("/all-products")
      List<ProductDTO> getAll() {
 
-         List<Product> productList = productService.getAllProducts();
-         return productList.stream()
+         return productService.getAllProducts()
+                 .stream()
                  .map(productDTOMapper::mapToDTO)
                  .collect(Collectors.toList());
      }
-
+//Poczytac o projektowaniu API
     @PostMapping("/save")
     ProductDTO saveProduct(@RequestBody ProductAddDTO requestBody) {
         Product product = productDTOMapper.mapToProduct(requestBody);
@@ -48,23 +45,32 @@ public class ProductController {
         return productDTOMapper.mapToDTO(product);
     }
 
-    @PutMapping("/update")
-    ProductDTO updateProduct (@RequestBody ProductUpdateDTO requestBody){
+    @GetMapping("/get")
+    ProductDTO getProduct(@RequestParam Long id){
+        Optional<Product> product = productService.getProduct(id);
+        return productDTOMapper.mapToDTO(product.orElse(null));
+    }
+
+//    PathVariable
+
+    @PutMapping("/update/{id}")
+    ProductDTO updateProduct (@PathVariable("id") Long id, @RequestBody ProductUpdateDTO requestBody){
         Product product = productDTOMapper.mapToProduct(requestBody);
-        product = productService.updateProduct(product);
+        product = productService.updateProduct(id, product);
         return productDTOMapper.mapToDTO(product);
     }
 
+//Przesylac ID
+
     @DeleteMapping("/delete")
-        ResponseEntity<String> deleteProduct (@RequestBody ProductDeleteDTO requestBody){
-            Product product = productDTOMapper.mapToProduct(requestBody);
-            productService.deleteProduct(product);
+        ResponseEntity<Void> deleteProduct (@RequestParam Long id){
+            productService.deleteProduct(id);
             return ResponseEntity.noContent().build();
             }
     }
 
 
-    // 
+    // /////////////////////////////////////////////
 //    @GetMapping("/lookup")
 //    List<Product> findByName(@RequestParam String phrase) {
 //        return productService.findByName(phrase);

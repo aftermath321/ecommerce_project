@@ -32,27 +32,22 @@ public class ProductEntityRepository implements ProductRepository {
                 .collect(Collectors.toList());
     }
 
-
-
     @Override
     public Product updateProduct(Product product) {
-        System.out.println(product);
-        ProductEntity productEntity = productEntityMapper.mapToUpdateEntity(product);
-        System.out.println(productEntity);
+        ProductEntity productEntity = productEntityMapper.mapToEntity(product);
         productEntity = productEntityJPARepository.save(productEntity);
-        System.out.println(productEntity);
         return productEntityMapper.mapToProduct(productEntity);
-
-
     }
 
     @Override
-    public void deleteProduct(Product product) {
-        ProductEntity productEntity = productEntityMapper.mapToDeleteEntity(product);
-        productEntityJPARepository.delete(productEntity);
-        System.out.println(productEntity);
+    public void deleteProduct(long id) {
+        productEntityJPARepository.deleteById(id);
     }
 
-    ;
+    @Override
+    public Optional<Product> getProduct(Long id){
+        Optional<ProductEntity> productEntityOptional = productEntityJPARepository.findById(id);
+        return productEntityOptional.map(productEntityMapper::mapToProduct);
+    }
 
 }

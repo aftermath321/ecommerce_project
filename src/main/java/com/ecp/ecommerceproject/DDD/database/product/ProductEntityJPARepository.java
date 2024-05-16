@@ -12,6 +12,8 @@ import java.util.Optional;
 
 public interface ProductEntityJPARepository extends JpaRepository<ProductEntity, Long> {
 
+    void delete(ProductEntity productEntity);
+
 //    List<ProductEntity> findAll();
 //
 //    Optional<ProductEntity> findProductById(Long id);
