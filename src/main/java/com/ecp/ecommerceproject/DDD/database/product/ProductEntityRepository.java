@@ -1,11 +1,12 @@
 package com.ecp.ecommerceproject.DDD.database.product;
 
-import org.springframework.stereotype.Repository;
-
 import com.ecp.ecommerceproject.DDD.domain.model.Product;
 import com.ecp.ecommerceproject.DDD.domain.repository.ProductRepository;
-
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,12 +25,14 @@ public class ProductEntityRepository implements ProductRepository {
         productEntity = productEntityJPARepository.save(productEntity);
         return productEntityMapper.mapToProduct(productEntity);
     }
+
     @Override
-    public List<Product> getAllProducts(){
-        List<ProductEntity> productList = productEntityJPARepository.findAll();
-        return productList.stream()
-                .map(productEntityMapper::mapToProduct)
-                .collect(Collectors.toList());
+    public List<Product> getAllProducts(Pageable pageRequest) {
+        System.out.println(productEntityJPARepository.findAll());
+
+        Page<ProductEntity> productEntityPage = productEntityJPARepository.findAll(pageRequest);
+
+        return productEntityPage.stream().map(productEntityMapper::mapToProduct).collect(Collectors.toList());
     }
 
     @Override
@@ -45,7 +48,7 @@ public class ProductEntityRepository implements ProductRepository {
     }
 
     @Override
-    public Optional<Product> getProduct(Long id){
+    public Optional<Product> getProduct(Long id) {
         Optional<ProductEntity> productEntityOptional = productEntityJPARepository.findById(id);
         return productEntityOptional.map(productEntityMapper::mapToProduct);
     }

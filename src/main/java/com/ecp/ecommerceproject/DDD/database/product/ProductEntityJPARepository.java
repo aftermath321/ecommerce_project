@@ -1,18 +1,11 @@
 package com.ecp.ecommerceproject.DDD.database.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
-//import com.ecp.ecommerceproject.domain.entity.Product;
-
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
 
 public interface ProductEntityJPARepository extends JpaRepository<ProductEntity, Long> {
 
     void delete(ProductEntity productEntity);
+
 
 //    List<ProductEntity> findAll();
 //

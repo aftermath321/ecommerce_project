@@ -1,4 +1,4 @@
-package com.ecp.ecommerceproject.enums;
+package com.ecp.ecommerceproject.DDD.enums;
 
 public enum OrderStatus {
     ORDERED,

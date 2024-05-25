@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 @AllArgsConstructor
-@Table(name = "product_entity", schema = "main_domain")
+@Table(name = "product_entity")
 public class ProductEntity {
 
     @Id

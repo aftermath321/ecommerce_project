@@ -1,5 +1,6 @@
 package com.ecp.ecommerceproject.DDD.database.product;
 
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import com.ecp.ecommerceproject.DDD.domain.model.Product;

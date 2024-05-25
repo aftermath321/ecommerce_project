@@ -1,6 +1,6 @@
 package com.ecp.ecommerceproject.other;
 
-import com.ecp.ecommerceproject.enums.Role;
+import com.ecp.ecommerceproject.DDD.enums.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

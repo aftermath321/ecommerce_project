@@ -2,7 +2,7 @@ package com.ecp.ecommerceproject.domain.valueobjects;
 
 import java.math.BigDecimal;
 
-import com.ecp.ecommerceproject.enums.Currency;
+import com.ecp.ecommerceproject.DDD.enums.Currency;
 
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;

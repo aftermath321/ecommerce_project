@@ -23,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 @EnableConfigurationProperties
 @RequiredArgsConstructor
-@EntityScan(basePackages = { "com.ecp.ecommerceproject.DDD.database.product" })
 public class EcommerceProjectApplication {
 //
 //    @Autowired
