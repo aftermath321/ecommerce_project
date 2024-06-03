@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @AllArgsConstructor
-public class OpinionEntityRepository extends OpinionRepository {
+public class OpinionEntityRepository implements OpinionRepository {
 
     private final OpinionEntityJPARepository opinionEntityJPARepository;
     private final OpinionEntityMapper opinionEntityMapper;

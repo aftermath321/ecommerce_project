@@ -12,7 +12,6 @@ import java.time.LocalDate;
 @ToString
 @Getter
 @Setter
-@AllArgsConstructor
 public class User {
 
     @Nullable
@@ -36,8 +35,22 @@ public class User {
 
     private boolean activated_account;
 
-    private Role role;
+    private String role;
+
+    private String bio;
 
 
-
+    public User(Long id, String username, String passwordHash, String email, LocalDate createdAt, String firstName, String lastName, LocalDate lastLogin, boolean activatedAccount, String role, String bio) {
+    this.id = id;
+    this.username = username;
+    this.password = passwordHash;
+    this.email = email;
+    this.create_at = createdAt;
+    this.first_name = firstName;
+    this.last_name = lastName;
+    this.last_login = lastLogin;
+    this.activated_account = activatedAccount;
+    this.role = role;
+    this.bio = bio;
+    }
 }

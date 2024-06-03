@@ -4,6 +4,7 @@ import com.ecp.ecommerceproject.DDD.domain.model.Product;
 import com.ecp.ecommerceproject.DDD.domain.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
@@ -26,14 +27,6 @@ public class ProductEntityRepository implements ProductRepository {
         return productEntityMapper.mapToProduct(productEntity);
     }
 
-    @Override
-    public List<Product> getAllProducts(Pageable pageRequest) {
-        System.out.println(productEntityJPARepository.findAll());
-
-        Page<ProductEntity> productEntityPage = productEntityJPARepository.findAll(pageRequest);
-
-        return productEntityPage.stream().map(productEntityMapper::mapToProduct).collect(Collectors.toList());
-    }
 
     @Override
     public Product updateProduct(Product product) {
@@ -43,7 +36,7 @@ public class ProductEntityRepository implements ProductRepository {
     }
 
     @Override
-    public void deleteProduct(long id) {
+    public void deleteProduct(Long id) {
         productEntityJPARepository.deleteById(id);
     }
 
@@ -53,4 +46,18 @@ public class ProductEntityRepository implements ProductRepository {
         return productEntityOptional.map(productEntityMapper::mapToProduct);
     }
 
+    @Override
+    public long countItems(){
+        return productEntityJPARepository.count();
+    }
+
+
+    @Override
+    public List<Product> getAllProducts(int page, int size) {
+
+        Pageable pageable = PageRequest.of(page, size);
+        Page<ProductEntity> productEntityPage = productEntityJPARepository.findAll(pageable);
+
+        return productEntityPage.stream().map(productEntityMapper::mapToProduct).collect(Collectors.toList());
+    }
 }

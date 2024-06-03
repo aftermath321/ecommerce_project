@@ -10,11 +10,13 @@ public interface ProductRepository  {
     
     Product saveProduct(Product product);
 
-    List<Product> getAllProducts (Pageable pageRequest);
+    List<Product> getAllProducts (int page, int size);
 
     Product updateProduct(Product product);
 
-    void deleteProduct (long id);
+    void deleteProduct (Long id);
 
     Optional<Product> getProduct(Long id);
+
+    long countItems();
 }

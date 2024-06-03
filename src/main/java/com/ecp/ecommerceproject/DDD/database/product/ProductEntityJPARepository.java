@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductEntityJPARepository extends JpaRepository<ProductEntity, Long> {
 
-    void delete(ProductEntity productEntity);
 
 
 //    List<ProductEntity> findAll();

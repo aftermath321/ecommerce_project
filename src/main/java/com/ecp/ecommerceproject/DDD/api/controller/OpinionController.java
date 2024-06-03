@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:7070")
-@RequestMapping("/opinion")
+@RequestMapping("/v1/opinions/")
 public class OpinionController {
+
+
+
 }

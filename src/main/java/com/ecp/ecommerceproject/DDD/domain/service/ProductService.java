@@ -1,7 +1,9 @@
 package com.ecp.ecommerceproject.DDD.domain.service;
 
+import com.ecp.ecommerceproject.DDD.api.DTO.Response.AllProductDTO;
 import com.ecp.ecommerceproject.DDD.api.DTO.Response.ProductDTO;
 import com.ecp.ecommerceproject.DDD.api.mapper.ProductDTOMapper;
+import com.ecp.ecommerceproject.DDD.domain.exceptions.ProductNotFoundException;
 import com.ecp.ecommerceproject.DDD.domain.model.Product;
 import com.ecp.ecommerceproject.DDD.domain.repository.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -26,33 +28,46 @@ public class ProductService {
         return productRepository.saveProduct(product);
     }
 
-    public Page<ProductDTO> getAllProducts(Pageable pageRequest) {
-        List<Product> productList = productRepository.getAllProducts(pageRequest);
-
-        List<ProductDTO> productDTOList = productList.stream().map(productDTOMapper::mapToDTO).toList();
-        System.out.println(productDTOList);
-        return new PageImpl<>(productDTOList);
+    public List<Product> getAllProducts (int page, int size){
+        return productRepository.getAllProducts(page, size);
+    }
+    public long countAllProducts(){
+        return productRepository.countItems();
     }
 
+    public Product updateProduct(Long id, Product product) throws ProductNotFoundException {
 
-    //    Oblsuga exception
-    public Product updateProduct(Long id, Product product) {
-        Optional<Product> oldProduct = productRepository.getProduct(id);
-//        Product oldProduct = productRepository.getProduct(id).orElseThrow()
-        System.out.println(oldProduct);
-        oldProduct.get().setDescription(product.getDescription());
-        oldProduct.get().setName(product.getName());
-        oldProduct.get().setPrice(product.getPrice());
-        oldProduct.get().setQuantityAvailable(product.getQuantityAvailable());
-        System.out.println(oldProduct);
-        return productRepository.updateProduct(oldProduct.get());
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null");
+        }
+
+        Product oldProduct = productRepository.getProduct(id).orElseThrow(() -> new ProductNotFoundException("Product was not found."));
+
+        if (product.getDescription() != null) {
+            oldProduct.setDescription(product.getDescription());
+        }
+        if (product.getName() != null) {
+            oldProduct.setName(product.getName());
+        }
+        if (product.getPrice() != null) {
+            oldProduct.setPrice(product.getPrice());
+        }
+        oldProduct.setQuantityAvailable(product.getQuantityAvailable());
+
+        return productRepository.updateProduct(oldProduct);
+
     }
 
-    public void deleteProduct(long id) {
-        productRepository.deleteProduct(id);
+    public void deleteProduct(Long id) throws ProductNotFoundException {
+        Optional<Product> product = productRepository.getProduct(id);
+        if (product.isPresent()) {
+            productRepository.deleteProduct(id);
+        } else {
+            throw new ProductNotFoundException("Product was not found");
+        }
     }
 
-    public Optional<Product> getProduct(Long id) {
-        return productRepository.getProduct(id);
+    public Product getProduct(Long id) throws ProductNotFoundException {
+        return productRepository.getProduct(id).orElseThrow(() -> new ProductNotFoundException("Product was not found."));
     }
 }
