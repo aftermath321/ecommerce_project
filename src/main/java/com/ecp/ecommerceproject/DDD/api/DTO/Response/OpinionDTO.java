@@ -1,9 +1,14 @@
 package com.ecp.ecommerceproject.DDD.api.DTO.Response;
 
-import jakarta.annotation.Nullable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Setter
+@Getter
+@AllArgsConstructor
 public class OpinionDTO {
 
     private Long user_id;

@@ -29,7 +29,7 @@ public class OpinionEntity {
     @Column(nullable = false)
     private Double rating;
 
-    private LocalDate created_at;
+    private LocalDate create_at;
 
     private LocalDate updated_at;
 

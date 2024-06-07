@@ -1,15 +1,10 @@
 package com.ecp.ecommerceproject.DDD.domain.service;
 
-import com.ecp.ecommerceproject.DDD.api.DTO.Response.AllProductDTO;
-import com.ecp.ecommerceproject.DDD.api.DTO.Response.ProductDTO;
 import com.ecp.ecommerceproject.DDD.api.mapper.ProductDTOMapper;
 import com.ecp.ecommerceproject.DDD.domain.exceptions.ProductNotFoundException;
 import com.ecp.ecommerceproject.DDD.domain.model.Product;
 import com.ecp.ecommerceproject.DDD.domain.repository.ProductRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,7 +33,7 @@ public class ProductService {
     public Product updateProduct(Long id, Product product) throws ProductNotFoundException {
 
         if (product == null) {
-            throw new IllegalArgumentException("Product cannot be null");
+            throw new IllegalArgumentException("Product can not be null");
         }
 
         Product oldProduct = productRepository.getProduct(id).orElseThrow(() -> new ProductNotFoundException("Product was not found."));
@@ -52,6 +47,7 @@ public class ProductService {
         if (product.getPrice() != null) {
             oldProduct.setPrice(product.getPrice());
         }
+
         oldProduct.setQuantityAvailable(product.getQuantityAvailable());
 
         return productRepository.updateProduct(oldProduct);

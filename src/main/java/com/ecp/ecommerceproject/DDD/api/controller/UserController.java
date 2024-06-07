@@ -3,7 +3,9 @@ package com.ecp.ecommerceproject.DDD.api.controller;
 import com.ecp.ecommerceproject.DDD.api.DTO.Response.AllUserDTO;
 import com.ecp.ecommerceproject.DDD.api.DTO.Response.UserDTO;
 import com.ecp.ecommerceproject.DDD.api.mapper.UserDTOMapper;
+import com.ecp.ecommerceproject.DDD.domain.exceptions.EmailException;
 import com.ecp.ecommerceproject.DDD.domain.exceptions.UserNotFoundException;
+import com.ecp.ecommerceproject.DDD.domain.exceptions.UsernameException;
 import com.ecp.ecommerceproject.DDD.domain.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/")
-    UserDTO saveUser (@RequestBody UserDTO requestBody){
+    UserDTO saveUser (@RequestBody UserDTO requestBody) throws UsernameException, EmailException {
         User user = userDTOMapper.mapToUser(requestBody);
         user = userService.addUser(user);
         return userDTOMapper.mapToDto(user);
@@ -60,7 +62,8 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO requestBody) throws UserNotFoundException{
+    UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO requestBody) throws UserNotFoundException, UsernameException, EmailException {
+
         User user = userDTOMapper.mapToUser(requestBody);
         user = userService.updateUser(id, user);
         return userDTOMapper.mapToDto(user);

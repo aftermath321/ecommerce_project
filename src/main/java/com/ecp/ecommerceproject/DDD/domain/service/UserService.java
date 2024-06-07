@@ -1,10 +1,11 @@
 package com.ecp.ecommerceproject.DDD.domain.service;
 
+import com.ecp.ecommerceproject.DDD.domain.exceptions.EmailException;
 import com.ecp.ecommerceproject.DDD.domain.exceptions.UserNotFoundException;
+import com.ecp.ecommerceproject.DDD.domain.exceptions.UsernameException;
 import com.ecp.ecommerceproject.DDD.domain.model.User;
 import com.ecp.ecommerceproject.DDD.domain.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +22,8 @@ public class UserService {
     private static final Pattern USERNAME_PATTERN = Pattern.compile(USERNAME_REGEX);
     private UserRepository userRepository;
 
-    public User addUser(User user) {
-        if (validateAndCheckEmail(user.getEmail()) && validateAndCheckUsername(user.getEmail())) {
+    public User addUser(User user) throws UsernameException, EmailException {
+        if (validateAndCheckEmail(user.getEmail()) && validateAndCheckUsername(user.getUsername())) {
             return userRepository.addUser(user);
         } else {
             return null;
@@ -52,12 +53,12 @@ public class UserService {
 
     }
 
-    public User updateUser(Long id, User user) throws UserNotFoundException {
+    public User updateUser(Long id, User user) throws UserNotFoundException, UsernameException, EmailException {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
 
-        User oldUser = userRepository.getUser(id).orElseThrow(() -> new UsernameNotFoundException("User was not found."));
+        User oldUser = userRepository.getUser(id).orElseThrow(() -> new UserNotFoundException("User was not found."));
 
         if (user.getPassword() != null) {
             oldUser.setPassword(user.getPassword());
@@ -93,8 +94,12 @@ public class UserService {
         return !userRepository.existsByUsername(username);
     }
 
-    public boolean validateAndCheckUsername(String username) {
-        return isUsernameValid(username) && isUsernameUnique(username);
+    public boolean validateAndCheckUsername(String username) throws UsernameException {
+        if(isUsernameValid(username) && isUsernameUnique(username)){
+            return true;
+        } else {
+            throw new UsernameException("Please enter different, correct username.");
+        }
     }
 
     public boolean isEmailValid(String email) {
@@ -105,8 +110,12 @@ public class UserService {
         return !userRepository.existsByEmail(email);
     }
 
-    public boolean validateAndCheckEmail(String email) {
-        return isEmailValid(email) && isEmailUnique(email);
+    public boolean validateAndCheckEmail(String email) throws EmailException {
+        if(isEmailValid(email) && isEmailUnique(email)) {
+            return true;
+        } else {
+            throw new EmailException("Please enter different, correct email.");
+        }
     }
 
 

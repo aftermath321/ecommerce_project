@@ -2,7 +2,6 @@ package com.ecp.ecommerceproject.DDD.database.user;
 
 import com.ecp.ecommerceproject.DDD.domain.model.User;
 import com.ecp.ecommerceproject.DDD.domain.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -56,6 +55,16 @@ public class UserEntityRepository implements UserRepository {
         UserEntity userEntity = userEntityMapper.mapToEntity(user);
         userEntity = userEntityJPARepository.save(userEntity);
         return userEntityMapper.mapToUser(userEntity);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return userEntityJPARepository.existsByEmail(email);
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return userEntityJPARepository.existsByUsername(username);
     }
 
 }
