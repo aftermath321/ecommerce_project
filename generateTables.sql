@@ -31,8 +31,8 @@ CREATE TABLE opinion_entity (
                                             rating DOUBLE PRECISION NOT NULL,
                                             created_at DATE,
                                             updated_at DATE,
-                                            FOREIGN KEY (user_id) REFERENCES main_domain.user_entity(id),
-                                            FOREIGN KEY (product_id) REFERENCES main_domain.product_entity(id)
+                                            FOREIGN KEY (user_id) REFERENCES main_domain.user_entity(id) ON DELETE cascade,
+                                            FOREIGN KEY (product_id) REFERENCES main_domain.product_entity(id) ON DELETE cascade
 );
 
 
