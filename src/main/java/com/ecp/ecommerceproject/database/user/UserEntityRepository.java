@@ -33,6 +33,13 @@ public class UserEntityRepository implements UserRepository {
     }
 
     @Override
+    public Optional<User> findByEmail(String usersEmail) {
+        Optional<UserEntity> userEntityOptional = userEntityJPARepository.findByEmail(usersEmail);
+        return userEntityOptional.map(userEntityMapper::mapToUser);
+
+    }
+
+    @Override
     public Long countUsers() {
         return userEntityJPARepository.count();
     }
@@ -66,5 +73,7 @@ public class UserEntityRepository implements UserRepository {
     public boolean existsByUsername(String username) {
         return userEntityJPARepository.existsByUsername(username);
     }
+
+
 
 }

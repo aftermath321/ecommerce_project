@@ -39,11 +39,18 @@ public class UserController {
 
     @GetMapping("/")
     PageableDTO getAllUsers(@RequestParam(defaultValue = "0") int page,
-                            @RequestParam(defaultValue = "10") int size){
+                            @RequestParam(defaultValue = "10") int size
+                            ){
         List<User> userList = userService.getAllUsers(page, size);
         List<UserResponseDTO> userDTOList = userList.stream().map(userDTOMapper::mapToDto).toList();
         return new PageableDTO(userService.countUsers(), userDTOList);
 
+    }
+
+    @GetMapping("/security/{usersEmail}")
+    UserResponseDTO authenticateUser (@PathVariable String usersEmail){
+        User user = userService.findByEmail(usersEmail);
+        return userDTOMapper.mapToDto(user);
     }
 
     @DeleteMapping("/{id}")

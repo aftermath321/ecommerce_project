@@ -38,6 +38,10 @@ public class UserService {
         return userRepository.getUser(id).orElseThrow(() -> new UserNotFoundException("User with id " + id + " was not found."));
     }
 
+    public User findByEmail(String usersEmail) {
+        return userRepository.findByEmail(usersEmail).orElseThrow (() -> new UserNotFoundException("No user with such email exists."));
+    }
+
     public Long countUsers() {
         return userRepository.countUsers();
     }
@@ -121,6 +125,7 @@ public class UserService {
             throw new EmailException("Please enter different, correct email.");
         }
     }
+
 
 
 }
