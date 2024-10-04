@@ -47,17 +47,14 @@ public class UserController {
 
     }
 
-    @GetMapping("/security/{usersEmail}")
-    UserResponseDTO authenticateUser (@PathVariable String usersEmail){
-        User user = userService.findByEmail(usersEmail);
-        return userDTOMapper.mapToDto(user);
-    }
+
 
     @DeleteMapping("/{id}")
     HttpStatus deleteUser(@PathVariable Long id) {
 
         userService.deleteUser(id);
         return HttpStatus.OK;
+
     }
 
     @PutMapping("/{id}")
